@@ -45,6 +45,10 @@
 | 35 | QLDC - Te Tapunui Queenstown Hill Plan | https://www.qldc.govt.nz/2025/june/25-06-05-a-plan-to-restore-biodiversity-on-te-tapunui-queenstown-hill/ |
 | 36 | QLDC - Wakatipu Wilding Conifer Strategy (2008) | https://www.qldc.govt.nz/media/ic2mxjds/wakatipu-wilding-conifer-strategy.pdf |
 | 37 | Sapere - Cost-Benefit Analysis | https://srgexpert.com/resource/benefits-and-costs-of-additional-investment-in-wilding-conifer-control/ |
+| 38 | MPI - Biosecurity Long-Term Management (Wilding Conifers) | https://www.mpi.govt.nz/biosecurity/exotic-pests-and-diseases-in-new-zealand/long-term-biosecurity-management-programmes/wilding-conifers |
+| 39 | NZ Wilding Conifer Management Strategy 2015-2030 (PDF) | https://www.mpi.govt.nz/dmsdocument/51013-The-wilding-conifer-management-strategy-20152030 |
+| 40 | Sapere 2022 - Benefits and Costs of Additional Investment (MPI PDF) | https://www.mpi.govt.nz/dmsdocument/58519-2022-Benefits-and-costs-of-additional-investment-in-wilding-conifer-control |
+| 41 | Wilding Pines NZ - National Control Programme | https://www.wildingpines.nz/national-control-programme |
 
 ---
 
@@ -153,7 +157,10 @@ Wilding conifers are typically malformed with large branches, pronounced taper, 
 - **1970s:** Rapid infestation noted from this decade onwards.
 - **1975:** First wilding conifers noted at Flock Hill Station.
 - **2001:** *Pinus contorta* declared an unwanted organism under the Biosecurity Act 1993.
+- **2007:** Wilding conifer area estimated at approximately 805,000 hectares in the South Island and 300,000 hectares in the North Island. Approximately $6 million spent directly on control across central and local government.
 - **~2010:** Volunteers in Whakatipu began preventing seed dispersal from mature Douglas fir forests.
+- **2011:** MPI commissioned Pacific Eco-Logic to produce an independent status report on wilding conifers.
+- **2014:** DOC estimates including sparse spread reached approximately 1.7 million hectares. 5% densely populated (>400 stems/ha), 20% moderately populated (20-400 stems/ha), 75% sparsely populated (<20 stems/ha).
 - **2015:** National Wilding Conifer Management Strategy 2015-2030 published.
 - **2016:** National Wilding Conifer Control Programme (NWCCP) established.
 
@@ -163,14 +170,45 @@ Wilding conifers are typically malformed with large branches, pronounced taper, 
 
 ## 4. Scale of the Problem
 
-- **Current extent:** More than 1.8 million hectares occupied by wilding conifers
-- **Spread rate:** Approximately 5% per year despite control efforts
-- **Potential coverage:** 7.5 million hectares at risk; could cover 20-25% of New Zealand within two to three decades without intervention
-- **Predicted economic cost:** $4.6 billion (some estimates range to $5-6.3 billion over 50 years)
-- **Operations completed:** The NWCCP has completed operations on 3 million hectares (11% of vulnerable land)
+- **Current extent:** More than 2 million hectares infested by wilding conifers (MPI 2024 figure; earlier estimates cited 1.8 million hectares)
+- **Spread rate:** Approximately 5% per year — approximately 90,000 hectares per year before the NWCCP was established
+- **Potential coverage:** An estimated 25% of New Zealand would be covered within 30 years if left unchecked. Over the next 50 years, wildings would spread to a further 500,000 hectares and 1.8 million hectares would become dense forest (Manaaki Whenua modelling)
+- **Predicted economic cost:** Rolling back funding to $10M/year would result in losses of **$3.8 billion over 50 years** through losses in primary production, water yields, biodiversity, cultural values, and increased fire damage
+- **Operations completed:** The NWCCP has completed operations on 3 million hectares (11% of vulnerable land). Approximately 80% of total known national infestation area has received at least one control round since 2016
 - **Annual cost escalation:** Control costs increase 30% with each year of delay
 - **Density:** Uncontrolled stands reach up to 10,000 stems per hectare
-- **Geographic concentration:** Predominantly South Island - Canterbury high country, Otago, Mackenzie Basin, Marlborough, Southland. Also Central Plateau (North Island), Coromandel, Northland.
+- **Geographic concentration:** Predominantly South Island - Canterbury high country, Otago, Mackenzie Basin, Marlborough, Southland. Also Central Plateau (North Island), Coromandel, Northland
+- **Management units:** New Zealand is divided into **129 management units** for wilding conifer control (49 were active at the time of the 2022 Sapere report)
+
+### Density Classes
+The national programme classifies infestations by density:
+- **Outlier:** 0-1% canopy cover — 2% production loss
+- **Sparse:** 1-15% canopy cover — 20% production loss
+- **Intermediate:** 15-75% canopy cover — 30% production loss
+- **Dense:** 75-100% canopy cover — 100% production loss
+
+Approximately 80% of current infestation is sparse, 15% intermediate, 3.5% outlier, and 1.5% dense. Left unmanaged, large areas of sparse infestation would become dense forest within 30 years — in some cases as little as 14 to 21 years for *Pinus contorta*.
+
+### Regional Infestation by Area
+
+| Region | Infestation (hectares) |
+|--------|----------------------|
+| Canterbury | 1,383,571 |
+| Otago | 481,514 |
+| Marlborough | 263,070 |
+| Central North Island | 217,512 |
+| Southland | 83,673 |
+| Nelson Tasman | 64,469 |
+| Bay of Plenty | 40,921 |
+| Northland | 14,564 |
+| Waikato | 14,017 |
+| Hawkes Bay | 2,557 |
+| Wellington | 1,215 |
+| West Coast | 1,090 |
+| Gisborne | 381 |
+| Auckland | 116 |
+| Taranaki | 19 |
+| **National total** | **2,568,691** |
 
 ### Specific Affected Landscapes
 - Mt Tongariro
@@ -180,7 +218,7 @@ Wilding conifers are typically malformed with large branches, pronounced taper, 
 - Northland dune lakes
 - Shotover management area (67,000 hectares near Queenstown)
 
-*Sources: [2], [4], [7]*
+*Sources: [2], [4], [7], [38], [40]*
 
 ---
 
@@ -195,10 +233,12 @@ Wilding conifers are typically malformed with large branches, pronounced taper, 
 - Once canopy closes, ecosystems change fundamentally and irreversibly
 
 ### 5.2 Water Resources
-- Reduce water yields in catchments
-- Increase water consumption, reducing stream runoff
+- When pastoral land becomes densely infested with wilding conifers, annual water yield reductions of **30-81%** have been measured
+- Scion found an average reduction of approximately **16% during low-flow conditions** across three South Island catchments
+- The WATYIELD model (Fahey et al., 2010) showed a **40% reduction in mean annual flow** with two-thirds of an experimental catchment planted in pines
+- Key hydro catchments at risk: Clutha, Manapouri, Tongariro, Waikaremoana, Waikato, Waitaki
+- Irrigation benefits from wilding control account for approximately 24% of total economic benefits; hydro benefits account for a further significant share
 - Release water vapour affecting atmospheric conditions
-- Threaten hydroelectricity and irrigation catchments
 
 ### 5.3 Soil
 - Soil acidification through needle litter, leading to mineral depletion
@@ -209,6 +249,8 @@ Wilding conifers are typically malformed with large branches, pronounced taper, 
 - Wilding pines are highly flammable
 - Dense infestations significantly increase wildfire risk
 - Dense, impenetrable growth creates extreme fire hazard
+- The NWCCP works with Fire and Emergency New Zealand (FENZ) on wildfire risk management where wilding pines present dangerous fuel loads
+- The December 2024 Bridge Hill wildfire was specifically linked to wilding pine fuel loads
 
 ### 5.5 Pest Habitat
 - Provide habitat for exotic pests and diseases
@@ -233,11 +275,52 @@ Research by Dickie et al. (2022) found that wilding conifers cause potentially i
 - **Tourism and landscape:** Threatens iconic NZ landscapes underpinning tourism (Central Otago, Mackenzie Country, Canterbury high country)
 - **Water-dependent industries:** Reduced water yield threatens irrigation agriculture and hydroelectric power
 - **Land values:** Infested land loses productive and amenity value; limits future land-use options
+- **Productive land values:** Low-producing grassland earns $52.89/ha/year (EBITR); high-producing grassland earns $344.45/ha/year
+
+### Sapere Cost-Benefit Analysis (2022)
+
+A comprehensive cost-benefit analysis prepared by Sapere for MPI (September 2022) assessed four investment scenarios over 50 years:
+
+| Scenario | Management Units | % Infestation Controlled | Benefit:Cost Ratio | Net Present Value |
+|----------|-----------------|-------------------------|--------------------|--------------------|
+| Status quo ($10M/yr) | 10 | 42.4% | 20:1 | $1.9 billion |
+| Minimum "protect the investment" | 49 | 90.0% | 34:1 | $5.7 billion |
+| Intermediate "extend the investment" | 60 | 94.8% | 33:1 | $6.3 billion |
+| Maximum "national control" | 79 | 95.1% | 32:1 | $6.7 billion |
+
+**Losses under status quo** (rolling back to $10M/year — present value over 50 years):
+- Productive land use: -$1,328M
+- Hydro generation: -$373M
+- Irrigation: -$695M
+- Biodiversity and cultural values: -$1,262M
+- Fire damage: -$222M
+- **Total losses: -$3.8 billion**
+
+**Benefits of minimum investment** (present value over 50 years):
+- Productive land use: $1,967M
+- Hydro generation: $307M
+- Irrigation: $1,160M
+- Cultural/biodiversity: $2,137M
+- Fire risk reduction: $308M
+- **Total benefits: $5,879M**
+
+### Control Cost Per Hectare
+- Initial control ranges from **$100 to $3,000 per hectare** depending on density, terrain, and native vegetation sensitivity
+- $100/ha for low-density, flat land, large trees, no native vegetation
+- $3,000/ha for high-density with sensitive surrounding vegetation
+- Ground control of scattered infestations by hand is much cheaper than dense infestations requiring heavy machinery or aerial control
+
+### Density Class Transition Timelines (With Control)
+With control applied every 3 years:
+- **Dense → cleared:** 12 years (Dense → Sparse at 6yr → Outlier at 9yr → None at 12yr)
+- **Intermediate → cleared:** 9 years
+- **Sparse → cleared:** 6 years
+- **Outlier → cleared:** 3 years
 
 ### Economic Valuation Research (Lincoln University)
 A choice experiment study applied economic valuation to community preferences regarding wilding pine impacts on indigenous species in the South Island high country. The high country was conceptualised as natural capital comprising an ecological system, with wilding tree incursion changing the flow of ecosystem services. Areas with high biodiversity were ranked highest priority for management investment.
 
-*Sources: [2], [20]*
+*Sources: [2], [20], [37], [40]*
 
 ---
 
@@ -327,6 +410,11 @@ Control methods divide into two categories: **ground control** and **aerial cont
 - Being trialled for scattered or inaccessible trees using minimal herbicide
 - UAV exploration for moderate-density infestations under research
 
+**Low-Dose Herbicide Innovation:**
+- The national programme developed and tested low-dose herbicides for dense wilding invasion
+- Reduces chemicals used while effectively controlling over 95% of wilding trees
+- Programme supported trials of new control methods to reduce costs and enable control in locations where existing methods are not practical or safe
+
 ### 7.5 Detection Methods
 
 - Automated algorithms distinguishing dark-green conifers from grassland backgrounds
@@ -358,13 +446,26 @@ Factors affecting **control costs:** slope, hindrance (initial costs), species/d
 *Reference: Flowchart from Edwards, P., Sprague, R., and Stahlmann-Brown, P. 2021. Removing invasive conifers - considerations, complexity and costs. Environmental Research Communications, 3, 071004.*
 
 ### 7.3 Funding History
-- 2016: $16 million over 4 years (Phase 1)
-- 2019: Additional $21 million over 2 years
-- Budget 2020: $100 million over 4 years (major expansion)
-- From 2024-25: $10 million annual baseline funding
-- International Visitor Levy funding: $7M (2023-24), $3.35M (2024-25), $3M (2025-26)
-- 2025-26: Additional $2 million announced, total ~$12 million/year
-- Partner contributions (councils, trusts, landowners): over $25 million between 2016-2025
+
+**Year-by-year government investment ($ millions):**
+
+| Year | Phase 1 ($16M) | Phase 2 ($21M) | COVID Relief | Jobs for Nature ($100M) | Baseline | Total |
+|------|---------------|----------------|--------------|------------------------|----------|-------|
+| 2016/17 | $5.4 | | | | | **$5.4** |
+| 2017/18 | $7.5 | | | | | **$7.5** |
+| 2018/19 | $3.1 | | | | | **$3.1** |
+| 2019/20 | | $14.1 | $3.0 | | | **$17.1** |
+| 2020/21 | | $6.9 | | $32.5 | | **$39.4** |
+| 2021/22 | | | | $32.5 | | **$32.5** |
+| 2022/23 | | | | $25.0 | | **$25.0** |
+| 2023/24 | | | | $10.0 | | **$10.0** |
+| 2024/25+ | | | | | $10.0 | **$10.0** |
+
+- International Visitor Levy: $3.35M (2024-25), $3M (2025-26)
+- 2025-26: Ministers announced additional $2 million
+- Partner contributions (councils, trusts, landowners): approximately $33.35 million total
+- Regional councils, trusts, and landowners historically contributed a further 20% plus in-kind resources
+- Total investment in first five years (July 2016 - June 2021): approximately $37 million (Phase 1 + Phase 2)
 
 ### 7.4 Public Preferences for Control Methods
 Edwards et al. (2020) surveyed public acceptance of control methods:
@@ -374,7 +475,7 @@ Edwards et al. (2020) surveyed public acceptance of control methods:
 - Motivations: stewardship, pasture maintenance, habitat protection
 - Many landowners volunteer but need more support
 
-*Sources: [1], [2], [4], [13], [15]*
+*Sources: [1], [2], [4], [13], [15], [38], [39], [40]*
 
 ---
 
@@ -392,10 +493,13 @@ Edwards et al. (2020) surveyed public acceptance of control methods:
 - Gives councils more power over where new forests can be located
 
 ### 8.3 NZ Wilding Conifer Management Strategy 2015-2030
-- Non-statutory strategy: "The right tree in the right place"
+- Non-statutory strategy: "The right tree in the right place" (ISBN: 978-0-477-10511-8)
+- Published December 2014, championed by the NZ Wilding Conifer Management Group (NZWCMG)
+- Developed by MPI with a multi-stakeholder working group including DOC, LINZ, NZ Defence Force, regional councils, Scion, NZ Forest Owners Association, Federated Farmers, and community groups
 - Vision: prevent spread and contain/eradicate established areas by 2030
-- Four objectives: (1) recognise conifer benefits in right place; (2) prevent spread; (3) timely/effective management; (4) collaborative action
-- Principles: individual/collective responsibility, cost-effective action, prioritisation, coordination
+- Four principles: (1) recognise individual and collective responsibilities; (2) be cost-effective and timely; (3) prioritise; (4) co-ordinate
+- Strategy notes that two of the ten most spread-prone species (radiata pine and Douglas fir) make up **96% of the plantation estate** and are principal contributors to NZ's **$4.3 billion forestry exports** (third largest export earner after dairy and meat)
+- Original plantings that caused the problem date back two to three generations, planted by private occupiers, government organisations (catchment boards, NZ Forest Service, National Water and Soil Conservation Organisation)
 
 ### 8.4 QLDC District Plan - Chapter 34: Wilding Exotic Trees
 - **Purpose:** Prevent spread of wilding exotic trees to protect landscape, biodiversity, water, and soil values
@@ -413,7 +517,7 @@ Edwards et al. (2020) surveyed public acceptance of control methods:
 - Manages existing wilding trees in the Wakatipu area
 - Works alongside District Plan rules that control planting of wilding potential species
 
-*Sources: [5], [1], [4]*
+*Sources: [5], [1], [4], [39]*
 
 ---
 
@@ -421,11 +525,41 @@ Edwards et al. (2020) surveyed public acceptance of control methods:
 
 ### Government Agencies
 - **Ministry for Primary Industries (MPI) / Biosecurity New Zealand:** Leads national programme and strategy. Contact: wilding.pines@mpi.govt.nz
-- **Department of Conservation (DOC):** Major landholder; manages control on conservation land
-- **Land Information New Zealand (LINZ):** Manages Crown pastoral land
+- **Department of Conservation (DOC):** Major landholder; manages control on conservation land. Administers approximately 8.8 million hectares
+- **Land Information New Zealand (LINZ):** Manages approximately 3 million hectares of Crown land; has a Biosecurity Strategy
 - **Queenstown Lakes District Council (QLDC):** District Plan rules; supports local control
 - **Otago Regional Council (ORC):** Regional pest management; biosecurity oversight
-- **New Zealand Defence Force (NZDF):** Supports aerial surveying
+- **New Zealand Defence Force (NZDF):** Administers Crown land for defence purposes; supports aerial surveying
+
+### NWCCP Governance Group
+Named members of the national programme governance group:
+- John Walsh (Biosecurity New Zealand — lead agency)
+- Tim Bamford (Department of Conservation)
+- Sonya Wikitera (Land Information New Zealand)
+- Rob Owen (New Zealand Defence Force)
+- Phil Holland (Federated Farmers)
+- Brendan Gould (Forest Owners Association)
+- Ket Bradshaw (Wilding Pine Network)
+- Craig Davey (Horizons Regional Council)
+- Alan Johnson (Marlborough District Council)
+
+### Regional Councils Managing Operations
+Nine regional councils run on-the-ground operations:
+- Bay of Plenty Regional Council
+- Environment Canterbury Regional Council
+- Environment Southland
+- Horizons Regional Council
+- Marlborough District Council
+- Otago Regional Council
+- Tasman District Council
+- Waikato Regional Council
+- Northland Regional Council
+
+### Advisory Groups
+- **Stakeholder Advisory Group (SAG):** Led by the Wilding Pine Network
+- **Operational Advisory Group (OAG)**
+- **Technical Advisory Group (TAG)**
+- **Operational Working Group (OWG)**
 
 ### Research Institutions
 - **Scion (NZ Forest Research Institute):** Wilding management, detection, water impacts, biocontrol, seed predation, hybrid pine research
@@ -441,7 +575,7 @@ Edwards et al. (2020) surveyed public acceptance of control methods:
 - **Mackenzie Wilding Trust**
 - **Central Otago Wilding Conifers Control Group**
 
-*Sources: [1], [4], [6], [7], [15]*
+*Sources: [1], [4], [6], [7], [15], [38], [41]*
 
 ---
 
