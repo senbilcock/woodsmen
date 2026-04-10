@@ -32,7 +32,7 @@ export default async function TopicPage({ params }: { params: Promise<{ slug: st
     notFound();
   }
 
-  const { sections } = data;
+  const { sections, sources } = data;
 
   return (
     <div className="min-h-screen bg-night pt-20">
@@ -113,7 +113,7 @@ export default async function TopicPage({ params }: { params: Promise<{ slug: st
               <h2 className="font-display text-2xl md:text-3xl text-sand mb-4 pb-3 border-b border-night-border">
                 {section.title}
               </h2>
-              <div>{renderContent(section.content)}</div>
+              <div>{renderContent(section.content, sources)}</div>
             </section>
           ))}
         </div>
@@ -130,7 +130,7 @@ export default async function TopicPage({ params }: { params: Promise<{ slug: st
             <h2 className="font-display text-2xl md:text-3xl text-sand mb-4 pb-3 border-b border-night-border">
               {section.title}
             </h2>
-            <div>{renderContent(section.content)}</div>
+            <div>{renderContent(section.content, sources)}</div>
           </section>
         ))}
       </div>

@@ -24,6 +24,7 @@ export function Navbar() {
             <SecLink href="/membership">Membership</SecLink>
             <SecLink href="/open-a-chapter">Open a Chapter</SecLink>
             <SecLink href="/research">Research</SecLink>
+            <SecLink href="/calculator">Risk Calculator</SecLink>
             <SecLink href="#">Instagram</SecLink>
           </div>
         </div>
@@ -80,6 +81,7 @@ export function Navbar() {
             <MobileLink href="/membership" onClick={() => setOpen(false)}>Membership</MobileLink>
             <MobileLink href="/open-a-chapter" onClick={() => setOpen(false)}>Open a Chapter</MobileLink>
             <MobileLink href="/research" onClick={() => setOpen(false)}>Research</MobileLink>
+            <MobileLink href="/calculator" onClick={() => setOpen(false)}>Risk Calculator</MobileLink>
             <div className="border-t border-night-border pt-4 mt-2">
               <Link href="/#join" onClick={() => setOpen(false)} className="inline-flex items-center justify-center w-full bg-ember text-night font-semibold text-sm uppercase tracking-wider px-6 py-3 rounded transition-all">
                 Get Started Free

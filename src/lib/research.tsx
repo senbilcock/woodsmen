@@ -36,11 +36,32 @@ export function getTopics(): ResearchTopic[] {
   });
 }
 
-export function getTopicContent(slug: string): { md: string; sections: Section[] } {
+export interface SourceEntry {
+  num: number;
+  name: string;
+  url: string;
+}
+
+export function getTopicContent(slug: string): { md: string; sections: Section[]; sources: Map<number, SourceEntry> } {
   const filePath = join(RESEARCH_DIR, `${slug}.md`);
   const md = readFileSync(filePath, "utf-8");
   const { sections } = parseMarkdown(md);
-  return { md, sections };
+  const sources = parseSources(md);
+  return { md, sections, sources };
+}
+
+function parseSources(md: string): Map<number, SourceEntry> {
+  const sources = new Map<number, SourceEntry>();
+  const rows = md.match(/^\| (\d+) \| (.+?) \| (.+?) \|$/gm);
+  if (!rows) return sources;
+  for (const row of rows) {
+    const match = row.match(/^\| (\d+) \| (.+?) \| (.+?) \|$/);
+    if (match) {
+      const num = parseInt(match[1], 10);
+      sources.set(num, { num, name: match[2].trim(), url: match[3].trim() });
+    }
+  }
+  return sources;
 }
 
 export function parseMarkdown(md: string): { intro: string; sections: Section[] } {
@@ -71,7 +92,7 @@ export function parseMarkdown(md: string): { intro: string; sections: Section[] 
   return { intro, sections };
 }
 
-export function renderContent(content: string) {
+export function renderContent(content: string, sources?: Map<number, SourceEntry>) {
   const lines = content.split("\n");
   const elements: React.ReactNode[] = [];
   let inTable = false;
@@ -245,10 +266,34 @@ export function renderContent(content: string) {
         </h4>
       );
     } else if (trimmed.startsWith("*Sources:") || trimmed.startsWith("*Source")) {
+      const refNums = [...trimmed.matchAll(/\[(\d+)\]/g)].map((m) => parseInt(m[1], 10));
       elements.push(
-        <p key={`src-${i}`} className="text-xs text-sand-muted/40 mt-4 italic">
-          {formatInline(trimmed.replace(/^\*/, "").replace(/\*$/, ""))}
-        </p>
+        <div key={`src-${i}`} className="flex flex-wrap items-center gap-1.5 mt-3 mb-1">
+          {refNums.map((num) => {
+            const source = sources?.get(num);
+            if (source) {
+              return (
+                <a
+                  key={num}
+                  href={source.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  title={source.name}
+                  className="inline-flex items-center gap-1 text-[11px] text-ember/70 hover:text-ember bg-ember/10 hover:bg-ember/20 rounded-full px-2 py-0.5 transition-colors"
+                >
+                  <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="shrink-0">
+                    <path d="M4 19.5A2.5 2.5 0 016.5 17H20" />
+                    <path d="M6.5 2H20v20H6.5A2.5 2.5 0 014 19.5v-15A2.5 2.5 0 016.5 2z" />
+                  </svg>
+                  {source.name.replace(/ - .+$/, "").replace(/ \(.+\)$/, "")}
+                </a>
+              );
+            }
+            return (
+              <span key={num} className="text-[11px] text-sand-muted/30">[{num}]</span>
+            );
+          })}
+        </div>
       );
     } else if (trimmed === "---") {
       // skip dividers

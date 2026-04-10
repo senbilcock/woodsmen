@@ -32,7 +32,7 @@ export function Hero() {
               href="#join"
               className="inline-flex items-center justify-center bg-ember text-night font-semibold text-sm uppercase tracking-wider px-7 py-3.5 rounded hover:bg-ember-light transition-all"
             >
-              Get Started Free
+              Join for $15/week
             </Link>
             <Link
               href="#how-it-works"
@@ -51,7 +51,7 @@ export function Hero() {
               <span className="w-1.5 h-1.5 rounded-full bg-forest" /> All equipment provided
             </span>
             <span className="flex items-center gap-2">
-              <span className="w-1.5 h-1.5 rounded-full bg-forest" /> Free — funded by the work you do
+              <span className="w-1.5 h-1.5 rounded-full bg-forest" /> Just $15/week — subsidised by the work you do
             </span>
           </div>
         </div>
