@@ -10,8 +10,8 @@
   --gray: #888;
   --gray-light: #B0B0B0;
   --white: #FFFFFF;
-  --accent: #C8FF00;
-  --accent-hover: #D4FF33;
+  --accent: #E8913A;
+  --accent-hover: #F0A352;
   --red: #E63946;
   --green: #4A8C4A;
   --font-body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
@@ -161,7 +161,7 @@ img { max-width: 100%; display: block; }
 .btn-primary:hover {
   background: var(--accent-hover);
   transform: translateY(-1px);
-  box-shadow: 0 4px 20px rgba(200, 255, 0, 0.3);
+  box-shadow: 0 4px 20px rgba(232, 145, 58, 0.3);
 }
 
 .btn-ghost {
@@ -618,7 +618,7 @@ img { max-width: 100%; display: block; }
 }
 
 .session-card:hover .session-tags li {
-  border-color: rgba(200, 255, 0, 0.3);
+  border-color: rgba(232, 145, 58, 0.3);
   color: var(--accent);
 }
 
@@ -725,7 +725,7 @@ img { max-width: 100%; display: block; }
 }
 
 .mission-card:hover {
-  border-color: rgba(200, 255, 0, 0.3);
+  border-color: rgba(232, 145, 58, 0.3);
   transform: translateY(-4px);
 }
 
@@ -1121,7 +1121,7 @@ img { max-width: 100%; display: block; }
 }
 
 .model-card:hover {
-  border-color: rgba(200, 255, 0, 0.3);
+  border-color: rgba(232, 145, 58, 0.3);
 }
 
 .model-icon {
@@ -1202,7 +1202,7 @@ img { max-width: 100%; display: block; }
 }
 
 .cost-card:hover {
-  border-color: rgba(200, 255, 0, 0.3);
+  border-color: rgba(232, 145, 58, 0.3);
   transform: translateY(-4px);
 }
 
@@ -1217,7 +1217,7 @@ img { max-width: 100%; display: block; }
 }
 
 .cost-card-highlight .cost-card-header {
-  background: rgba(200, 255, 0, 0.05);
+  background: rgba(232, 145, 58, 0.05);
 }
 
 .cost-label {
@@ -1407,12 +1407,12 @@ img { max-width: 100%; display: block; }
 }
 
 .day-card:hover {
-  border-color: rgba(200, 255, 0, 0.3);
+  border-color: rgba(232, 145, 58, 0.3);
 }
 
 .day-card-highlight {
   border-color: var(--accent);
-  background: rgba(200, 255, 0, 0.03);
+  background: rgba(232, 145, 58, 0.03);
 }
 
 .day-label {
@@ -1482,7 +1482,7 @@ img { max-width: 100%; display: block; }
 
 .anatomy-item-highlight {
   border-color: var(--accent);
-  background: rgba(200, 255, 0, 0.03);
+  background: rgba(232, 145, 58, 0.03);
 }
 
 .anatomy-time {
@@ -1524,7 +1524,7 @@ img { max-width: 100%; display: block; }
 }
 
 .price-card:hover {
-  border-color: rgba(200, 255, 0, 0.3);
+  border-color: rgba(232, 145, 58, 0.3);
   transform: translateY(-4px);
 }
 
@@ -1615,8 +1615,8 @@ img { max-width: 100%; display: block; }
 
 .pricing-note-inner {
   display: inline-block;
-  background: rgba(200, 255, 0, 0.05);
-  border: 1px solid rgba(200, 255, 0, 0.2);
+  background: rgba(232, 145, 58, 0.05);
+  border: 1px solid rgba(232, 145, 58, 0.2);
   border-radius: var(--radius);
   padding: 24px 36px;
   max-width: 560px;
