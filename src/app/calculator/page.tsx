@@ -2,444 +2,507 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import type { Metadata } from "next";
 
-/* ── Scoring data from DSS1 (Scion, June 2012) ─────────────────────── */
+/* ── Step data ────────────────────────────────────────────────────── */
 
-const SPECIES_OPTIONS = [
-  { label: "Redwoods, Leyland cypresses, cedars & spruces", score: 0, hint: "Very low risk -- no need to proceed further" },
-  { label: "Radiata pine, ponderosa pine, Lawsons cypress", score: 1, hint: "" },
-  { label: "Muricata pine, maritime pine, larches", score: 2, hint: "" },
-  { label: "Corsican pine, mountain/dwarf mountain pine", score: 3, hint: "" },
-  { label: "Douglas-fir, Scots pine", score: 4, hint: "Score 1 in moist/warm areas with no late-summer drought" },
-  { label: "Lodgepole/contorta pine", score: 5, hint: "Unwanted organism under the Biosecurity Act" },
+const STEPS = [
+  {
+    id: "species",
+    question: "What tree species are you planting?",
+    why: "Different conifer species produce seeds that spread at very different rates. Some species have light, winged seeds that travel long distances in the wind, while others have heavier seeds that stay close to the parent tree. This is the single biggest factor in wilding spread risk.",
+    options: [
+      { label: "Redwoods, cypresses, cedars or spruces", desc: "These species have very low spreading risk", score: 0 },
+      { label: "Radiata pine, ponderosa pine or Lawsons cypress", desc: "Low spreading vigour", score: 1 },
+      { label: "Muricata pine, maritime pine or larches", desc: "Moderate spreading vigour", score: 2 },
+      { label: "Corsican pine or mountain pine", desc: "High spreading vigour with light, winged seeds", score: 3 },
+      { label: "Douglas-fir or Scots pine", desc: "Very high spreading vigour. Score 1 instead if your site is moist with no late-summer drought", score: 4 },
+      { label: "Lodgepole pine (contorta)", desc: "Extremely high risk. This is an unwanted organism under the Biosecurity Act", score: 5 },
+    ],
+  },
+  {
+    id: "palatability",
+    question: "How palatable is your species to livestock?",
+    why: "Sheep and cattle will browse on young conifer seedlings, which helps control wilding spread naturally. Some species taste better to livestock than others. More palatable species are less likely to establish as wildings because animals eat the seedlings before they can grow.",
+    options: [
+      { label: "Highly palatable (radiata, maritime or ponderosa pine)", desc: "Sheep readily eat these seedlings", score: 1 },
+      { label: "Moderately palatable (lodgepole, muricata pine or larch)", desc: "Livestock will browse but less eagerly", score: 2 },
+      { label: "Low palatability (Scots pine, mountain pine or Douglas-fir)", desc: "Livestock tend to avoid these seedlings", score: 3 },
+      { label: "Very low palatability (Corsican pine)", desc: "Livestock rarely eat these -- hardest to control by grazing", score: 4 },
+    ],
+  },
+  {
+    id: "siting",
+    question: "How exposed is your planting site to the wind?",
+    why: "Wind is the main way conifer seeds travel. Seeds released from exposed hilltops and ridges can be carried kilometres downwind. Trees in sheltered valleys produce seeds that mostly fall nearby. The topographic position of your planting site relative to prevailing winds is the second biggest risk factor after species choice.",
+    options: [
+      { label: "Well sheltered", desc: "Valley bottoms or slopes facing away from the prevailing wind", score: 0 },
+      { label: "Partially exposed", desc: "Flat land with some shelter from nearby hills (within 1 km)", score: 1 },
+      { label: "Lee slope with eddy gusts", desc: "Behind a ridge or hill where turbulent wind gusts occur", score: 2 },
+      { label: "Fully exposed flat land", desc: "Open river valleys, plateaus or terraces with no wind protection", score: 3 },
+      { label: "Elevated take-off site", desc: "Ridge-tops, steep slopes (>10\u00b0) or wind channels facing the prevailing wind", score: 4 },
+    ],
+  },
+  {
+    id: "grazing",
+    question: "How is the land downwind being grazed?",
+    why: "This question is about the land that will receive seeds from your planting -- the area up to 2 km downwind. Intensive grazing on developed pasture effectively prevents wilding seedlings from establishing. If the downwind land has no grazing, seedlings can grow unchecked into mature trees that produce their own seeds.",
+    options: [
+      { label: "Intensive grazing on developed pasture", desc: "Well-maintained farmland with regular stock rotation", score: 0 },
+      { label: "Regular mob stocking with sheep", desc: "Periodic intensive grazing that controls most seedlings", score: 1 },
+      { label: "Semi-improved grazing or occasional mob stocking", desc: "Some grazing but not enough to catch all seedlings", score: 2 },
+      { label: "Extensive grazing only", desc: "Light, infrequent grazing -- many seedlings will survive", score: 3 },
+      { label: "No grazing at all", desc: "No livestock to control seedling establishment", score: 4 },
+    ],
+  },
+  {
+    id: "vegetation",
+    question: "What vegetation covers the downwind land?",
+    why: "Existing vegetation competes with conifer seedlings for light, water and space. Dense forest or thick pasture makes it very hard for wilding seeds to germinate and survive. But open, bare ground with gaps in vegetation is ideal for seedling establishment -- seeds can reach mineral soil and get the sunlight they need to grow.",
+    options: [
+      { label: "Dense plantation forest or thick developed pasture", desc: "Very little bare ground -- seedlings can't establish here", score: 0 },
+      { label: "Dense native forest, shrubland or tussock grassland", desc: "Continuous vegetation cover with minimal gaps", score: 1 },
+      { label: "Forest, shrubland or grassland with a few gaps", desc: "Mostly covered but some openings where seedlings could grow", score: 2 },
+      { label: "Open forest or scattered patches of vegetation", desc: "Many gaps with bare or disturbed ground", score: 3 },
+      { label: "Open ground, slips, rockland or sparse low vegetation", desc: "Lots of bare soil and mineral ground -- ideal for seedling establishment", score: 4 },
+    ],
+  },
 ];
 
-const PALATABILITY_OPTIONS = [
-  { label: "Radiata, maritime & ponderosa pine", score: 1 },
-  { label: "Lodgepole, muricata pine & European larch", score: 2 },
-  { label: "Scots pine, mountain/dwarf mountain pine & Douglas-fir", score: 3 },
-  { label: "Corsican pine", score: 4 },
-];
-
-const SITING_OPTIONS = [
-  { label: "Well sheltered from prevalent and strong winds", score: 0, desc: "Valley bottoms, bases of slopes perpendicular to wind" },
-  { label: "Flat sites, partially exposed to strong winds", score: 1, desc: "Partial protection from hills within ~1 km" },
-  { label: "Lee slopes where strong eddy gusts are likely", score: 2, desc: "Behind ridges/hills exposed to strong winds" },
-  { label: "Flat sites, fully exposed to strong/prevalent winds", score: 3, desc: "Open river valleys, plateaus, no obstructions" },
-  { label: "Elevated take-off sites or sloping land fully exposed", score: 4, desc: "Ridge-tops, channels, slopes >10\u00b0 facing the wind" },
-];
-
-const GRAZING_OPTIONS = [
-  { label: "Intensive grazing on developed pasture", score: 0, hint: "Total score becomes 0 (no risk)" },
-  { label: "Regular mob stocking with sheep", score: 1, hint: "" },
-  { label: "Semi-improved grazing / occasional mob stocking", score: 2, hint: "" },
-  { label: "Extensive grazing only", score: 3, hint: "" },
-  { label: "No grazing", score: 4, hint: "" },
-];
-
-const VEGETATION_OPTIONS = [
-  { label: "Plantation forest or developed pasture (intensive grazing)", score: 0, hint: "Total score becomes 0 (no risk)" },
-  { label: "Dense native forest, shrubland, tussock or grassland", score: 1, hint: "Continuous and dense vegetation cover" },
-  { label: "Forest, shrubland, tussock or grassland with few gaps", score: 2, hint: "" },
-  { label: "Open forest / scattered patches of dense vegetation", score: 3, hint: "Many gaps in ground cover" },
-  { label: "Open slips, rockland, light low-stature vegetation", score: 4, hint: "Bare ground and mineral soil available" },
-];
-
-function getRiskLevel(score: number): { label: string; color: string; bg: string; description: string } {
-  if (score === 0) return { label: "No Risk", color: "text-forest", bg: "bg-forest/20 border-forest/30", description: "No risk of wilding spread for this combination of site and receiving area. However, note the need to test long-distance spread risk from exposed sites." };
-  if (score < 8) return { label: "Low Risk", color: "text-forest", bg: "bg-forest/20 border-forest/30", description: "Low risk of wilding spread. Monitor and manage fringe spread. Remove outlier trees before coning age." };
-  if (score < 12) return { label: "Moderate Risk", color: "text-ember", bg: "bg-ember/20 border-ember/30", description: "Moderate risk. Consider a different species choice or siting, or modify downwind land management to reduce the score." };
-  return { label: "High Risk", color: "text-red-400", bg: "bg-red-400/20 border-red-400/30", description: "High risk of wilding spread. A change of species, siting, or downwind land management can significantly lower risk. A commitment to wilding removal should be made." };
+function getRiskLevel(score: number) {
+  if (score === 0) return {
+    level: "no-risk" as const,
+    label: "No Risk",
+    color: "text-forest",
+    bg: "bg-forest/15",
+    border: "border-forest/30",
+    description: "For this combination of site and receiving area, the risk of wilding spread is negligible. Seeds from these trees are unlikely to establish in the downwind environment.",
+    advice: "While the overall risk is very low, it's still good practice to monitor for any unexpected seedling establishment, especially near exposed ridgelines.",
+  };
+  if (score < 8) return {
+    level: "low" as const,
+    label: "Low Risk",
+    color: "text-forest",
+    bg: "bg-forest/15",
+    border: "border-forest/30",
+    description: "There is a low risk of wilding conifer spread from this planting. Some seeds may establish downwind, but the conditions make widespread invasion unlikely.",
+    advice: "Monitor the downwind area regularly and remove any outlier seedlings before they reach cone-bearing age (typically 10-15 years). Early removal is much easier and cheaper than dealing with established wildings.",
+  };
+  if (score < 12) return {
+    level: "moderate" as const,
+    label: "Moderate Risk",
+    color: "text-ember",
+    bg: "bg-ember/15",
+    border: "border-ember/30",
+    description: "There is a meaningful risk of wilding spread. Without management, scattered conifers are likely to establish in the downwind area over time.",
+    advice: "Consider changing your species to one with lower spreading vigour, or choosing a more sheltered planting site. Improving grazing management downwind can also reduce risk. A wilding management plan should be part of your planting proposal.",
+  };
+  return {
+    level: "high" as const,
+    label: "High Risk",
+    color: "text-red-400",
+    bg: "bg-red-400/15",
+    border: "border-red-400/30",
+    description: "This combination of species, site and downwind conditions creates a high risk of wilding conifer invasion. Without intervention, significant wilding establishment is likely.",
+    advice: "Strongly consider a different species, a more sheltered planting location, or changes to downwind land management. If you proceed, a binding commitment to ongoing wilding removal will be necessary. Resource consent conditions may apply.",
+  };
 }
 
+/* ── Main component ───────────────────────────────────────────────── */
+
 export default function CalculatorPage() {
-  const [speciesIdx, setSpeciesIdx] = useState<number | null>(null);
-  const [palatabilityIdx, setPalatabilityIdx] = useState<number | null>(null);
-  const [sitingIdx, setSitingIdx] = useState<number | null>(null);
-  const [grazingIdx, setGrazingIdx] = useState<number | null>(null);
-  const [vegetationIdx, setVegetationIdx] = useState<number | null>(null);
+  const [step, setStep] = useState(0); // 0=intro, 1-5=steps, 6=results
+  const [answers, setAnswers] = useState<(number | null)[]>([null, null, null, null, null]);
 
-  const speciesScore = speciesIdx !== null ? SPECIES_OPTIONS[speciesIdx].score : null;
-  const palatabilityScore = palatabilityIdx !== null ? PALATABILITY_OPTIONS[palatabilityIdx].score : null;
-  const sitingScore = sitingIdx !== null ? SITING_OPTIONS[sitingIdx].score : null;
-  const grazingScore = grazingIdx !== null ? GRAZING_OPTIONS[grazingIdx].score : null;
-  const vegetationScore = vegetationIdx !== null ? VEGETATION_OPTIONS[vegetationIdx].score : null;
+  const currentAnswer = step >= 1 && step <= 5 ? answers[step - 1] : null;
 
-  const allAnswered = speciesScore !== null && palatabilityScore !== null && sitingScore !== null && grazingScore !== null && vegetationScore !== null;
+  function selectOption(optionIdx: number) {
+    const next = [...answers];
+    next[step - 1] = optionIdx;
+    setAnswers(next);
+  }
 
-  // Stop/go exceptions: if species growth = 0, or grazing = 0, or vegetation = 0, total = 0
-  const hasZeroException = speciesScore === 0 || grazingScore === 0 || vegetationScore === 0;
+  function goNext() {
+    if (step === 0) {
+      setStep(1);
+    } else if (step <= 5 && currentAnswer !== null) {
+      setStep(step + 1);
+    }
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }
 
-  const rawTotal = allAnswered
-    ? (speciesScore ?? 0) + (palatabilityScore ?? 0) + (sitingScore ?? 0) + (grazingScore ?? 0) + (vegetationScore ?? 0)
-    : null;
+  function goBack() {
+    if (step > 0) setStep(step - 1);
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }
 
+  function restart() {
+    setStep(0);
+    setAnswers([null, null, null, null, null]);
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }
+
+  // Calculate scores
+  const scores = answers.map((ansIdx, stepIdx) =>
+    ansIdx !== null ? STEPS[stepIdx].options[ansIdx].score : null
+  );
+
+  const allAnswered = scores.every((s) => s !== null);
+  const hasZeroException = scores[0] === 0 || scores[3] === 0 || scores[4] === 0;
+  const rawTotal = allAnswered ? scores.reduce((a, b) => (a ?? 0) + (b ?? 0), 0)! : null;
   const totalScore = allAnswered ? (hasZeroException ? 0 : rawTotal) : null;
   const risk = totalScore !== null ? getRiskLevel(totalScore) : null;
 
-  const stepsComplete = [speciesIdx, palatabilityIdx, sitingIdx, grazingIdx, vegetationIdx].filter((v) => v !== null).length;
-
-  function reset() {
-    setSpeciesIdx(null);
-    setPalatabilityIdx(null);
-    setSitingIdx(null);
-    setGrazingIdx(null);
-    setVegetationIdx(null);
-  }
-
   return (
     <div className="min-h-screen bg-night pt-20">
-      {/* Hero */}
-      <section className="bg-night-light border-b border-night-border py-16 px-6">
-        <div className="max-w-4xl mx-auto">
-          <Link
-            href="/research"
-            className="inline-flex items-center gap-1 text-ember text-sm font-medium mb-4 hover:gap-2 transition-all"
-          >
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-              <path d="M19 12H5M12 19l-7-7 7-7" />
-            </svg>
-            Research
-          </Link>
-          <h1 className="font-display text-4xl md:text-5xl text-sand mb-4">
-            Wilding Spread Risk Calculator
-          </h1>
-          <p className="text-sand-muted text-base max-w-2xl leading-relaxed">
-            Assess the risk of wilding conifer spread from a proposed planting site.
-            Based on the MPI/Scion Decision Support System (DSS1).
-          </p>
-          <p className="text-sand-muted/40 text-sm mt-3">
-            5 indicators &middot; Score range 0&ndash;21 &middot; Source: Scion Research
-          </p>
-        </div>
-      </section>
-
-      {/* Progress bar */}
-      <div className="sticky top-16 z-20 bg-night/90 backdrop-blur-sm border-b border-night-border">
-        <div className="max-w-4xl mx-auto px-6 py-3 flex items-center justify-between">
-          <div className="flex items-center gap-3">
-            <span className="text-sm text-sand-muted font-display">{stepsComplete}/5 complete</span>
-            <div className="w-32 h-1.5 bg-night-card rounded-full overflow-hidden">
-              <div
-                className="h-full bg-ember rounded-full transition-all duration-500"
-                style={{ width: `${(stepsComplete / 5) * 100}%` }}
-              />
+      {/* Top bar with progress */}
+      {step > 0 && step <= 5 && (
+        <div className="bg-night-light border-b border-night-border">
+          <div className="max-w-2xl mx-auto px-6 py-4">
+            <div className="flex items-center justify-between mb-3">
+              <span className="text-xs text-sand-muted/50 font-display uppercase tracking-wider">
+                Step {step} of 5
+              </span>
+              <button onClick={restart} className="text-xs text-sand-muted/40 hover:text-ember transition-colors">
+                Start over
+              </button>
+            </div>
+            {/* Step dots */}
+            <div className="flex items-center gap-2">
+              {[1, 2, 3, 4, 5].map((s) => (
+                <div key={s} className="flex-1 flex items-center gap-2">
+                  <div className="flex-1 h-1.5 rounded-full overflow-hidden bg-night-border">
+                    <div
+                      className={`h-full rounded-full transition-all duration-500 ${
+                        s < step ? "bg-forest w-full"
+                        : s === step ? "bg-ember w-full"
+                        : "w-0"
+                      }`}
+                    />
+                  </div>
+                </div>
+              ))}
             </div>
           </div>
-          {stepsComplete > 0 && (
-            <button
-              onClick={reset}
-              className="text-xs text-sand-muted/50 hover:text-ember transition-colors"
-            >
-              Reset all
-            </button>
-          )}
         </div>
-      </div>
+      )}
 
-      {/* Calculator steps */}
-      <div className="max-w-4xl mx-auto px-6 py-12 space-y-8">
+      <div className="max-w-2xl mx-auto px-6">
 
-        {/* 1. Species Growth */}
-        <IndicatorCard
-          step={1}
-          title="Species Growth"
-          subtitle="Spreading vigour"
-          description="The species planted determines the risk through seed weight, wing size, cone production, and timing of seed release."
-          scoreRange="0-5"
-        >
-          <RadioGroup
-            options={SPECIES_OPTIONS.map((o) => ({ label: o.label, sublabel: o.hint }))}
-            selected={speciesIdx}
-            onSelect={setSpeciesIdx}
-            scores={SPECIES_OPTIONS.map((o) => o.score)}
-          />
-        </IndicatorCard>
+        {/* ── Intro screen ──────────────────────────────────── */}
+        {step === 0 && (
+          <div className="py-16 md:py-24">
+            <Link
+              href="/research"
+              className="inline-flex items-center gap-1 text-ember text-sm font-medium mb-8 hover:gap-2 transition-all"
+            >
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M19 12H5M12 19l-7-7 7-7" />
+              </svg>
+              Research
+            </Link>
 
-        {/* 2. Species Palatability */}
-        <IndicatorCard
-          step={2}
-          title="Species Palatability"
-          subtitle="Susceptibility to browsing"
-          description="How easily livestock (especially sheep) can graze and control seedlings. More palatable species are easier to manage."
-          scoreRange="1-4"
-        >
-          <RadioGroup
-            options={PALATABILITY_OPTIONS.map((o) => ({ label: o.label, sublabel: "" }))}
-            selected={palatabilityIdx}
-            onSelect={setPalatabilityIdx}
-            scores={PALATABILITY_OPTIONS.map((o) => o.score)}
-          />
-        </IndicatorCard>
+            <h1 className="font-display text-4xl md:text-5xl text-sand mb-6 leading-tight">
+              Wilding Spread<br />Risk Calculator
+            </h1>
 
-        {/* 3. Siting */}
-        <IndicatorCard
-          step={3}
-          title="Siting of New Planting"
-          subtitle="Topographic position"
-          description="The site's position relative to prevailing wind direction determines how far seed can travel. Exposed ridges and take-off sites carry the highest risk."
-          scoreRange="0-4"
-        >
-          <RadioGroup
-            options={SITING_OPTIONS.map((o) => ({ label: o.label, sublabel: o.desc }))}
-            selected={sitingIdx}
-            onSelect={setSitingIdx}
-            scores={SITING_OPTIONS.map((o) => o.score)}
-          />
-        </IndicatorCard>
+            <p className="text-sand-muted text-lg leading-relaxed mb-8 max-w-xl">
+              Planning to plant conifers? This tool helps you understand the risk of
+              wilding pine spread from your planting site. Answer 5 simple questions
+              and get a risk assessment in under 2 minutes.
+            </p>
 
-        {/* 4. Downwind Land Use */}
-        <IndicatorCard
-          step={4}
-          title="Downwind Land Use"
-          subtitle="Grazing regime"
-          description="The grazing intensity on land downwind of the planting (within 2 km). Intensive grazing prevents wilding establishment."
-          scoreRange="0-4"
-          zeroNote="Scoring 0 here sets the total score to 0 (no risk for this area)."
-        >
-          <RadioGroup
-            options={GRAZING_OPTIONS.map((o) => ({ label: o.label, sublabel: o.hint }))}
-            selected={grazingIdx}
-            onSelect={setGrazingIdx}
-            scores={GRAZING_OPTIONS.map((o) => o.score)}
-          />
-        </IndicatorCard>
+            <div className="space-y-4 mb-10">
+              <InfoBlock
+                icon={
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M12 3v18M3 12l3-3 3 3M15 12l3-3 3 3" /><path d="M6 9V4M18 9V4" /></svg>
+                }
+                title="What are wilding pines?"
+                text="Wilding conifers are self-seeded exotic trees that spread from plantations into native landscapes. They can displace native vegetation, reduce water yield and change the character of the land."
+              />
+              <InfoBlock
+                icon={
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10" /><path d="M12 16v-4M12 8h.01" /></svg>
+                }
+                title="Why does this matter?"
+                text="Regional councils may require a risk assessment before granting consent for new conifer plantings. Understanding the risk early helps you choose the right species and site to avoid problems."
+              />
+              <InfoBlock
+                icon={
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M9 11l3 3L22 4" /><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11" /></svg>
+                }
+                title="How does it work?"
+                text="You'll answer 5 questions about your tree species, planting site, and the land downwind. The calculator scores each factor and gives you an overall risk rating based on research by Scion and MPI."
+              />
+            </div>
 
-        {/* 5. Downwind Vegetation Cover */}
-        <IndicatorCard
-          step={5}
-          title="Downwind Vegetation Cover"
-          subtitle="Competition from existing vegetation"
-          description="Dense, shade-providing vegetation reduces wilding survival. Open ground with bare soil provides establishment microsites."
-          scoreRange="0-4"
-          zeroNote="Scoring 0 here sets the total score to 0 (no risk for this area)."
-        >
-          <RadioGroup
-            options={VEGETATION_OPTIONS.map((o) => ({ label: o.label, sublabel: o.hint }))}
-            selected={vegetationIdx}
-            onSelect={setVegetationIdx}
-            scores={VEGETATION_OPTIONS.map((o) => o.score)}
-          />
-        </IndicatorCard>
+            <button
+              onClick={goNext}
+              className="w-full sm:w-auto px-8 py-4 rounded-xl bg-ember text-night font-display font-semibold text-base tracking-wide hover:bg-ember-light transition-colors"
+            >
+              Start Assessment
+            </button>
 
-        {/* Results */}
-        {allAnswered && totalScore !== null && risk && (
-          <div id="results" className="scroll-mt-24">
-            <div className={`rounded-2xl border p-8 ${risk.bg}`}>
-              <div className="flex flex-col sm:flex-row sm:items-center gap-6 mb-6">
-                <div className="flex items-center gap-4">
-                  <div className={`text-6xl font-display font-bold ${risk.color}`}>
-                    {totalScore}
+            <p className="text-xs text-sand-muted/30 mt-4">
+              Based on the Scion/MPI Decision Support System (DSS1, 2012)
+            </p>
+          </div>
+        )}
+
+        {/* ── Question steps 1-5 ────────────────────────────── */}
+        {step >= 1 && step <= 5 && (() => {
+          const stepData = STEPS[step - 1];
+          return (
+            <div className="py-12 md:py-16">
+              <h2 className="font-display text-2xl md:text-3xl text-sand mb-3 leading-snug">
+                {stepData.question}
+              </h2>
+
+              {/* Why this matters — educational */}
+              <details className="mb-8 group">
+                <summary className="text-sm text-ember cursor-pointer hover:text-ember-light transition-colors flex items-center gap-1.5">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="transition-transform group-open:rotate-90">
+                    <path d="M9 18l6-6-6-6" />
+                  </svg>
+                  Why does this matter?
+                </summary>
+                <p className="text-sm text-sand-muted/60 leading-relaxed mt-3 pl-5 border-l-2 border-night-border">
+                  {stepData.why}
+                </p>
+              </details>
+
+              {/* Options */}
+              <div className="space-y-3">
+                {stepData.options.map((opt, i) => {
+                  const isSelected = currentAnswer === i;
+                  return (
+                    <button
+                      key={i}
+                      onClick={() => selectOption(i)}
+                      className={`w-full text-left p-5 rounded-xl border-2 transition-all ${
+                        isSelected
+                          ? "border-ember bg-ember/10"
+                          : "border-night-border hover:border-sand-muted/20 bg-night-card"
+                      }`}
+                    >
+                      <div className="flex items-start gap-4">
+                        <span
+                          className={`mt-0.5 flex-shrink-0 w-6 h-6 rounded-full border-2 flex items-center justify-center transition-colors ${
+                            isSelected
+                              ? "border-ember bg-ember"
+                              : "border-sand-muted/25"
+                          }`}
+                        >
+                          {isSelected && (
+                            <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
+                              <path d="M2 6l3 3 5-5" stroke="#0B0F0E" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                            </svg>
+                          )}
+                        </span>
+                        <div className="flex-1">
+                          <span className={`text-base font-medium leading-snug block ${isSelected ? "text-sand" : "text-sand-muted"}`}>
+                            {opt.label}
+                          </span>
+                          <span className="text-sm text-sand-muted/50 mt-1 block leading-relaxed">
+                            {opt.desc}
+                          </span>
+                        </div>
+                      </div>
+                    </button>
+                  );
+                })}
+              </div>
+
+              {/* Navigation */}
+              <div className="flex items-center justify-between mt-10 pt-6 border-t border-night-border">
+                <button
+                  onClick={goBack}
+                  className="flex items-center gap-2 text-sm text-sand-muted hover:text-sand transition-colors px-4 py-2.5 rounded-lg hover:bg-night-card"
+                >
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M19 12H5M12 19l-7-7 7-7" />
+                  </svg>
+                  Back
+                </button>
+                <button
+                  onClick={goNext}
+                  disabled={currentAnswer === null}
+                  className={`flex items-center gap-2 px-6 py-3 rounded-xl font-display font-semibold text-sm tracking-wide transition-all ${
+                    currentAnswer !== null
+                      ? "bg-ember text-night hover:bg-ember-light"
+                      : "bg-night-card text-sand-muted/30 cursor-not-allowed"
+                  }`}
+                >
+                  {step === 5 ? "See Results" : "Continue"}
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M5 12h14M12 5l7 7-7 7" />
+                  </svg>
+                </button>
+              </div>
+            </div>
+          );
+        })()}
+
+        {/* ── Results screen ────────────────────────────────── */}
+        {step === 6 && totalScore !== null && risk && (
+          <div className="py-12 md:py-16" id="results">
+            <h2 className="font-display text-2xl md:text-3xl text-sand mb-2">
+              Your Risk Assessment
+            </h2>
+            <p className="text-sm text-sand-muted/50 mb-8">
+              Based on your answers across all 5 indicators
+            </p>
+
+            {/* Big score display */}
+            <div className={`rounded-2xl border-2 ${risk.border} ${risk.bg} p-8 mb-8`}>
+              <div className="flex items-center gap-6 mb-6">
+                <div className={`text-7xl font-display font-bold ${risk.color}`}>
+                  {totalScore}
+                </div>
+                <div>
+                  <div className={`text-2xl font-display font-semibold ${risk.color}`}>
+                    {risk.label}
                   </div>
-                  <div>
-                    <div className={`text-lg font-display font-semibold ${risk.color}`}>
-                      {risk.label}
-                    </div>
-                    <div className="text-sm text-sand-muted">out of 21 possible</div>
-                  </div>
+                  <div className="text-sm text-sand-muted/60 mt-0.5">out of 21 possible</div>
                 </div>
               </div>
 
-              <p className="text-sand-muted leading-relaxed mb-6">
+              <p className="text-sand-muted leading-relaxed mb-4">
                 {risk.description}
               </p>
 
-              {hasZeroException && (
-                <div className="bg-night/40 rounded-xl p-4 mb-6">
-                  <p className="text-sm text-sand-muted">
-                    <span className="text-forest font-semibold">Zero exception applied:</span>{" "}
-                    {speciesScore === 0 && "Species growth scored 0. "}
-                    {grazingScore === 0 && "Downwind land use scored 0. "}
-                    {vegetationScore === 0 && "Downwind vegetation cover scored 0. "}
-                    The total score automatically becomes 0 for this combination.
-                    {rawTotal !== null && rawTotal > 0 && (
-                      <span className="text-sand-muted/50"> (Raw total before exception: {rawTotal})</span>
-                    )}
-                  </p>
-                </div>
-              )}
-
-              {/* Score breakdown */}
-              <div className="grid grid-cols-1 sm:grid-cols-5 gap-3">
-                <ScoreChip label="Growth" score={speciesScore!} />
-                <ScoreChip label="Palatability" score={palatabilityScore!} />
-                <ScoreChip label="Siting" score={sitingScore!} />
-                <ScoreChip label="Grazing" score={grazingScore!} />
-                <ScoreChip label="Vegetation" score={vegetationScore!} />
+              <div className="bg-night/30 rounded-xl p-4">
+                <p className="text-sm text-sand font-medium mb-1">What should you do?</p>
+                <p className="text-sm text-sand-muted/70 leading-relaxed">
+                  {risk.advice}
+                </p>
               </div>
             </div>
 
-            {/* Risk scale legend */}
-            <div className="mt-6 rounded-xl border border-night-border bg-night-card p-6">
+            {/* Zero exception note */}
+            {hasZeroException && (
+              <div className="rounded-xl border border-forest/30 bg-forest/10 p-5 mb-6">
+                <p className="text-sm text-sand-muted leading-relaxed">
+                  <span className="text-forest font-semibold">Good news: </span>
+                  {scores[0] === 0 && "Your chosen species has negligible spreading risk. "}
+                  {scores[3] === 0 && "The intensive grazing downwind will prevent seedling establishment. "}
+                  {scores[4] === 0 && "The dense vegetation downwind will prevent seedling establishment. "}
+                  This automatically reduces the overall risk to zero for this combination.
+                  {rawTotal !== null && rawTotal > 0 && (
+                    <span className="text-sand-muted/40"> (Score before this adjustment: {rawTotal})</span>
+                  )}
+                </p>
+              </div>
+            )}
+
+            {/* Score breakdown */}
+            <div className="rounded-xl border border-night-border bg-night-card p-6 mb-8">
+              <h3 className="font-display text-sm text-sand-muted/50 uppercase tracking-[0.14em] mb-4">
+                Your Score Breakdown
+              </h3>
+              <div className="space-y-3">
+                {STEPS.map((s, i) => (
+                  <div key={s.id} className="flex items-center justify-between">
+                    <div className="flex items-center gap-3">
+                      <span className="w-6 h-6 rounded-md bg-night flex items-center justify-center text-xs text-sand-muted/50 font-display">
+                        {i + 1}
+                      </span>
+                      <span className="text-sm text-sand-muted">{s.question.replace("?", "")}</span>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <span className="text-xs text-sand-muted/40">
+                        {answers[i] !== null ? s.options[answers[i]!].label : ""}
+                      </span>
+                      <span className="text-sm font-display font-bold text-sand w-6 text-right">
+                        {scores[i]}
+                      </span>
+                    </div>
+                  </div>
+                ))}
+                <div className="flex items-center justify-between pt-3 mt-1 border-t border-night-border">
+                  <span className="text-sm font-display font-semibold text-sand">Total</span>
+                  <span className={`text-lg font-display font-bold ${risk.color}`}>
+                    {totalScore}
+                  </span>
+                </div>
+              </div>
+            </div>
+
+            {/* Risk scale */}
+            <div className="rounded-xl border border-night-border bg-night-card p-6 mb-8">
               <h3 className="font-display text-sm text-sand-muted/50 uppercase tracking-[0.14em] mb-4">
                 Risk Scale
               </h3>
-              <div className="grid grid-cols-1 sm:grid-cols-4 gap-3">
-                <div className="flex items-center gap-2">
-                  <div className="w-3 h-3 rounded-full bg-forest/60" />
-                  <span className="text-sm text-sand-muted">0 = No risk</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <div className="w-3 h-3 rounded-full bg-forest" />
-                  <span className="text-sm text-sand-muted">1&ndash;7 = Low</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <div className="w-3 h-3 rounded-full bg-ember" />
-                  <span className="text-sm text-sand-muted">8&ndash;11 = Moderate</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <div className="w-3 h-3 rounded-full bg-red-400" />
-                  <span className="text-sm text-sand-muted">12&ndash;21 = High</span>
-                </div>
+              <div className="space-y-2">
+                {[
+                  { range: "0", label: "No risk", color: "bg-forest/40" },
+                  { range: "1 -- 7", label: "Low risk", color: "bg-forest" },
+                  { range: "8 -- 11", label: "Moderate risk", color: "bg-ember" },
+                  { range: "12 -- 21", label: "High risk", color: "bg-red-400" },
+                ].map((r) => (
+                  <div key={r.range} className="flex items-center gap-3">
+                    <div className={`w-8 h-2 rounded-full ${r.color}`} />
+                    <span className="text-sm text-sand-muted">
+                      <span className="font-mono text-sand-muted/50">{r.range}</span>
+                      {" "}&mdash; {r.label}
+                    </span>
+                  </div>
+                ))}
               </div>
             </div>
 
-            <div className="mt-6 flex gap-3">
+            {/* Actions */}
+            <div className="flex flex-col sm:flex-row gap-3 mb-10">
               <button
-                onClick={reset}
-                className="px-6 py-3 rounded-xl bg-night-card border border-night-border text-sand text-sm font-semibold hover:border-ember/40 transition-colors"
+                onClick={restart}
+                className="flex-1 px-6 py-4 rounded-xl bg-night-card border border-night-border text-sand font-display font-semibold text-sm hover:border-ember/40 transition-colors text-center"
               >
                 Calculate Again
               </button>
               <Link
                 href="/research/wilding-pines"
-                className="px-6 py-3 rounded-xl bg-ember text-night text-sm font-semibold hover:bg-ember-light transition-colors"
+                className="flex-1 px-6 py-4 rounded-xl bg-ember text-night font-display font-semibold text-sm hover:bg-ember-light transition-colors text-center"
               >
-                Learn More About Wilding Pines
+                Learn More About Wildings
               </Link>
             </div>
+
+            {/* Source */}
+            <div className="border-t border-night-border pt-6">
+              <p className="text-xs text-sand-muted/30 leading-relaxed">
+                Based on the Decision Support System &ldquo;Calculating Wilding Spread Risk From New
+                Plantings&rdquo; (DSS1, version 07011, June 2012) by T.S.H. Paul, Scion Research.
+                Published by the Ministry for Primary Industries. This is an initial assessment
+                tool &mdash; multiple calculations may be needed for sites with different topography,
+                species, or downwind conditions.
+              </p>
+            </div>
           </div>
         )}
-
-        {/* Source attribution */}
-        <div className="border-t border-night-border pt-8 mt-8">
-          <p className="text-xs text-sand-muted/40 leading-relaxed">
-            Based on the Decision Support System &ldquo;Calculating Wilding Spread Risk From New
-            Plantings&rdquo; (DSS1, version 07011, June 2012) by T.S.H. Paul, Scion Research.
-            Published by the Ministry for Primary Industries. This calculator is for initial
-            assessment only &mdash; multiple calculations may be needed for sites with different
-            topography, species, or downwind conditions.
-          </p>
-        </div>
       </div>
     </div>
   );
 }
 
-/* ── Sub-components ─────────────────────────────────────────────── */
+/* ── Sub-components ───────────────────────────────────────────────── */
 
-function IndicatorCard({
-  step,
+function InfoBlock({
+  icon,
   title,
-  subtitle,
-  description,
-  scoreRange,
-  zeroNote,
-  children,
+  text,
 }: {
-  step: number;
+  icon: React.ReactNode;
   title: string;
-  subtitle: string;
-  description: string;
-  scoreRange: string;
-  zeroNote?: string;
-  children: React.ReactNode;
+  text: string;
 }) {
   return (
-    <div className="rounded-2xl border border-night-border bg-night-card overflow-hidden">
-      <div className="px-6 pt-6 pb-4">
-        <div className="flex items-start justify-between mb-2">
-          <div className="flex items-center gap-3">
-            <span className="flex items-center justify-center w-8 h-8 rounded-lg bg-ember/15 text-ember text-sm font-display font-bold">
-              {step}
-            </span>
-            <div>
-              <h2 className="font-display text-xl text-sand">{title}</h2>
-              <p className="text-xs text-sand-muted/50 uppercase tracking-wider">{subtitle}</p>
-            </div>
-          </div>
-          <span className="text-xs text-sand-muted/40 bg-night rounded-lg px-2.5 py-1 font-mono">
-            {scoreRange} pts
-          </span>
-        </div>
-        <p className="text-sm text-sand-muted/70 leading-relaxed mt-2">{description}</p>
-        {zeroNote && (
-          <p className="text-xs text-forest/70 mt-1">{zeroNote}</p>
-        )}
+    <div className="flex gap-4 p-4 rounded-xl bg-night-card border border-night-border">
+      <div className="flex-shrink-0 w-10 h-10 rounded-lg bg-ember/10 flex items-center justify-center text-ember">
+        {icon}
       </div>
-      <div className="px-6 pb-6">{children}</div>
-    </div>
-  );
-}
-
-function RadioGroup({
-  options,
-  selected,
-  onSelect,
-  scores,
-}: {
-  options: { label: string; sublabel: string }[];
-  selected: number | null;
-  onSelect: (idx: number) => void;
-  scores: number[];
-}) {
-  return (
-    <div className="space-y-2">
-      {options.map((opt, i) => {
-        const isSelected = selected === i;
-        return (
-          <button
-            key={i}
-            onClick={() => onSelect(i)}
-            className={`w-full text-left px-4 py-3 rounded-xl border transition-all flex items-start gap-3 group ${
-              isSelected
-                ? "border-ember/60 bg-ember/10"
-                : "border-night-border hover:border-sand-muted/20 bg-night/40"
-            }`}
-          >
-            <span
-              className={`mt-0.5 flex-shrink-0 w-5 h-5 rounded-full border-2 flex items-center justify-center transition-colors ${
-                isSelected
-                  ? "border-ember bg-ember"
-                  : "border-sand-muted/30 group-hover:border-sand-muted/50"
-              }`}
-            >
-              {isSelected && (
-                <svg width="10" height="10" viewBox="0 0 12 12" fill="none">
-                  <path d="M2 6l3 3 5-5" stroke="#0B0F0E" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                </svg>
-              )}
-            </span>
-            <div className="flex-1 min-w-0">
-              <div className="flex items-center justify-between gap-2">
-                <span className={`text-sm leading-snug ${isSelected ? "text-sand" : "text-sand-muted"}`}>
-                  {opt.label}
-                </span>
-                <span
-                  className={`flex-shrink-0 text-xs font-mono px-2 py-0.5 rounded ${
-                    isSelected ? "bg-ember/20 text-ember" : "bg-night text-sand-muted/40"
-                  }`}
-                >
-                  {scores[i]}
-                </span>
-              </div>
-              {opt.sublabel && (
-                <span className="text-xs text-sand-muted/40 mt-0.5 block">{opt.sublabel}</span>
-              )}
-            </div>
-          </button>
-        );
-      })}
-    </div>
-  );
-}
-
-function ScoreChip({ label, score }: { label: string; score: number }) {
-  return (
-    <div className="bg-night/40 rounded-lg p-3 text-center">
-      <div className="text-lg font-display font-bold text-sand">{score}</div>
-      <div className="text-xs text-sand-muted/50">{label}</div>
+      <div>
+        <h3 className="font-display text-sm font-semibold text-sand mb-1">{title}</h3>
+        <p className="text-sm text-sand-muted/60 leading-relaxed">{text}</p>
+      </div>
     </div>
   );
 }
