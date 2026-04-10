@@ -38,7 +38,7 @@ export default function Home() {
             <Link href="#join" className="inline-flex items-center justify-center bg-ember text-night font-semibold text-sm uppercase tracking-wider px-7 py-3.5 rounded hover:bg-ember-light transition-all">
               Try Your First Session
             </Link>
-            <p className="text-sand-muted/40 text-sm mt-3">Free with your QLDC Alpine Gym membership.</p>
+            <p className="text-sand-muted/40 text-sm mt-3">Free — your workout funds itself.</p>
           </div>
         </div>
       </section>
@@ -116,21 +116,47 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Free with Alpine Gym */}
-      <section className="py-14 bg-ember">
-        <div className="max-w-6xl mx-auto px-6 text-center">
-          <h2 className="font-display text-[clamp(1.4rem,3vw,2.2rem)] tracking-tight text-night">
-            Free With Your QLDC Alpine Gym Membership
+      {/* Why It's Free — the funding story */}
+      <section className="py-20 md:py-28 bg-night">
+        <div className="max-w-6xl mx-auto px-6">
+          <Tag>Why It&apos;s Free</Tag>
+          <h2 className="font-display text-[clamp(1.6rem,4vw,2.8rem)] tracking-tight text-sand text-center mt-2">
+            Your Workout Pays for Itself.
           </h2>
-          <p className="text-night/70 mt-3 max-w-lg mx-auto">
-            No separate fees. No sign-up hassle. If you&apos;re an Alpine Gym member, Woodsmen sessions are included. Just show up.
+          <p className="text-sand-muted text-center max-w-2xl mx-auto mt-4 leading-relaxed">
+            The council would pay contractors to clear wilding pines. At Woodsmen, you do that work as your workout. The value of the removal funds the programme. That&apos;s why it&apos;s free with your QLDC Alpine Gym membership.
           </p>
-          <div className="flex flex-wrap justify-center gap-3 mt-6">
-            <Link href="/membership" className="inline-flex items-center justify-center bg-night text-sand font-semibold text-sm uppercase tracking-wider px-7 py-3.5 rounded hover:bg-night-light transition-all">
+
+          {/* Virtuous cycle */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-14 max-w-3xl mx-auto">
+            <CycleCard
+              icon={<TreeIcon />}
+              title="You Clear Pines"
+              desc="Every session removes invasive wilding pines that threaten native ecosystems. Real conservation work, not a simulation."
+            />
+            <CycleCard
+              icon={<CoinIcon />}
+              title="The Work Has Value"
+              desc="QLDC would pay professional contractors to do the same job. Your effort saves the council real money."
+            />
+            <CycleCard
+              icon={<HeartIcon />}
+              title="So It's Free for You"
+              desc="The value of your work funds the programme. No membership fees. No catch. Just show up and work."
+            />
+          </div>
+
+          <div className="mt-12 bg-ember/10 border border-ember/20 rounded-lg p-6 max-w-2xl mx-auto text-center">
+            <p className="text-ember font-semibold">Everyone wins.</p>
+            <p className="text-sand-muted text-sm mt-1">You get fit. The land gets restored. The council saves on contractors. The community gets stronger.</p>
+          </div>
+
+          <div className="flex flex-wrap justify-center gap-3 mt-8">
+            <Link href="/membership" className="inline-flex items-center justify-center bg-ember text-night font-semibold text-sm uppercase tracking-wider px-7 py-3.5 rounded hover:bg-ember-light transition-all">
               Learn More
             </Link>
-            <Link href="#join" className="inline-flex items-center justify-center bg-night/20 text-night font-semibold text-sm uppercase tracking-wider px-7 py-3.5 rounded border border-night/30 hover:bg-night/30 transition-all">
-              Get Started
+            <Link href="#join" className="inline-flex items-center justify-center bg-sand/10 text-sand font-semibold text-sm uppercase tracking-wider px-7 py-3.5 rounded border border-sand/20 hover:bg-sand/15 transition-all">
+              Get Started Free
             </Link>
           </div>
         </div>
@@ -158,7 +184,7 @@ export default function Home() {
             Ready to Pick Up an Axe?
           </h2>
           <p className="text-sand-muted text-lg max-w-lg mx-auto mt-4">
-            Drop your details and we&apos;ll get you into your first session. Free with your Alpine Gym membership.
+            Drop your details and we&apos;ll get you into your first session. It&apos;s free — the work you do pays for it.
           </p>
           <div className="mt-10">
             <SignupForm buttonText="Count Me In" />
@@ -242,5 +268,41 @@ function FutureStep({ num, title, desc }: { num: string; title: string; desc: st
       <h4 className="font-display text-xs tracking-tight text-sand mt-2">{title}</h4>
       <p className="text-sand-muted/50 text-xs mt-1">{desc}</p>
     </div>
+  );
+}
+
+function CycleCard({ icon, title, desc }: { icon: React.ReactNode; title: string; desc: string }) {
+  return (
+    <div className="text-center">
+      <div className="inline-flex w-12 h-12 items-center justify-center rounded-full bg-night-card border border-night-border text-ember">
+        {icon}
+      </div>
+      <h3 className="font-display text-base tracking-tight text-sand mt-4">{title}</h3>
+      <p className="text-sand-muted text-sm mt-2 leading-relaxed">{desc}</p>
+    </div>
+  );
+}
+
+function TreeIcon() {
+  return (
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+      <path d="M12 22V13" /><path d="M12 13L8 9h8l-4 4Z" /><path d="M12 9L7 4h10l-5 5Z" /><path d="M12 4L9 1h6l-3 3Z" />
+    </svg>
+  );
+}
+
+function CoinIcon() {
+  return (
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+      <circle cx="12" cy="12" r="10" /><path d="M12 6v12" /><path d="M15 9.5c0-1.38-1.34-2.5-3-2.5S9 8.12 9 9.5s1.34 2.5 3 2.5 3 1.12 3 2.5-1.34 2.5-3 2.5" />
+    </svg>
+  );
+}
+
+function HeartIcon() {
+  return (
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+      <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" />
+    </svg>
   );
 }

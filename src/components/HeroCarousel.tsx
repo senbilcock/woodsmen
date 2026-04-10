@@ -51,7 +51,7 @@ export function Hero() {
               <span className="w-1.5 h-1.5 rounded-full bg-forest" /> All equipment provided
             </span>
             <span className="flex items-center gap-2">
-              <span className="w-1.5 h-1.5 rounded-full bg-forest" /> Free with Alpine Gym membership
+              <span className="w-1.5 h-1.5 rounded-full bg-forest" /> Free — funded by the work you do
             </span>
           </div>
         </div>
