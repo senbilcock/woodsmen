@@ -1,25 +1,24 @@
 import type { Metadata } from "next";
-import { Source_Sans_3, DM_Serif_Display } from "next/font/google";
+import { Inter, Space_Grotesk } from "next/font/google";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { ChatBot } from "@/components/ChatBot";
 import "./globals.css";
 
-const sourceSans = Source_Sans_3({
-  variable: "--font-source-sans",
+const inter = Inter({
+  variable: "--font-inter",
   subsets: ["latin"],
 });
 
-const dmSerif = DM_Serif_Display({
-  variable: "--font-dm-serif",
-  weight: "400",
+const spaceGrotesk = Space_Grotesk({
+  variable: "--font-space-grotesk",
   subsets: ["latin"],
 });
 
 export const metadata: Metadata = {
   title: "Woodsmen — Outdoor Community Gym | Queenstown, NZ",
   description:
-    "Get fit clearing invasive wilding pines. Queenstown's first outdoor community gym. Real work. Real fitness. Real community.",
+    "Get fit clearing invasive wilding pines. Queenstown's outdoor community gym. Real work. Real fitness. Real community.",
 };
 
 export default function RootLayout({
@@ -28,7 +27,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${sourceSans.variable} ${dmSerif.variable}`}>
+    <html lang="en" className={`${inter.variable} ${spaceGrotesk.variable}`}>
       <body>
         <Navbar />
         <main>{children}</main>

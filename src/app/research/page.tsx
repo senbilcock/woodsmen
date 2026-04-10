@@ -70,7 +70,7 @@ function renderContent(content: string) {
               {headers.map((h, i) => (
                 <th
                   key={i}
-                  className="text-left px-3 py-2 border-b-2 border-forest/20 text-forest-dark font-semibold bg-stone-100"
+                  className="text-left px-3 py-2 border-b-2 border-forest/30 text-forest font-semibold bg-night-card"
                 >
                   {h}
                 </th>
@@ -79,9 +79,9 @@ function renderContent(content: string) {
           </thead>
           <tbody>
             {rows.map((row, ri) => (
-              <tr key={ri} className="border-b border-stone-200">
+              <tr key={ri} className="border-b border-night-border">
                 {row.map((cell, ci) => (
-                  <td key={ci} className="px-3 py-2 text-stone-600">
+                  <td key={ci} className="px-3 py-2 text-sand-muted">
                     {formatInline(cell)}
                   </td>
                 ))}
@@ -103,7 +103,7 @@ function renderContent(content: string) {
         className="list-disc list-outside ml-5 my-3 space-y-1.5"
       >
         {listItems.map((item, i) => (
-          <li key={i} className="text-stone-600 text-sm leading-relaxed">
+          <li key={i} className="text-sand-muted text-sm leading-relaxed">
             {formatInline(item)}
           </li>
         ))}
@@ -145,14 +145,14 @@ function renderContent(content: string) {
 
       if (first.type === "bold") {
         parts.push(
-          <strong key={key++} className="text-stone-800 font-semibold">
+          <strong key={key++} className="text-sand font-semibold">
             {first.match[1]}
           </strong>
         );
         remaining = remaining.slice(first.index + first.match[0].length);
       } else if (first.type === "italic") {
         parts.push(
-          <em key={key++} className="text-stone-500 italic">
+          <em key={key++} className="text-sand-muted/60 italic">
             {first.match[1]}
           </em>
         );
@@ -164,7 +164,7 @@ function renderContent(content: string) {
             href={first.match[2]}
             target="_blank"
             rel="noopener noreferrer"
-            className="text-forest hover:text-forest-dark underline underline-offset-2"
+            className="text-ember hover:text-ember-light underline underline-offset-2"
           >
             {first.match[1]}
           </a>
@@ -204,7 +204,7 @@ function renderContent(content: string) {
       elements.push(
         <h3
           key={`h3-${i}`}
-          className="text-lg font-bold text-stone-800 mt-8 mb-2"
+          className="text-lg font-bold text-sand mt-8 mb-2"
         >
           {trimmed.replace("### ", "")}
         </h3>
@@ -246,17 +246,17 @@ export default function ResearchPage() {
   const { sections } = parseMarkdown(md);
 
   return (
-    <div className="min-h-screen bg-stone-50 pt-20">
+    <div className="min-h-screen bg-night pt-20">
       {/* Hero */}
-      <section className="bg-forest-dark py-16 px-6">
+      <section className="bg-night-light border-b border-night-border py-16 px-6">
         <div className="max-w-6xl mx-auto">
-          <p className="text-ember-light text-sm font-semibold uppercase tracking-widest mb-3">
+          <p className="text-ember text-sm font-display uppercase tracking-[0.14em] mb-3">
             Research
           </p>
-          <h1 className="font-display text-4xl md:text-5xl text-white mb-4">
+          <h1 className="font-display text-4xl md:text-5xl text-sand mb-4">
             Wilding Pines in New Zealand
           </h1>
-          <p className="text-white/70 text-base max-w-2xl leading-relaxed">
+          <p className="text-sand-muted text-base max-w-2xl leading-relaxed">
             A comprehensive knowledge base on the wilding pine problem —
             species, environmental impacts, control methods, legislation, and
             the latest scientific research. Compiled from 23 verified sources.
@@ -269,7 +269,7 @@ export default function ResearchPage() {
         {/* Sidebar */}
         <nav className="hidden lg:block w-56 shrink-0">
           <div className="sticky top-24">
-            <p className="text-xs font-bold text-stone-400 uppercase tracking-widest mb-4">
+            <p className="text-xs font-display text-sand-muted/50 uppercase tracking-[0.14em] mb-4">
               Sections
             </p>
             <div className="space-y-0.5">
@@ -277,7 +277,7 @@ export default function ResearchPage() {
                 <a
                   key={s.id}
                   href={`#${s.id}`}
-                  className="block text-sm text-stone-500 hover:text-forest-dark py-1.5 px-3 rounded-lg hover:bg-stone-100 transition-colors"
+                  className="block text-sm text-sand-muted/60 hover:text-ember py-1.5 px-3 rounded-lg hover:bg-night-light transition-colors"
                 >
                   {s.title.replace(/^\d+\.\s*/, "")}
                 </a>
@@ -288,8 +288,8 @@ export default function ResearchPage() {
 
         {/* Mobile section nav */}
         <div className="lg:hidden w-full mb-8">
-          <details className="border border-stone-200 rounded-xl bg-white shadow-sm">
-            <summary className="px-4 py-3 text-sm font-semibold text-forest-dark cursor-pointer">
+          <details className="border border-night-border rounded-xl bg-night-card">
+            <summary className="px-4 py-3 text-sm font-semibold text-ember cursor-pointer">
               Jump to section
             </summary>
             <div className="px-4 pb-3 space-y-1">
@@ -297,7 +297,7 @@ export default function ResearchPage() {
                 <a
                   key={s.id}
                   href={`#${s.id}`}
-                  className="block text-sm text-stone-500 hover:text-forest-dark py-1.5 transition-colors"
+                  className="block text-sm text-sand-muted/60 hover:text-ember py-1.5 transition-colors"
                 >
                   {s.title.replace(/^\d+\.\s*/, "")}
                 </a>
@@ -314,7 +314,7 @@ export default function ResearchPage() {
               id={section.id}
               className="mb-14 scroll-mt-24"
             >
-              <h2 className="font-display text-2xl md:text-3xl text-stone-800 mb-4 pb-3 border-b border-stone-200">
+              <h2 className="font-display text-2xl md:text-3xl text-sand mb-4 pb-3 border-b border-night-border">
                 {section.title}
               </h2>
               <div>{renderContent(section.content)}</div>
@@ -331,7 +331,7 @@ export default function ResearchPage() {
             id={section.id}
             className="mb-14 scroll-mt-24"
           >
-            <h2 className="font-display text-2xl md:text-3xl text-stone-800 mb-4 pb-3 border-b border-stone-200">
+            <h2 className="font-display text-2xl md:text-3xl text-sand mb-4 pb-3 border-b border-night-border">
               {section.title}
             </h2>
             <div>{renderContent(section.content)}</div>
