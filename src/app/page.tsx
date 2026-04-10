@@ -14,7 +14,7 @@ export default function Home() {
       <section className="bg-night-light border-y border-night-border py-5">
         <div className="max-w-6xl mx-auto px-6 flex flex-wrap justify-center items-center gap-8 md:gap-14 text-sand-muted/60 text-sm">
           <span><strong className="text-sand font-display text-2xl tracking-tight">100%</strong> outdoor</span>
-          <span><strong className="text-sand font-display text-2xl tracking-tight">All</strong> ages &amp; levels</span>
+          <span><strong className="text-sand font-display text-2xl tracking-tight">All</strong> fitness levels</span>
           <span><strong className="text-sand font-display text-2xl tracking-tight">0</strong> machines or chainsaws</span>
           <span>Partnered with <strong className="text-sand">DOC</strong> &amp; <strong className="text-sand">QLDC</strong></span>
         </div>

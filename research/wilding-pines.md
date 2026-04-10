@@ -31,6 +31,20 @@
 | 21 | Otago - Herbicide Impacts Thesis | https://ourarchive.otago.ac.nz/esploro/outputs/graduate/The-effects-of-wilding-conifer-control/9926480006101891 |
 | 22 | RNZ - Rats and Possums Eat Seeds | https://www.rnz.co.nz/news/national/521628/new-study-finds-rats-and-possums-are-big-conifer-seed-eaters |
 | 23 | Wilding Pine Control Guidelines (WPN, 2022) | https://wildingpinenetwork.org.nz/wp-content/uploads/2022/10/12308A-A5-Booklet-Wilding-Pine-Aug-2022-WEB.pdf |
+| 24 | Whakatipu Wilding Control Group | https://whakatipuwilding.co.nz/ |
+| 25 | Whakatipu Wilding - About | https://whakatipuwilding.co.nz/about-whakatipu-wilding-control-group/ |
+| 26 | Whakatipu Wilding - Operational Work | https://whakatipuwilding.co.nz/operational-work/ |
+| 27 | Whakatipu Wilding - National Programme | https://whakatipuwilding.co.nz/national-programme/ |
+| 28 | Whakatipu Wilding - Fire Hazard | https://whakatipuwilding.co.nz/fire-hazard/ |
+| 29 | Whakatipu Wilding - Adopt a Plot | https://whakatipuwilding.co.nz/adopt-a-plot/ |
+| 30 | Whakatipu Wilding - Stakeholders | https://whakatipuwilding.co.nz/stakeholders-supporters/ |
+| 31 | Beehive - Wakatipu Partnership | https://www.beehive.govt.nz/release/wakatipu-partnership-target-wilding-pines |
+| 32 | ORC - Shotover Maintenance Phase | https://www.orc.govt.nz/your-council/latest-news/news/2024/april/management-of-shotover-wilding-conifers-moves-to-maintenance-only-phase/ |
+| 33 | Crux - Wilding Pines $7m Boost | https://crux.org.nz/crux-news/wilding-pines-control-gets-7m-boost/ |
+| 34 | RealNZ - Walter Peak Restoration | https://www.realnz.com/en/conservation/conservation/key-conservation-projects/walter-peak-land-restoration-project/ |
+| 35 | QLDC - Te Tapunui Queenstown Hill Plan | https://www.qldc.govt.nz/2025/june/25-06-05-a-plan-to-restore-biodiversity-on-te-tapunui-queenstown-hill/ |
+| 36 | QLDC - Wakatipu Wilding Conifer Strategy (2008) | https://www.qldc.govt.nz/media/ic2mxjds/wakatipu-wilding-conifer-strategy.pdf |
+| 37 | Sapere - Cost-Benefit Analysis | https://srgexpert.com/resource/benefits-and-costs-of-additional-investment-in-wilding-conifer-control/ |
 
 ---
 
@@ -660,7 +674,184 @@ Edwards et al. (2020) surveyed public acceptance of control methods:
 
 ---
 
-## 12. Future Challenges
+## 12. The Wakatipu Wilding Conifer Strategy
+
+### 12.1 Overview and Governance
+
+The **Whakatipu Wilding Control Group (WCG)** is a community-led, not-for-profit incorporated society established by QLDC in 2009. It coordinates all wilding conifer control across the Wakatipu Basin — approximately **80,000 hectares** of public and private land infested with wilding pines. The group won the **2022 New Zealand Business Awards** for its impact on landscape protection.
+
+The strategy has evolved through three phases:
+- **2008-2012:** Original "Wakatipu Wilding Conifer Strategy" prepared by Colin Day and Nick Ledgard for QLDC
+- **2013-2017:** Second strategic period
+- **2023-2033:** Current strategic plan (approved August 2023), emphasising three pillars beyond direct control: community engagement, stakeholder collaboration, and funding security
+
+*Sources: [24], [25], [36]*
+
+### 12.2 Geographic Coverage
+
+The total operational area covers approximately **67,000 hectares** across six management units within the National Wilding Conifer Control Programme:
+
+1. **Whakatipu** — the core Queenstown basin area
+2. **Kawarau** — Kawarau Gorge and surrounds
+3. **Shotover** — 66,700 ha covering Mt Aurum, Skippers, Macetown
+4. **Glenorchy** — head of Lake Wakatipu
+5. **Remarkables** — the Remarkables mountain range
+6. **Northern Eyres** — northern Eyre Mountains
+
+Key areas include Ben Lomond, One Mile Basin, Queenstown Hill (Te Tapunui), Crown Range, Cecil Peak, Walter Peak, Bayonets, Coronet Peak Station, Skippers, Macetown, Mt Aurum, Wye Creek Catchment, Bobs Peak, and Gibbston Valley.
+
+*Sources: [24], [27], [32]*
+
+### 12.3 Species Targeted in the Wakatipu
+
+Five main conifer species drive the invasion:
+- **Douglas fir** (Pseudotsuga menziesii) — the dominant species
+- **Contorta pine** (Pinus contorta)
+- **Scots pine** (Pinus sylvestris)
+- **Larch** (Larix spp.)
+- **Corsican pine** (Pinus nigra)
+
+Additional species: Pinus mugo near Gibbston Valley and Pinus radiata on Queenstown Hill.
+
+*Sources: [25]*
+
+### 12.4 Control Techniques
+
+**Ground-based (commercial):**
+- Cut stump with herbicide application (accessible trees)
+- Drill and fill — holes drilled into trunk, filled with herbicide (trees >10cm diameter on difficult terrain)
+- Chainsaw crews and arborist work
+- Logging where economically feasible
+
+**Aerial (commercial):**
+- **ABBA (Aerial Basal Bark Application / "lancing")** — helicopter-mounted wands chemically ringbark tree trunks; used for scattered trees in inaccessible/steep areas
+- **Aerial foliar spray / boom spraying** — used as last resort for dense, inaccessible stands
+- Cost comparison: traditional chainsaw removal at **$4,000/ha** over two days vs. aerial spraying at **$650/ha** in nine minutes — an **84% cost reduction**
+
+**Volunteer/hand removal:**
+- Hand pulling of seedlings
+- Lopping and hand tool clearing (axes, hand saws)
+- All trees GPS-marked before removal and added to the national mapping programme
+
+*Sources: [26], [31]*
+
+### 12.5 Funding
+
+**Total spent:** More than **$26 million** since 2009 on wilding control in the Whakatipu area.
+
+**Specific funding allocations:**
+- **$5 million over 5 years** — early Wakatipu partnership (DOC committed to conducting all operational work)
+- **$100,000/year** — just to hold the line at Cecil Peak alone
+- **$2 million** — Soho Property Ltd investment on Mahu Whenua covenants (private landowner contribution)
+
+**National programme funding flowing to the region:**
+- 2016-2020: $16 million nationally over 4 years (first phase)
+- Budget 2020: $100 million nationally over 4 years
+- October 2023: Additional $7 million from DOC budgets
+- ORC has urged government to commit $15-25 million annually for the next decade
+
+Each of the six Whakatipu management units submits annual funding bids, with successful funding distributed through the Otago Regional Council.
+
+**Economic case:** The Sapere Research Group cost-benefit analysis found **$1 invested in wilding conifer control today provides an economic benefit worth $96 in 50 years** — a benefit-cost ratio of **20:1 to 34:1**.
+
+*Sources: [24], [31], [33], [37]*
+
+### 12.6 Results Achieved
+
+**2025 headline figures:**
+- **96,550** pest trees removed
+- **605** volunteers contributing **5,000+** hours of ground work
+
+**Area-specific results:**
+
+**Shotover (66,700 ha):** After 16 years of effort, shifted to **maintenance-only phase** in April 2024. All known seeding trees removed. Last seven 100-year-old Douglas fir trees eliminated. Now requires diminishing repeat visits. Native beech forest recovering in treated valleys.
+
+**Cecil Peak / Walter Peak / Bayonets:** **38,000+** wilding pines removed between 2016-2024 (GPS recorded). Approximately 6,000 trees removed per year from Cecil Peak.
+
+**Remarkables:** More than **10,000** trees removed per year.
+
+**Walter Peak (RealNZ restoration):** 155 hectares purchased in 2013; 4,000 tonnes of timber logged in winter 2015; 15.4 hectares sprayed; **21,500+** native shrubs and trees replanted by 2017.
+
+**Crown Range:** A single maintenance project cleared over **73,000** wilding pine seedlings.
+
+**Largest operational year:** 153 operations over 54,000 hectares.
+
+*Sources: [24], [7], [32], [34]*
+
+### 12.7 The Community Programme
+
+**Ben Lomond Adopt-a-Plot:**
+- Individuals, families, schools, and businesses adopt specific plots on Ben Lomond and One Mile Basin
+- Requires 2-3 days per year of hand clearing per plot
+- WCG Volunteer Coordinator provides training, advice, and tool/equipment loans
+- Plot boundaries marked with signs along the Ben Lomond track
+- Supported by DOC, QLDC, and Skyline Queenstown
+
+**General volunteering:**
+- Regular organised events with provided hand tools
+- 605 volunteers and 5,000+ hours in 2025
+- Annual Community Reporting Night held each September
+
+*Sources: [6], [29]*
+
+### 12.8 Fire Risk
+
+Wilding pines are a major wildfire hazard in the Wakatipu:
+
+- The **Queenstown Red Zone** (Rat Point to Arthurs Point) was designated after the 2005 Closeburn fire
+- Wilding infestation mapping almost exactly matches the most extreme fire risk areas
+- Dense wilding pines increase fire intensity and suppression resource requirements
+- The **Lake Ohau wildfire (2020)** burned 5,000+ hectares of largely wilding pine; **$1.2 million** suppression cost; approximately **$35 million** in insurance losses
+- QLDC implements reserve closures on Ben Lomond, Queenstown Hill, and Mt Iron based on FENZ fire weather indices
+- Removing the Queenstown Hill seed source is a key objective of the Te Tapunui plan partly for wildfire risk reduction
+
+*Sources: [28]*
+
+### 12.9 Partner Organisations
+
+**Government:** QLDC, DOC, ORC, LINZ, MPI/Biosecurity NZ, FENZ, SCION
+
+**Trusts and conservation groups:** QEII National Trust, Whakatipu Wildlife Trust, Whakatipu Reforestation Trust, Routeburn Dart Wildlife Trust, Southern Lakes Sanctuary, Arrowtown Wilding Group, Queenstown Trails Trust, Wilding Pine Network, Otago and Southland Fish & Game
+
+**Corporate/private:** Skyline Queenstown, Soho Property Ltd ($2m invested), RealNZ, Todd & Walker Law, Ecofund, Pioneer Energy, plus 20+ private stations including Cecil Peak, Walter Peak, Mt Nicholas, and Coronet Peak stations
+
+*Sources: [30]*
+
+### 12.10 Recent Developments (2023-2026)
+
+- **August 2023:** New WCG Strategic Plan 2023-2033 approved
+- **October 2023:** $7 million additional national funding announced from DOC budgets
+- **April 2024:** Shotover management area reaches maintenance-only phase after 16 years
+- **Late 2024:** Two new WCG Executive Members appointed; Pinus mugo infestation noted near Gibbston Valley
+- **Early 2025:** Jack Cocks appointed as new WCG Project Manager
+- **2025:** 96,550 trees removed; 605 volunteers; Upper Clutha Wilding Tree Group formed as regional expansion
+- **June 2025:** QLDC adopts Te Tapunui Queenstown Hill Reserve Forestry Management Plan — staged removal of wilding conifers, replanting with native and non-invasive exotic species in three zones
+- **Key threat:** Government budget cuts identified by WCG Chairman Grant Hensman as the chief risk to sustained success
+
+*Sources: [24], [33], [35], [7]*
+
+### 12.11 Key Numbers
+
+| Metric | Figure |
+|--------|--------|
+| Total infested area (Wakatipu) | ~80,000 ha |
+| Operational area | ~67,000 ha |
+| Total spend since 2009 | >$26 million |
+| Trees removed in 2025 | 96,550 |
+| Volunteers in 2025 | 605 |
+| Volunteer hours in 2025 | 5,000+ |
+| Crown Range single project | 73,000+ seedlings cleared |
+| Cecil Peak annual removal | ~6,000 trees/year |
+| Remarkables annual removal | 10,000+ trees/year |
+| Cecil/Walter/Bayonets 2016-2024 | 38,000+ trees (GPS recorded) |
+| Walter Peak natives replanted | 21,500+ |
+| Otago land affected | 295,830 ha (8.4% of region) |
+| Benefit-cost ratio | 20:1 to 34:1 |
+| Aerial spray vs chainsaw cost | $650/ha vs $4,000/ha |
+
+---
+
+## 13. Future Challenges
 
 1. **Funding gap:** The $100M Budget 2020 allocation expired; current ~$12M/year widely regarded as insufficient. Re-invasion of previously cleared land means past investment at risk without sustained follow-up.
 
@@ -686,7 +877,7 @@ Edwards et al. (2020) surveyed public acceptance of control methods:
 
 ---
 
-## 13. Community Involvement
+## 14. Community Involvement
 
 ### How to Help
 - **iNaturalist:** Citizens can document wilding sightings with whole-tree photos, cone/needle/bark close-ups, location, and date
@@ -708,9 +899,9 @@ Edwards et al. (2020) surveyed public acceptance of control methods:
 
 ---
 
-## 14. Arborist Training and Careers in New Zealand
+## 15. Arborist Training and Careers in New Zealand
 
-### 14.1 Otago Polytechnic - Arboriculture Programme
+### 15.1 Otago Polytechnic - Arboriculture Programme
 **Source:** https://www.op.ac.nz/study/horticulture/arboriculture
 
 - Arboriculture: specialised field involving pruning, felling, transplanting and maintaining the health of trees and shrubs
@@ -720,7 +911,7 @@ Edwards et al. (2020) surveyed public acceptance of control methods:
 - Contact: 0800 762 786 / +64 3 477 3014
 - Apply online: online.op.ac.nz/apply
 
-### 14.2 Primary ITO - NZ Apprenticeship in Arboriculture
+### 15.2 Primary ITO - NZ Apprenticeship in Arboriculture
 **Source:** https://www.primaryito.ac.nz/programme-listing-page/new-zealand-apprenticeship-in-arboriculture
 
 - **Levels:** Level 3 and Level 4
@@ -736,7 +927,7 @@ Edwards et al. (2020) surveyed public acceptance of control methods:
 
 **Progression:** Fully qualified arborist status requires Level 5 qualifications
 
-### 14.3 Treescape - Arborist Employer
+### 15.3 Treescape - Arborist Employer
 **Source:** https://www.treescape.co.nz/experienced-arborists/arborist/
 
 - NZ's largest Green Asset Management provider (operating since 1981)
