@@ -15,7 +15,7 @@ export function Footer() {
               Outdoor Community Gym<br />Queenstown, New Zealand
             </p>
             <p className="text-sand-muted/50 text-xs mt-4">
-              Free with your QLDC Alpine Gym membership.
+              $15/week. All sessions. All equipment.
             </p>
           </div>
 

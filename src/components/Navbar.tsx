@@ -59,7 +59,7 @@ export function Navbar() {
               href="/#join"
               className="hidden sm:inline-flex items-center justify-center bg-ember text-night font-semibold text-xs tracking-wider uppercase px-5 py-2.5 rounded hover:bg-ember-light transition-all"
             >
-              Get Started Free
+              Get Started
             </Link>
 
             {/* Mobile hamburger */}
@@ -84,7 +84,7 @@ export function Navbar() {
             <MobileLink href="/calculator" onClick={() => setOpen(false)}>Risk Calculator</MobileLink>
             <div className="border-t border-night-border pt-4 mt-2">
               <Link href="/#join" onClick={() => setOpen(false)} className="inline-flex items-center justify-center w-full bg-ember text-night font-semibold text-sm uppercase tracking-wider px-6 py-3 rounded transition-all">
-                Get Started Free
+                Get Started
               </Link>
             </div>
           </div>

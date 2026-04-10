@@ -17,10 +17,10 @@ export default function MembershipPage() {
         <div className="relative z-10 max-w-6xl mx-auto px-6">
           <p className="text-ember font-display text-xs tracking-[0.14em] uppercase mb-4">Membership</p>
           <h1 className="font-display text-[clamp(2.5rem,6vw,4.5rem)] leading-[1] tracking-tight text-sand max-w-lg">
-            Free. Because Your Workout Pays for Itself.
+            $15/Week. Because Your Workout Pays for Most of&nbsp;It.
           </h1>
           <p className="text-sand-muted text-lg mt-4 max-w-lg">
-            The council would pay contractors to clear wilding pines. You do that work as your workout. So it costs you nothing.
+            All sessions. All equipment. Coached and structured. A fraction of what any gym charges — because the work you do has real value.
           </p>
         </div>
       </header>
@@ -30,10 +30,10 @@ export default function MembershipPage() {
         <div className="max-w-6xl mx-auto px-6">
           <Tag>How It Works</Tag>
           <h2 className="font-display text-[clamp(1.6rem,4vw,2.4rem)] tracking-tight text-sand text-center mt-2">
-            A Gym That Pays for Itself
+            Why It&apos;s Only $15
           </h2>
           <p className="text-sand-muted text-center max-w-2xl mx-auto mt-4 leading-relaxed">
-            Wilding pine removal is funded conservation work. QLDC would pay contractors to do it. At Woodsmen, you do that work as your workout — and the value of the removal funds the programme. That&apos;s why sessions are free with your Alpine Gym membership.
+            Wilding pine removal is funded conservation work. QLDC would pay contractors thousands to do it. At Woodsmen, you do that work as your workout — and the value of the removal subsidises the programme. That&apos;s why $15/week gets you everything.
           </p>
           <div className="grid grid-cols-1 md:grid-cols-4 gap-5 mt-12 max-w-3xl mx-auto">
             <div className="bg-night-card border border-night-border rounded-lg p-5 text-center">
@@ -53,15 +53,15 @@ export default function MembershipPage() {
             </div>
             <div className="bg-night-card border border-ember/30 rounded-lg p-5 text-center">
               <span className="text-ember font-display text-3xl">4</span>
-              <p className="text-sand text-sm font-semibold mt-2">You get fit free</p>
-              <p className="text-sand-muted/60 text-xs mt-1">The savings fund your sessions</p>
+              <p className="text-sand text-sm font-semibold mt-2">You pay just $15</p>
+              <p className="text-sand-muted/60 text-xs mt-1">The savings subsidise your membership</p>
             </div>
           </div>
 
           <div className="mt-12 max-w-xl mx-auto">
             <h3 className="font-display text-base tracking-tight text-sand text-center mb-6">How to Join</h3>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              <JoinStep num="1" title="Get Alpine Gym Membership" desc="Sign up at QLDC Alpine Gym. Woodsmen is included." />
+              <JoinStep num="1" title="Sign Up" desc="$15/week. No lock-in contracts. Cancel anytime." />
               <JoinStep num="2" title="Register for Sessions" desc="Drop your details and we'll book you in." />
               <JoinStep num="3" title="Show Up" desc="Sturdy boots, water bottle. We provide everything else." />
             </div>

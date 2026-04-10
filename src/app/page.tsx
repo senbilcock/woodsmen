@@ -38,7 +38,7 @@ export default function Home() {
             <Link href="#join" className="inline-flex items-center justify-center bg-ember text-night font-semibold text-sm uppercase tracking-wider px-7 py-3.5 rounded hover:bg-ember-light transition-all">
               Try Your First Session
             </Link>
-            <p className="text-sand-muted/40 text-sm mt-3">Free — your workout funds itself.</p>
+            <p className="text-sand-muted/40 text-sm mt-3">Just $15/week. All equipment included.</p>
           </div>
         </div>
       </section>
@@ -116,15 +116,15 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Why It's Free — the funding story */}
+      {/* Why $15/week — the funding story */}
       <section className="py-20 md:py-28 bg-night">
         <div className="max-w-6xl mx-auto px-6">
-          <Tag>Why It&apos;s Free</Tag>
+          <Tag>$15/Week</Tag>
           <h2 className="font-display text-[clamp(1.6rem,4vw,2.8rem)] tracking-tight text-sand text-center mt-2">
-            Your Workout Pays for Itself.
+            Why a Gym Membership Costs Less Than a Coffee a Day.
           </h2>
           <p className="text-sand-muted text-center max-w-2xl mx-auto mt-4 leading-relaxed">
-            The council would pay contractors to clear wilding pines. At Woodsmen, you do that work as your workout. The value of the removal funds the programme. That&apos;s why it&apos;s free with your QLDC Alpine Gym membership.
+            The council would pay contractors thousands to clear wilding pines. At Woodsmen, you do that work as your workout. The value of your labour subsidises the programme — keeping your membership at just $15/week.
           </p>
 
           {/* Virtuous cycle */}
@@ -136,13 +136,13 @@ export default function Home() {
             />
             <CycleCard
               icon={<CoinIcon />}
-              title="The Work Has Value"
-              desc="QLDC would pay professional contractors to do the same job. Your effort saves the council real money."
+              title="The Work Has Real Value"
+              desc="QLDC would pay professional contractors to do the same job. Your effort saves the council real money — and that subsidy flows back to you."
             />
             <CycleCard
               icon={<HeartIcon />}
-              title="So It's Free for You"
-              desc="The value of your work funds the programme. No membership fees. No catch. Just show up and work."
+              title="So You Pay Almost Nothing"
+              desc="$15/week. All sessions. All equipment. Coached, structured, and scaleable. A fraction of what any gym charges."
             />
           </div>
 
@@ -152,11 +152,11 @@ export default function Home() {
           </div>
 
           <div className="flex flex-wrap justify-center gap-3 mt-8">
-            <Link href="/membership" className="inline-flex items-center justify-center bg-ember text-night font-semibold text-sm uppercase tracking-wider px-7 py-3.5 rounded hover:bg-ember-light transition-all">
-              Learn More
+            <Link href="#join" className="inline-flex items-center justify-center bg-ember text-night font-semibold text-sm uppercase tracking-wider px-7 py-3.5 rounded hover:bg-ember-light transition-all">
+              Join for $15/Week
             </Link>
-            <Link href="#join" className="inline-flex items-center justify-center bg-sand/10 text-sand font-semibold text-sm uppercase tracking-wider px-7 py-3.5 rounded border border-sand/20 hover:bg-sand/15 transition-all">
-              Get Started Free
+            <Link href="/membership" className="inline-flex items-center justify-center bg-sand/10 text-sand font-semibold text-sm uppercase tracking-wider px-7 py-3.5 rounded border border-sand/20 hover:bg-sand/15 transition-all">
+              See Full Programme
             </Link>
           </div>
         </div>
@@ -184,7 +184,7 @@ export default function Home() {
             Ready to Pick Up an Axe?
           </h2>
           <p className="text-sand-muted text-lg max-w-lg mx-auto mt-4">
-            Drop your details and we&apos;ll get you into your first session. It&apos;s free — the work you do pays for it.
+            $15/week. All sessions. All equipment. Drop your details and we&apos;ll get you started.
           </p>
           <div className="mt-10">
             <SignupForm buttonText="Count Me In" />
