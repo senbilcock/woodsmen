@@ -31,7 +31,7 @@ export default function Home() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-14">
             <StepCard num="01" image="/images/axe.jpg" title="We Work the Land" desc="Invasive wilding pines are NZ's #1 ecological threat. Our sessions are structured workouts that clear them — all by hand. No chainsaws, no trucks. Just quiet, purposeful work." />
             <StepCard num="02" image="/images/firewood.jpg" title="You Get Brutally Fit" desc="Axe swings build explosive power. Log carries build raw strength. Every 75-minute session is coached, scaled, and designed to push you." />
-            <StepCard num="03" image="/images/community.jpg" title="You Find Your People" desc="The people you sweat alongside become your crew. All ages, all backgrounds. On Fridays we plant natives and share a meal." />
+            <StepCard num="03" image="/images/community.jpg" title="You Find Your People" desc="The people you sweat alongside become your crew. All ages, all backgrounds. Rest days mean seed missions, native planting, and restoring what we clear — together." />
           </div>
 
           <div className="text-center mt-12">
@@ -48,14 +48,16 @@ export default function Home() {
         <div className="max-w-6xl mx-auto px-6">
           <Tag>Weekly Programme</Tag>
           <h2 className="font-display text-[clamp(1.6rem,4vw,2.8rem)] tracking-tight text-sand text-center mt-2">
-            Five Sessions. One Mission. Something for Every&nbsp;Body.
+            Six Sessions. One Mission. Something for Every&nbsp;Body.
           </h2>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mt-14">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mt-14">
             <SessionCard day="Mon" name="The Fell" type="Strength & Skill" desc="Axe and hand-saw work — no chainsaws. Technique drills, partner felling, quiet log processing." image="/images/axe.jpg" />
             <SessionCard day="Tue" name="AxeFit" type="HIIT & Power" desc="Chopping circuits, splitting rounds, timed efforts. CrossFit meets a woodshed." image="/images/firewood.jpg" />
+            <SessionCard day="Wed" name="Seed Mission" type="Active Recovery" desc="Collect native seed from local beech, manuka, and coprosma. Process, store, and prep for planting. A rest day that restores the land." image="/images/planting.jpg" />
             <SessionCard day="Thu" name="Firewood Carry" type="Cardio & Strength" desc="Loaded carries, log shuttles, sled drags, team relays through bush." image="/images/carry.jpg" />
-            <SessionCard day="Fri" name="Social Planting" type="Community" desc="Plant native seedlings, build erosion barriers, then kai and a yarn." image="/images/planting.jpg" />
+            <SessionCard day="Fri" name="Restore" type="Conservation" desc="Plant natives into cleared sites, pull weeds and wilding seedlings, maintain seed islands. The work that comes after the trees fall." image="/images/community.jpg" />
+            <SessionCard day="Sat" name="The Long One" type="Expedition" desc="Monthly backcountry mission. Seed drops on remote cleared sites, trail work, or a group expedition into the high country." image="/images/mountain.jpg" />
           </div>
 
           <div className="mt-14">
@@ -64,8 +66,42 @@ export default function Home() {
         </div>
       </section>
 
+      {/* The Full Cycle */}
+      <section className="py-20 md:py-28 bg-night">
+        <div className="max-w-6xl mx-auto px-6">
+          <Tag>Remove. Restore. Repeat.</Tag>
+          <h2 className="font-display text-[clamp(1.6rem,4vw,2.8rem)] tracking-tight text-sand text-center mt-2">
+            We Don&apos;t Just Cut Trees Down.<br className="hidden md:block" /> We Bring the Native Forest&nbsp;Back.
+          </h2>
+          <p className="text-sand-muted text-center max-w-2xl mx-auto mt-4 leading-relaxed">
+            When wilding pines are removed, there&apos;s a narrow window to get natives established before weeds take over. Our rest day sessions are designed around that science.
+          </p>
+
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mt-14">
+            <CycleStep num="01" title="Remove" desc="Hard sessions fell invasive pines by hand. Axe work, hand saws, quiet removal that doesn't disturb the hillside." />
+            <CycleStep num="02" title="Collect" desc="Seed missions gather native beech, manuka, and coprosma from local sources. Processed and stored at the clubrooms." />
+            <CycleStep num="03" title="Restore" desc="Seed is broadcast into cleared sites during the sweet spot — after herbicide fades but before weeds establish. Natives go back in." />
+            <CycleStep num="04" title="Maintain" desc="Ongoing rest day sessions pull weeds, clear seedling competitors, and monitor growth. Light work, real impact, community time." />
+          </div>
+
+          <div className="mt-12 bg-forest/10 border border-forest/20 rounded-lg p-6 max-w-3xl mx-auto">
+            <div className="flex items-start gap-4">
+              <div className="shrink-0 mt-0.5">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-forest">
+                  <path d="M4 19.5A2.5 2.5 0 016.5 17H20" /><path d="M6.5 2H20v20H6.5A2.5 2.5 0 014 19.5v-15A2.5 2.5 0 016.5 2z" />
+                </svg>
+              </div>
+              <div>
+                <p className="text-forest font-semibold text-sm">Backed by research</p>
+                <p className="text-sand-muted text-sm mt-1">The Wakatipu Beech Seeding Project (WCG/Scion/University of Otago) found that cleared wilding sites must be colonised with natives fast — or weeds win. The window is 6-24 months after treatment. Our programme is built around hitting that window.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* The Mission */}
-      <section id="why" className="py-20 md:py-28 bg-night">
+      <section id="why" className="py-20 md:py-28 bg-night-light">
         <div className="max-w-6xl mx-auto px-6">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>
@@ -79,13 +115,63 @@ export default function Home() {
               </div>
               <div className="mt-8 bg-forest/10 border border-forest/20 rounded-lg p-5">
                 <p className="text-forest font-semibold text-sm">Woodsmen fixes both.</p>
-                <p className="text-sand-muted text-sm mt-1">Get fit doing meaningful outdoor work. Build community doing it together. Train hard enough and you might end up competing in Timbersports.</p>
+                <p className="text-sand-muted text-sm mt-1">Get fit removing pines. Restore the land by planting natives. Build community doing it together. Train hard enough and you might end up competing in Timbersports.</p>
               </div>
             </div>
             <div className="relative aspect-[4/5] rounded-lg overflow-hidden">
               <Image src="/images/mountain.jpg" alt="NZ high country" fill className="object-cover" />
               <div className="absolute inset-0 bg-gradient-to-t from-night/60 to-transparent" />
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Native Queenstown Showcase */}
+      <section className="py-20 md:py-28 bg-night">
+        <div className="max-w-6xl mx-auto px-6">
+          <Tag>This Is What We&apos;re Restoring</Tag>
+          <h2 className="font-display text-[clamp(1.6rem,4vw,2.8rem)] tracking-tight text-sand text-center mt-2">
+            Native Queenstown Is&nbsp;Stunning.
+          </h2>
+          <p className="text-sand-muted text-center max-w-2xl mx-auto mt-4 leading-relaxed">
+            These places show what happens when native bush is protected. This is the future we&apos;re working towards — on every hillside we clear.
+          </p>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-14">
+            <NativeSpot
+              name="Big Hill"
+              desc="Ancient beech forest with towering canopy and rich understory. One of the best examples of what Queenstown's hillsides looked like before wilding pines."
+              image="/images/forest.jpg"
+            />
+            <NativeSpot
+              name="One Mile Creek"
+              desc="Native bush corridor running right through town. Ribbonwood, broadleaf, and tree fuchsia alongside the creek — proof that nature thrives when invasives are kept out."
+              image="/images/mountain.jpg"
+            />
+            <NativeSpot
+              name="Bobs Cove"
+              desc="DOC reserve with mature native forest reaching the lake edge. Mountain beech, kamahi, and tree ferns creating the classic NZ bush experience — minutes from town."
+              image="/images/planting.jpg"
+            />
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
+            <NativeSpot
+              name="Kelvin Heights Peninsula"
+              desc="Regenerating native bush on the peninsula, with views across the lake. Manuka and coprosma establishing naturally where wildings have been controlled."
+              image="/images/carry.jpg"
+            />
+            <NativeSpot
+              name="Queenstown Gardens"
+              desc="The oldest reserve in Queenstown. Mature natives including totara, kahikatea, and rimu alongside exotic plantings — showing what 150 years of protection delivers."
+              image="/images/community.jpg"
+            />
+          </div>
+
+          <div className="mt-12 text-center">
+            <p className="text-sand-muted text-sm max-w-xl mx-auto leading-relaxed">
+              Every wilding pine we remove opens the door for this. Every seed mission accelerates it. The research says cleared sites need natives within 6-24 months — that&apos;s what our Wednesday and Friday sessions deliver.
+            </p>
           </div>
         </div>
       </section>
@@ -110,7 +196,7 @@ export default function Home() {
             <ClubFeature icon="🪓" title="Earned Entry" desc="Fell your own tree to get your key" />
             <ClubFeature icon="🎱" title="Pool & Games" desc="Pool tables, darts, and a place to hang" />
             <ClubFeature icon="🍺" title="The Bar" desc="Drinks after a hard session with your crew" />
-            <ClubFeature icon="🌿" title="The Nursery" desc="Growing the natives we plant on Fridays" />
+            <ClubFeature icon="🌿" title="The Nursery" desc="Seed processing, native seedlings, and mission planning" />
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mt-12 items-center">
@@ -119,7 +205,7 @@ export default function Home() {
             </div>
             <div className="space-y-4 text-sand-muted text-[15px] leading-relaxed">
               <p>The Clubrooms is where Woodsmen becomes more than a gym. It&apos;s the social hub — events, community nights, Timbersports screenings, fundraisers. A place to be after the work is done.</p>
-              <p>Out back: a native plant nursery on a local paddock property, growing the very seedlings you plant on Fridays. Seed to soil, the full cycle happens here.</p>
+              <p>Out back: the seed bank and nursery. Members collect native beech, manuka, and coprosma seed on Wednesday missions, process and store it at the clubrooms, then broadcast it onto cleared sites on Fridays. Seed to soil — the full cycle happens here.</p>
               <p className="text-sand font-semibold">Think RSA meets surf club meets CrossFit social — but you have to earn your way in.</p>
               <blockquote className="border-l-2 border-ember pl-4 mt-4 italic text-sand-muted/60 text-sm">
                 &ldquo;The best part of CrossFit was the community. Woodsmen takes that same energy and puts it to work — literally.&rdquo;
@@ -152,7 +238,7 @@ export default function Home() {
       </section>
 
       {/* Why $15/week — the funding story */}
-      <section className="py-20 md:py-28 bg-night">
+      <section className="py-20 md:py-28 bg-night-light">
         <div className="max-w-6xl mx-auto px-6">
           <Tag>$15/Week</Tag>
           <h2 className="font-display text-[clamp(1.6rem,4vw,2.8rem)] tracking-tight text-sand text-center mt-2">
@@ -183,7 +269,7 @@ export default function Home() {
 
           <div className="mt-12 bg-ember/10 border border-ember/20 rounded-lg p-6 max-w-2xl mx-auto text-center">
             <p className="text-ember font-semibold">Everyone wins.</p>
-            <p className="text-sand-muted text-sm mt-1">You get fit. The land gets restored. The council saves on contractors. The community gets stronger.</p>
+            <p className="text-sand-muted text-sm mt-1">You get fit. Pines come down. Natives go back in. The council saves on contractors. The community gets stronger.</p>
           </div>
 
           <div className="flex flex-wrap justify-center gap-3 mt-8">
@@ -302,6 +388,32 @@ function FutureStep({ num, title, desc }: { num: string; title: string; desc: st
       <span className="inline-flex w-7 h-7 items-center justify-center rounded-full bg-ember/15 text-ember font-display text-sm">{num}</span>
       <h4 className="font-display text-xs tracking-tight text-sand mt-2">{title}</h4>
       <p className="text-sand-muted/50 text-xs mt-1">{desc}</p>
+    </div>
+  );
+}
+
+function NativeSpot({ name, desc, image }: { name: string; desc: string; image: string }) {
+  return (
+    <div className="group relative rounded-lg overflow-hidden">
+      <div className="relative aspect-[4/3]">
+        <Image src={image} alt={name} fill className="object-cover group-hover:scale-105 transition-transform duration-500" />
+        <div className="absolute inset-0 bg-gradient-to-t from-night via-night/40 to-transparent" />
+      </div>
+      <div className="absolute bottom-0 left-0 right-0 p-5">
+        <span className="text-forest text-[10px] font-display tracking-[0.14em] uppercase">Native Queenstown</span>
+        <h3 className="font-display text-lg tracking-tight text-sand mt-1">{name}</h3>
+        <p className="text-sand-muted/70 text-sm mt-1.5 leading-relaxed">{desc}</p>
+      </div>
+    </div>
+  );
+}
+
+function CycleStep({ num, title, desc }: { num: string; title: string; desc: string }) {
+  return (
+    <div className="text-center">
+      <span className="inline-flex w-10 h-10 items-center justify-center rounded-full bg-forest/15 text-forest font-display text-sm">{num}</span>
+      <h3 className="font-display text-base tracking-tight text-sand mt-3">{title}</h3>
+      <p className="text-sand-muted text-sm mt-2 leading-relaxed">{desc}</p>
     </div>
   );
 }
