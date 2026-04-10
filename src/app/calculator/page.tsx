@@ -5,6 +5,24 @@ import Link from "next/link";
 
 /* ── Step data ────────────────────────────────────────────────────── */
 
+/* Palatability is auto-derived from species choice (DSS1 Table).
+   Index in SPECIES_OPTIONS → palatability score */
+const PALATABILITY_BY_SPECIES: number[] = [
+  1, // Redwoods/cypresses/cedars/spruces — highly palatable (moot, as species score=0 → total=0)
+  1, // Radiata, ponderosa, Lawsons cypress — highly palatable
+  2, // Muricata, maritime, larches — moderately palatable
+  4, // Corsican pine, mountain pine — very low palatability (Corsican is least palatable conifer)
+  3, // Douglas-fir, Scots pine — low palatability
+  2, // Lodgepole/contorta — moderately palatable
+];
+
+const PALATABILITY_LABELS: Record<number, string> = {
+  1: "Highly palatable — sheep readily eat these seedlings",
+  2: "Moderately palatable — livestock will browse but less eagerly",
+  3: "Low palatability — livestock tend to avoid these seedlings",
+  4: "Very low palatability — hardest to control by grazing",
+};
+
 const STEPS = [
   {
     id: "species",
@@ -17,17 +35,6 @@ const STEPS = [
       { label: "Corsican pine or mountain pine", desc: "High spreading vigour with light, winged seeds", score: 3 },
       { label: "Douglas-fir or Scots pine", desc: "Very high spreading vigour. Score 1 instead if your site is moist with no late-summer drought", score: 4 },
       { label: "Lodgepole pine (contorta)", desc: "Extremely high risk. This is an unwanted organism under the Biosecurity Act", score: 5 },
-    ],
-  },
-  {
-    id: "palatability",
-    question: "How palatable is your species to livestock?",
-    why: "Sheep and cattle will browse on young conifer seedlings, which helps control wilding spread naturally. Some species taste better to livestock than others. More palatable species are less likely to establish as wildings because animals eat the seedlings before they can grow.",
-    options: [
-      { label: "Highly palatable (radiata, maritime or ponderosa pine)", desc: "Sheep readily eat these seedlings", score: 1 },
-      { label: "Moderately palatable (lodgepole, muricata pine or larch)", desc: "Livestock will browse but less eagerly", score: 2 },
-      { label: "Low palatability (Scots pine, mountain pine or Douglas-fir)", desc: "Livestock tend to avoid these seedlings", score: 3 },
-      { label: "Very low palatability (Corsican pine)", desc: "Livestock rarely eat these -- hardest to control by grazing", score: 4 },
     ],
   },
   {
@@ -110,10 +117,11 @@ function getRiskLevel(score: number) {
 /* ── Main component ───────────────────────────────────────────────── */
 
 export default function CalculatorPage() {
-  const [step, setStep] = useState(0); // 0=intro, 1-5=steps, 6=results
-  const [answers, setAnswers] = useState<(number | null)[]>([null, null, null, null, null]);
+  const TOTAL_STEPS = STEPS.length; // 4 user-facing steps
+  const [step, setStep] = useState(0); // 0=intro, 1-4=steps, 5=results
+  const [answers, setAnswers] = useState<(number | null)[]>(Array(TOTAL_STEPS).fill(null));
 
-  const currentAnswer = step >= 1 && step <= 5 ? answers[step - 1] : null;
+  const currentAnswer = step >= 1 && step <= TOTAL_STEPS ? answers[step - 1] : null;
 
   function selectOption(optionIdx: number) {
     const next = [...answers];
@@ -124,7 +132,7 @@ export default function CalculatorPage() {
   function goNext() {
     if (step === 0) {
       setStep(1);
-    } else if (step <= 5 && currentAnswer !== null) {
+    } else if (step <= TOTAL_STEPS && currentAnswer !== null) {
       setStep(step + 1);
     }
     window.scrollTo({ top: 0, behavior: "smooth" });
@@ -137,30 +145,36 @@ export default function CalculatorPage() {
 
   function restart() {
     setStep(0);
-    setAnswers([null, null, null, null, null]);
+    setAnswers(Array(TOTAL_STEPS).fill(null));
     window.scrollTo({ top: 0, behavior: "smooth" });
   }
 
-  // Calculate scores
-  const scores = answers.map((ansIdx, stepIdx) =>
+  // Calculate scores — answers[0]=species, answers[1]=siting, answers[2]=grazing, answers[3]=vegetation
+  const stepScores = answers.map((ansIdx, stepIdx) =>
     ansIdx !== null ? STEPS[stepIdx].options[ansIdx].score : null
   );
 
-  const allAnswered = scores.every((s) => s !== null);
-  const hasZeroException = scores[0] === 0 || scores[3] === 0 || scores[4] === 0;
-  const rawTotal = allAnswered ? scores.reduce((a, b) => (a ?? 0) + (b ?? 0), 0)! : null;
+  // Palatability is auto-derived from species choice
+  const speciesIdx = answers[0];
+  const palatabilityScore = speciesIdx !== null ? PALATABILITY_BY_SPECIES[speciesIdx] : null;
+
+  // All 5 DSS scores: species, palatability (auto), siting, grazing, vegetation
+  const allScores = [stepScores[0], palatabilityScore, stepScores[1], stepScores[2], stepScores[3]];
+  const allAnswered = allScores.every((s) => s !== null);
+  const hasZeroException = allScores[0] === 0 || allScores[3] === 0 || allScores[4] === 0;
+  const rawTotal = allAnswered ? allScores.reduce((a, b) => (a ?? 0) + (b ?? 0), 0)! : null;
   const totalScore = allAnswered ? (hasZeroException ? 0 : rawTotal) : null;
   const risk = totalScore !== null ? getRiskLevel(totalScore) : null;
 
   return (
     <div className="min-h-screen bg-night pt-20">
       {/* Top bar with progress */}
-      {step > 0 && step <= 5 && (
+      {step > 0 && step <= TOTAL_STEPS && (
         <div className="bg-night-light border-b border-night-border">
           <div className="max-w-2xl mx-auto px-6 py-4">
             <div className="flex items-center justify-between mb-3">
               <span className="text-xs text-sand-muted/50 font-display uppercase tracking-wider">
-                Step {step} of 5
+                Step {step} of {TOTAL_STEPS}
               </span>
               <button onClick={restart} className="text-xs text-sand-muted/40 hover:text-ember transition-colors">
                 Start over
@@ -168,7 +182,7 @@ export default function CalculatorPage() {
             </div>
             {/* Step dots */}
             <div className="flex items-center gap-2">
-              {[1, 2, 3, 4, 5].map((s) => (
+              {Array.from({ length: TOTAL_STEPS }, (_, i) => i + 1).map((s) => (
                 <div key={s} className="flex-1 flex items-center gap-2">
                   <div className="flex-1 h-1.5 rounded-full overflow-hidden bg-night-border">
                     <div
@@ -207,7 +221,7 @@ export default function CalculatorPage() {
 
             <p className="text-sand-muted text-lg leading-relaxed mb-8 max-w-xl">
               Planning to plant conifers? This tool helps you understand the risk of
-              wilding pine spread from your planting site. Answer 5 simple questions
+              wilding pine spread from your planting site. Answer 4 simple questions
               and get a risk assessment in under 2 minutes.
             </p>
 
@@ -231,7 +245,7 @@ export default function CalculatorPage() {
                   <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M9 11l3 3L22 4" /><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11" /></svg>
                 }
                 title="How does it work?"
-                text="You'll answer 5 questions about your tree species, planting site, and the land downwind. The calculator scores each factor and gives you an overall risk rating based on research by Scion and MPI."
+                text="You'll answer 4 questions about your tree species, planting site, and the land downwind. The calculator automatically works out some factors (like how palatable your species is to livestock) and gives you an overall risk rating based on research by Scion and MPI."
               />
             </div>
 
@@ -249,7 +263,7 @@ export default function CalculatorPage() {
         )}
 
         {/* ── Question steps 1-5 ────────────────────────────── */}
-        {step >= 1 && step <= 5 && (() => {
+        {step >= 1 && step <= TOTAL_STEPS && (() => {
           const stepData = STEPS[step - 1];
           return (
             <div className="py-12 md:py-16">
@@ -332,7 +346,7 @@ export default function CalculatorPage() {
                       : "bg-night-card text-sand-muted/30 cursor-not-allowed"
                   }`}
                 >
-                  {step === 5 ? "See Results" : "Continue"}
+                  {step === TOTAL_STEPS ? "See Results" : "Continue"}
                   <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                     <path d="M5 12h14M12 5l7 7-7 7" />
                   </svg>
@@ -343,13 +357,13 @@ export default function CalculatorPage() {
         })()}
 
         {/* ── Results screen ────────────────────────────────── */}
-        {step === 6 && totalScore !== null && risk && (
+        {step === TOTAL_STEPS + 1 && totalScore !== null && risk && (
           <div className="py-12 md:py-16" id="results">
             <h2 className="font-display text-2xl md:text-3xl text-sand mb-2">
               Your Risk Assessment
             </h2>
             <p className="text-sm text-sand-muted/50 mb-8">
-              Based on your answers across all 5 indicators
+              Based on 5 risk indicators (4 from your answers + palatability auto-calculated)
             </p>
 
             {/* Big score display */}
@@ -383,9 +397,9 @@ export default function CalculatorPage() {
               <div className="rounded-xl border border-forest/30 bg-forest/10 p-5 mb-6">
                 <p className="text-sm text-sand-muted leading-relaxed">
                   <span className="text-forest font-semibold">Good news: </span>
-                  {scores[0] === 0 && "Your chosen species has negligible spreading risk. "}
-                  {scores[3] === 0 && "The intensive grazing downwind will prevent seedling establishment. "}
-                  {scores[4] === 0 && "The dense vegetation downwind will prevent seedling establishment. "}
+                  {allScores[0] === 0 && "Your chosen species has negligible spreading risk. "}
+                  {allScores[3] === 0 && "The intensive grazing downwind will prevent seedling establishment. "}
+                  {allScores[4] === 0 && "The dense vegetation downwind will prevent seedling establishment. "}
                   This automatically reduces the overall risk to zero for this combination.
                   {rawTotal !== null && rawTotal > 0 && (
                     <span className="text-sand-muted/40"> (Score before this adjustment: {rawTotal})</span>
@@ -400,20 +414,29 @@ export default function CalculatorPage() {
                 Your Score Breakdown
               </h3>
               <div className="space-y-3">
-                {STEPS.map((s, i) => (
-                  <div key={s.id} className="flex items-center justify-between">
+                {[
+                  { label: "Species growth", value: allScores[0], detail: answers[0] !== null ? STEPS[0].options[answers[0]].label : "" },
+                  { label: "Palatability to livestock", value: allScores[1], detail: palatabilityScore !== null ? PALATABILITY_LABELS[palatabilityScore] : "", auto: true },
+                  { label: "Site wind exposure", value: allScores[2], detail: answers[1] !== null ? STEPS[1].options[answers[1]].label : "" },
+                  { label: "Downwind grazing", value: allScores[3], detail: answers[2] !== null ? STEPS[2].options[answers[2]].label : "" },
+                  { label: "Downwind vegetation", value: allScores[4], detail: answers[3] !== null ? STEPS[3].options[answers[3]].label : "" },
+                ].map((row, i) => (
+                  <div key={i} className="flex items-center justify-between">
                     <div className="flex items-center gap-3">
                       <span className="w-6 h-6 rounded-md bg-night flex items-center justify-center text-xs text-sand-muted/50 font-display">
                         {i + 1}
                       </span>
-                      <span className="text-sm text-sand-muted">{s.question.replace("?", "")}</span>
+                      <span className="text-sm text-sand-muted">
+                        {row.label}
+                        {row.auto && <span className="text-xs text-ember/60 ml-1.5">(auto)</span>}
+                      </span>
                     </div>
                     <div className="flex items-center gap-2">
-                      <span className="text-xs text-sand-muted/40">
-                        {answers[i] !== null ? s.options[answers[i]!].label : ""}
+                      <span className="text-xs text-sand-muted/40 max-w-[180px] truncate text-right">
+                        {row.detail}
                       </span>
                       <span className="text-sm font-display font-bold text-sand w-6 text-right">
-                        {scores[i]}
+                        {row.value}
                       </span>
                     </div>
                   </div>
