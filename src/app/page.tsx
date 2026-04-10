@@ -15,8 +15,12 @@ export default function Home() {
         <div className="max-w-6xl mx-auto px-6 flex flex-wrap justify-center items-center gap-8 md:gap-14 text-sand-muted/60 text-sm">
           <span><strong className="text-sand font-display text-2xl tracking-tight">100%</strong> outdoor</span>
           <span><strong className="text-sand font-display text-2xl tracking-tight">All</strong> ages &amp; levels</span>
-          <span><strong className="text-sand font-display text-2xl tracking-tight">0</strong> machines</span>
-          <span>Partnered with <strong className="text-sand">DOC &amp; Council</strong></span>
+          <span><strong className="text-sand font-display text-2xl tracking-tight">0</strong> machines or chainsaws</span>
+          <span className="flex items-center gap-3">
+            Partnered with
+            <Image src="/images/doc-logo.jpg" alt="Department of Conservation" width={80} height={30} className="brightness-200 grayscale opacity-60 hover:opacity-100 transition-opacity" />
+            <Image src="/images/qldc-logo.svg" alt="Queenstown Lakes District Council" width={80} height={30} className="brightness-200 invert opacity-60 hover:opacity-100 transition-opacity" />
+          </span>
         </div>
       </section>
 
@@ -29,7 +33,7 @@ export default function Home() {
           </h2>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-14">
-            <StepCard num="01" image="/images/axe.jpg" title="We Work the Land" desc="Invasive wilding pines are NZ's #1 ecological threat. Our sessions are structured workouts that clear them — felling, chopping, hauling, carrying." />
+            <StepCard num="01" image="/images/axe.jpg" title="We Work the Land" desc="Invasive wilding pines are NZ's #1 ecological threat. Our sessions are structured workouts that clear them — all by hand. No chainsaws, no trucks. Just quiet, purposeful work." />
             <StepCard num="02" image="/images/firewood.jpg" title="You Get Brutally Fit" desc="Axe swings build explosive power. Log carries build raw strength. Every 75-minute session is coached, scaled, and designed to push you." />
             <StepCard num="03" image="/images/community.jpg" title="You Find Your People" desc="The people you sweat alongside become your crew. All ages, all backgrounds. On Fridays we plant natives and share a meal." />
           </div>
@@ -52,7 +56,7 @@ export default function Home() {
           </h2>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mt-14">
-            <SessionCard day="Mon" name="The Fell" type="Strength & Skill" desc="Axe and hand-saw work. Technique drills, partner felling, log processing." image="/images/axe.jpg" />
+            <SessionCard day="Mon" name="The Fell" type="Strength & Skill" desc="Axe and hand-saw work — no chainsaws. Technique drills, partner felling, quiet log processing." image="/images/axe.jpg" />
             <SessionCard day="Tue" name="AxeFit" type="HIIT & Power" desc="Chopping circuits, splitting rounds, timed efforts. CrossFit meets a woodshed." image="/images/firewood.jpg" />
             <SessionCard day="Thu" name="Firewood Carry" type="Cardio & Strength" desc="Loaded carries, log shuttles, sled drags, team relays through bush." image="/images/carry.jpg" />
             <SessionCard day="Fri" name="Social Planting" type="Community" desc="Plant native seedlings, build erosion barriers, then kai and a yarn." image="/images/planting.jpg" />
