@@ -23,7 +23,7 @@ export function Hero() {
           </h1>
 
           <p className="text-sand-muted text-lg md:text-xl mt-6 leading-relaxed max-w-lg">
-            No gym. No machines. Axes, hand saws, and real outdoor work that restores NZ&apos;s high country — and gets you brutally fit.
+            No gym. No machines. No chainsaws. Just axes, hand saws, and quiet outdoor work that restores NZ&apos;s high country — and gets you brutally fit.
           </p>
 
           {/* CRO: Dual paths */}

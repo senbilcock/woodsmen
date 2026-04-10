@@ -79,7 +79,7 @@ export function ChatBot() {
       {/* Floating button */}
       <button
         onClick={() => setOpen(!open)}
-        className="fixed bottom-6 right-6 z-50 w-14 h-14 rounded-full bg-forest hover:bg-forest-dark text-white flex items-center justify-center shadow-lg hover:shadow-xl transition-all hover:-translate-y-0.5 cursor-pointer"
+        className="fixed bottom-6 right-6 z-50 w-14 h-14 rounded-full bg-ember hover:bg-ember-light text-night flex items-center justify-center shadow-lg hover:shadow-xl transition-all hover:-translate-y-0.5 cursor-pointer"
         aria-label={open ? "Close chat" : "Ask about wilding pines"}
       >
         {open ? (
@@ -112,24 +112,24 @@ export function ChatBot() {
 
       {/* Chat panel */}
       {open && (
-        <div className="fixed bottom-24 right-6 z-50 w-[calc(100vw-48px)] max-w-[400px] h-[500px] max-h-[calc(100vh-140px)] bg-white border border-stone-200 rounded-2xl shadow-2xl flex flex-col overflow-hidden">
+        <div className="fixed bottom-24 right-6 z-50 w-[calc(100vw-48px)] max-w-[400px] h-[500px] max-h-[calc(100vh-140px)] bg-night-card border border-night-border rounded-2xl shadow-2xl flex flex-col overflow-hidden">
           {/* Header */}
-          <div className="px-4 py-3 border-b border-stone-200 bg-forest-dark flex items-center gap-3">
-            <div className="w-2 h-2 rounded-full bg-green-400 animate-pulse" />
+          <div className="px-4 py-3 border-b border-night-border bg-night-light flex items-center gap-3">
+            <div className="w-2 h-2 rounded-full bg-forest animate-pulse" />
             <div>
-              <h3 className="text-sm font-bold text-white leading-tight">
+              <h3 className="text-sm font-bold text-sand leading-tight">
                 Wilding Pine Assistant
               </h3>
-              <p className="text-[11px] text-white/70">
+              <p className="text-[11px] text-sand-muted/60">
                 Ask me anything about wilding pines in NZ
               </p>
             </div>
           </div>
 
           {/* Messages */}
-          <div className="flex-1 overflow-y-auto p-4 space-y-3 bg-stone-50">
+          <div className="flex-1 overflow-y-auto p-4 space-y-3 bg-night">
             {messages.length === 0 && (
-              <div className="text-center text-stone-500 text-sm py-8">
+              <div className="text-center text-sand-muted/60 text-sm py-8">
                 <p className="mb-3">Hi! I can help you learn about:</p>
                 <div className="space-y-1.5">
                   {[
@@ -145,7 +145,7 @@ export function ChatBot() {
                         setInput(topic);
                         inputRef.current?.focus();
                       }}
-                      className="block w-full text-left text-xs px-3 py-2 rounded-lg bg-white hover:bg-stone-100 border border-stone-200 text-stone-600 hover:text-forest-dark transition-colors cursor-pointer"
+                      className="block w-full text-left text-xs px-3 py-2 rounded-lg bg-night-card hover:bg-night-light border border-night-border text-sand-muted hover:text-ember transition-colors cursor-pointer"
                     >
                       {topic}
                     </button>
@@ -162,16 +162,16 @@ export function ChatBot() {
                 <div
                   className={`max-w-[85%] px-3 py-2 rounded-xl text-sm leading-relaxed whitespace-pre-wrap ${
                     msg.role === "user"
-                      ? "bg-forest text-white rounded-br-sm"
-                      : "bg-white text-stone-700 border border-stone-200 rounded-bl-sm shadow-sm"
+                      ? "bg-ember text-night rounded-br-sm"
+                      : "bg-night-card text-sand-muted border border-night-border rounded-bl-sm"
                   }`}
                 >
                   {msg.content}
                   {msg.role === "assistant" && msg.content === "" && loading && (
                     <span className="inline-flex gap-1">
-                      <span className="w-1.5 h-1.5 bg-stone-400 rounded-full animate-bounce" />
-                      <span className="w-1.5 h-1.5 bg-stone-400 rounded-full animate-bounce [animation-delay:0.1s]" />
-                      <span className="w-1.5 h-1.5 bg-stone-400 rounded-full animate-bounce [animation-delay:0.2s]" />
+                      <span className="w-1.5 h-1.5 bg-sand-muted/40 rounded-full animate-bounce" />
+                      <span className="w-1.5 h-1.5 bg-sand-muted/40 rounded-full animate-bounce [animation-delay:0.1s]" />
+                      <span className="w-1.5 h-1.5 bg-sand-muted/40 rounded-full animate-bounce [animation-delay:0.2s]" />
                     </span>
                   )}
                 </div>
@@ -183,7 +183,7 @@ export function ChatBot() {
           {/* Input */}
           <form
             onSubmit={sendMessage}
-            className="p-3 border-t border-stone-200 bg-white flex gap-2"
+            className="p-3 border-t border-night-border bg-night-light flex gap-2"
           >
             <input
               ref={inputRef}
@@ -192,12 +192,12 @@ export function ChatBot() {
               onChange={(e) => setInput(e.target.value)}
               placeholder="Ask about wilding pines..."
               disabled={loading}
-              className="flex-1 bg-stone-50 border border-stone-200 rounded-lg px-3 py-2 text-sm text-stone-800 placeholder:text-stone-400 focus:outline-none focus:border-forest focus:ring-1 focus:ring-forest/20 transition-colors disabled:opacity-50"
+              className="flex-1 bg-night border border-night-border rounded-lg px-3 py-2 text-sm text-sand placeholder:text-sand-muted/40 focus:outline-none focus:border-ember/50 focus:ring-1 focus:ring-ember/20 transition-colors disabled:opacity-50"
             />
             <button
               type="submit"
               disabled={loading || !input.trim()}
-              className="bg-forest hover:bg-forest-dark text-white font-semibold text-sm px-4 py-2 rounded-lg transition-colors disabled:opacity-40 disabled:cursor-not-allowed cursor-pointer"
+              className="bg-ember hover:bg-ember-light text-night font-semibold text-sm px-4 py-2 rounded-lg transition-colors disabled:opacity-40 disabled:cursor-not-allowed cursor-pointer"
             >
               Send
             </button>

@@ -4,7 +4,6 @@ import { Hero } from "@/components/HeroCarousel";
 import { WOD } from "@/components/WOD";
 import { FAQ } from "@/components/FAQ";
 import { SignupForm } from "@/components/SignupForm";
-import { DOCLogo, QLDCLogo } from "@/components/PartnerLogos";
 
 export default function Home() {
   return (
@@ -17,12 +16,7 @@ export default function Home() {
           <span><strong className="text-sand font-display text-2xl tracking-tight">100%</strong> outdoor</span>
           <span><strong className="text-sand font-display text-2xl tracking-tight">All</strong> ages &amp; levels</span>
           <span><strong className="text-sand font-display text-2xl tracking-tight">0</strong> machines or chainsaws</span>
-          <span className="flex items-center gap-4 text-sand-muted/40 hover:text-sand-muted/70 transition-colors">
-            <DOCLogo className="h-7" />
-          </span>
-          <span className="flex items-center gap-4 text-sand-muted/40 hover:text-sand-muted/70 transition-colors">
-            <QLDCLogo className="h-7" />
-          </span>
+          <span>Partnered with <strong className="text-sand">DOC</strong> &amp; <strong className="text-sand">QLDC</strong></span>
         </div>
       </section>
 

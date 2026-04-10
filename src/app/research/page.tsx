@@ -1,249 +1,30 @@
-import { readFileSync } from "fs";
-import { join } from "path";
+import Link from "next/link";
 import type { Metadata } from "next";
+import { getTopics } from "@/lib/research";
 
 export const metadata: Metadata = {
-  title: "Wilding Pine Research — Woodsmen",
+  title: "Research — Woodsmen",
   description:
-    "Comprehensive research on the wilding pine problem in New Zealand. Species, impacts, control methods, legislation, and scientific studies.",
+    "Peer-reviewed research on wilding pines, outdoor exercise, cold-weather training, and community health. The science behind Woodsmen.",
 };
 
-interface Section {
-  id: string;
-  title: string;
-  content: string;
-}
+const TOPIC_META: Record<string, { tagline: string; icon: string }> = {
+  "wilding-pines": {
+    tagline: "NZ's biggest ecological threat — and what we're doing about it",
+    icon: "🌲",
+  },
+  "outdoor-exercise": {
+    tagline: "Why exercising outside beats any indoor gym, backed by science",
+    icon: "🏔",
+  },
+  "community-health": {
+    tagline: "The loneliness epidemic and why working together matters",
+    icon: "🤝",
+  },
+};
 
-function parseMarkdown(md: string): { intro: string; sections: Section[] } {
-  const lines = md.split("\n");
-  const sections: Section[] = [];
-  let intro = "";
-  let currentSection: Section | null = null;
-  let inIntro = true;
-
-  for (const line of lines) {
-    if (line.startsWith("## ") && !line.startsWith("## Source")) {
-      inIntro = false;
-      if (currentSection) sections.push(currentSection);
-      const title = line.replace("## ", "").trim();
-      const id = title
-        .toLowerCase()
-        .replace(/[^a-z0-9]+/g, "-")
-        .replace(/-+$/, "");
-      currentSection = { id, title, content: "" };
-    } else if (currentSection) {
-      currentSection.content += line + "\n";
-    } else if (inIntro) {
-      intro += line + "\n";
-    }
-  }
-  if (currentSection) sections.push(currentSection);
-
-  return { intro, sections };
-}
-
-function renderContent(content: string) {
-  const lines = content.split("\n");
-  const elements: React.ReactNode[] = [];
-  let inTable = false;
-  let tableRows: string[] = [];
-  let inList = false;
-  let listItems: string[] = [];
-
-  function flushTable() {
-    if (tableRows.length < 2) return;
-    const headers = tableRows[0]
-      .split("|")
-      .filter(Boolean)
-      .map((h) => h.trim());
-    const rows = tableRows.slice(2).map((r) =>
-      r
-        .split("|")
-        .filter(Boolean)
-        .map((c) => c.trim())
-    );
-    elements.push(
-      <div key={`table-${elements.length}`} className="overflow-x-auto my-4">
-        <table className="w-full text-sm border-collapse">
-          <thead>
-            <tr>
-              {headers.map((h, i) => (
-                <th
-                  key={i}
-                  className="text-left px-3 py-2 border-b-2 border-forest/30 text-forest font-semibold bg-night-card"
-                >
-                  {h}
-                </th>
-              ))}
-            </tr>
-          </thead>
-          <tbody>
-            {rows.map((row, ri) => (
-              <tr key={ri} className="border-b border-night-border">
-                {row.map((cell, ci) => (
-                  <td key={ci} className="px-3 py-2 text-sand-muted">
-                    {formatInline(cell)}
-                  </td>
-                ))}
-              </tr>
-            ))}
-          </tbody>
-        </table>
-      </div>
-    );
-    tableRows = [];
-    inTable = false;
-  }
-
-  function flushList() {
-    if (listItems.length === 0) return;
-    elements.push(
-      <ul
-        key={`list-${elements.length}`}
-        className="list-disc list-outside ml-5 my-3 space-y-1.5"
-      >
-        {listItems.map((item, i) => (
-          <li key={i} className="text-sand-muted text-sm leading-relaxed">
-            {formatInline(item)}
-          </li>
-        ))}
-      </ul>
-    );
-    listItems = [];
-    inList = false;
-  }
-
-  function formatInline(text: string): React.ReactNode {
-    const parts: React.ReactNode[] = [];
-    let remaining = text;
-    let key = 0;
-
-    while (remaining.length > 0) {
-      const boldMatch = remaining.match(/\*\*(.+?)\*\*/);
-      const italicMatch = remaining.match(/\*(.+?)\*/);
-      const linkMatch = remaining.match(/\[([^\]]+)\]\(([^)]+)\)/);
-
-      const matches = [
-        boldMatch ? { type: "bold", index: boldMatch.index!, match: boldMatch } : null,
-        italicMatch && (!boldMatch || italicMatch.index! < boldMatch.index!)
-          ? { type: "italic", index: italicMatch.index!, match: italicMatch }
-          : null,
-        linkMatch ? { type: "link", index: linkMatch.index!, match: linkMatch } : null,
-      ]
-        .filter(Boolean)
-        .sort((a, b) => a!.index - b!.index);
-
-      if (matches.length === 0) {
-        parts.push(remaining);
-        break;
-      }
-
-      const first = matches[0]!;
-      if (first.index > 0) {
-        parts.push(remaining.slice(0, first.index));
-      }
-
-      if (first.type === "bold") {
-        parts.push(
-          <strong key={key++} className="text-sand font-semibold">
-            {first.match[1]}
-          </strong>
-        );
-        remaining = remaining.slice(first.index + first.match[0].length);
-      } else if (first.type === "italic") {
-        parts.push(
-          <em key={key++} className="text-sand-muted/60 italic">
-            {first.match[1]}
-          </em>
-        );
-        remaining = remaining.slice(first.index + first.match[0].length);
-      } else if (first.type === "link") {
-        parts.push(
-          <a
-            key={key++}
-            href={first.match[2]}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-ember hover:text-ember-light underline underline-offset-2"
-          >
-            {first.match[1]}
-          </a>
-        );
-        remaining = remaining.slice(first.index + first.match[0].length);
-      }
-    }
-
-    return parts.length === 1 ? parts[0] : <>{parts}</>;
-  }
-
-  for (let i = 0; i < lines.length; i++) {
-    const line = lines[i];
-    const trimmed = line.trim();
-
-    if (trimmed.startsWith("|")) {
-      if (inList) flushList();
-      inTable = true;
-      tableRows.push(trimmed);
-      continue;
-    } else if (inTable) {
-      flushTable();
-    }
-
-    if (trimmed.startsWith("- ") || trimmed.startsWith("* ")) {
-      inList = true;
-      listItems.push(trimmed.slice(2));
-      continue;
-    } else if (inList && trimmed === "") {
-      flushList();
-      continue;
-    } else if (inList) {
-      flushList();
-    }
-
-    if (trimmed.startsWith("### ")) {
-      elements.push(
-        <h3
-          key={`h3-${i}`}
-          className="text-lg font-bold text-sand mt-8 mb-2"
-        >
-          {trimmed.replace("### ", "")}
-        </h3>
-      );
-    } else if (trimmed.startsWith("#### ")) {
-      elements.push(
-        <h4 key={`h4-${i}`} className="text-base font-bold text-forest-dark mt-4 mb-1">
-          {trimmed.replace("#### ", "")}
-        </h4>
-      );
-    } else if (trimmed.startsWith("*Sources:") || trimmed.startsWith("*Source")) {
-      elements.push(
-        <p key={`src-${i}`} className="text-xs text-stone-400 mt-4 italic">
-          {formatInline(trimmed.replace(/^\*/, "").replace(/\*$/, ""))}
-        </p>
-      );
-    } else if (trimmed === "---") {
-      // skip dividers
-    } else if (trimmed === "") {
-      // skip empty lines
-    } else {
-      elements.push(
-        <p key={`p-${i}`} className="text-[15px] text-stone-600 leading-relaxed mb-3">
-          {formatInline(trimmed)}
-        </p>
-      );
-    }
-  }
-
-  if (inTable) flushTable();
-  if (inList) flushList();
-
-  return elements;
-}
-
-export default function ResearchPage() {
-  const filePath = join(process.cwd(), "research", "wilding-pines.md");
-  const md = readFileSync(filePath, "utf-8");
-  const { sections } = parseMarkdown(md);
+export default function ResearchIndex() {
+  const topics = getTopics();
 
   return (
     <div className="min-h-screen bg-night pt-20">
@@ -254,90 +35,49 @@ export default function ResearchPage() {
             Research
           </p>
           <h1 className="font-display text-4xl md:text-5xl text-sand mb-4">
-            Wilding Pines in New Zealand
+            The Science Behind Woodsmen
           </h1>
           <p className="text-sand-muted text-base max-w-2xl leading-relaxed">
-            A comprehensive knowledge base on the wilding pine problem —
-            species, environmental impacts, control methods, legislation, and
-            the latest scientific research. Compiled from 23 verified sources.
+            Peer-reviewed studies, government data, and university research that
+            underpin everything we do. Every claim on this site traces back to a
+            verified source.
           </p>
         </div>
       </section>
 
-      {/* Content */}
-      <div className="max-w-6xl mx-auto px-6 py-12 flex gap-12">
-        {/* Sidebar */}
-        <nav className="hidden lg:block w-56 shrink-0">
-          <div className="sticky top-24">
-            <p className="text-xs font-display text-sand-muted/50 uppercase tracking-[0.14em] mb-4">
-              Sections
-            </p>
-            <div className="space-y-0.5">
-              {sections.map((s) => (
-                <a
-                  key={s.id}
-                  href={`#${s.id}`}
-                  className="block text-sm text-sand-muted/60 hover:text-ember py-1.5 px-3 rounded-lg hover:bg-night-light transition-colors"
-                >
-                  {s.title.replace(/^\d+\.\s*/, "")}
-                </a>
-              ))}
-            </div>
-          </div>
-        </nav>
-
-        {/* Mobile section nav */}
-        <div className="lg:hidden w-full mb-8">
-          <details className="border border-night-border rounded-xl bg-night-card">
-            <summary className="px-4 py-3 text-sm font-semibold text-ember cursor-pointer">
-              Jump to section
-            </summary>
-            <div className="px-4 pb-3 space-y-1">
-              {sections.map((s) => (
-                <a
-                  key={s.id}
-                  href={`#${s.id}`}
-                  className="block text-sm text-sand-muted/60 hover:text-ember py-1.5 transition-colors"
-                >
-                  {s.title.replace(/^\d+\.\s*/, "")}
-                </a>
-              ))}
-            </div>
-          </details>
+      {/* Topic Cards */}
+      <section className="max-w-6xl mx-auto px-6 py-16">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {topics.map((topic) => {
+            const meta = TOPIC_META[topic.slug];
+            return (
+              <Link
+                key={topic.slug}
+                href={`/research/${topic.slug}`}
+                className="group bg-night-card border border-night-border rounded-lg p-6 hover:border-ember/30 transition-colors"
+              >
+                <span className="text-3xl">{meta?.icon ?? "📄"}</span>
+                <h2 className="font-display text-xl tracking-tight text-sand mt-4 group-hover:text-ember transition-colors">
+                  {topic.title}
+                </h2>
+                <p className="text-sand-muted/60 text-sm mt-2 leading-relaxed">
+                  {meta?.tagline ?? topic.description}
+                </p>
+                <div className="flex gap-4 mt-4 text-xs text-sand-muted/40">
+                  <span>{topic.sourceCount} sources</span>
+                  <span>{topic.sectionCount} sections</span>
+                </div>
+                <span className="inline-flex items-center gap-1 text-ember text-sm font-medium mt-4 group-hover:gap-2 transition-all">
+                  Read research
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M5 12h14M12 5l7 7-7 7" />
+                  </svg>
+                </span>
+              </Link>
+            );
+          })}
         </div>
-
-        {/* Main content — desktop */}
-        <div className="hidden lg:block flex-1 min-w-0">
-          {sections.map((section) => (
-            <section
-              key={section.id}
-              id={section.id}
-              className="mb-14 scroll-mt-24"
-            >
-              <h2 className="font-display text-2xl md:text-3xl text-sand mb-4 pb-3 border-b border-night-border">
-                {section.title}
-              </h2>
-              <div>{renderContent(section.content)}</div>
-            </section>
-          ))}
-        </div>
-      </div>
-
-      {/* Mobile main content */}
-      <div className="lg:hidden max-w-6xl mx-auto px-6 pb-12">
-        {sections.map((section) => (
-          <section
-            key={section.id}
-            id={section.id}
-            className="mb-14 scroll-mt-24"
-          >
-            <h2 className="font-display text-2xl md:text-3xl text-sand mb-4 pb-3 border-b border-night-border">
-              {section.title}
-            </h2>
-            <div>{renderContent(section.content)}</div>
-          </section>
-        ))}
-      </div>
+      </section>
     </div>
   );
 }
