@@ -1,5 +1,6 @@
 import Link from "next/link";
-import { HeroCarousel } from "@/components/HeroCarousel";
+import Image from "next/image";
+import { Hero } from "@/components/HeroCarousel";
 import { WOD } from "@/components/WOD";
 import { FAQ } from "@/components/FAQ";
 import { SignupForm } from "@/components/SignupForm";
@@ -7,171 +8,254 @@ import { SignupForm } from "@/components/SignupForm";
 export default function Home() {
   return (
     <>
-      {/* Hero */}
-      <HeroCarousel />
+      {/* 1. HERO — CRO: Plain language, dual paths, risk removal */}
+      <Hero />
 
-      {/* Promo Strip */}
-      <section className="bg-black-light border-y border-gray-dark py-6">
-        <div className="max-w-[1200px] mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-6">
-          <PromoItem icon="&#9650;" title="No. 1 Threat" desc="Wilding pines are NZ's biggest ecological crisis" />
-          <PromoItem icon="&#9670;" title="100% Outdoors" desc="Every session. Rain, sun, frost, wind." />
-          <PromoItem icon="&#9679;" title="All Welcome" desc="Every age, background, and fitness level" />
+      {/* 2. SOCIAL PROOF BAR — CRO: Trust signals near the top */}
+      <section id="proof" className="bg-white border-y border-stone-200 py-6">
+        <div className="max-w-6xl mx-auto px-6">
+          <div className="flex flex-wrap justify-center items-center gap-8 md:gap-14 text-stone-400 text-sm">
+            <span className="flex items-center gap-2">
+              <strong className="text-stone-800 text-2xl font-display">100%</strong> outdoor sessions
+            </span>
+            <span className="flex items-center gap-2">
+              <strong className="text-stone-800 text-2xl font-display">All</strong> ages &amp; levels
+            </span>
+            <span className="flex items-center gap-2">
+              <strong className="text-stone-800 text-2xl font-display">0</strong> machines needed
+            </span>
+            <span className="flex items-center gap-2">
+              Partnered with <strong className="text-stone-800">DOC &amp; Council</strong>
+            </span>
+          </div>
         </div>
       </section>
 
-      {/* Getting Started */}
-      <section id="about" className="bg-black-card py-20 md:py-28">
-        <div className="max-w-[1200px] mx-auto px-6">
-          <SectionHeader tag="Getting Started" title="WHAT IS WOODSMEN?" />
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 mt-12">
-            <FeatureCard
-              span="lg:col-span-1 lg:row-span-2"
-              gradient="from-emerald-900/60 to-black/80"
-              label="The Concept"
-              title="The Workout Is The Work"
-              desc="Forget treadmills and dumbbells. At Woodsmen, you get fit by doing real, purposeful outdoor labour — hauling logs, swinging axes, clearing invasive pines, and carrying heavy loads through the bush."
-              cta={{ label: "See Sessions", href: "#sessions" }}
+      {/* 3. HOW IT WORKS — CRO: "Spoiler" headline, future pacing */}
+      <section id="how-it-works" className="py-20 md:py-28 bg-stone-50">
+        <div className="max-w-6xl mx-auto px-6">
+          <div className="text-center max-w-2xl mx-auto">
+            <p className="text-ember font-semibold text-sm tracking-wide mb-3">Here&apos;s How It Works</p>
+            <h2 className="font-display text-[clamp(1.8rem,4vw,3rem)] text-stone-800 leading-tight">
+              You Show Up. We Hand You an Axe. You Leave Fitter and Part of a Crew.
+            </h2>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-14">
+            <StepCard
+              num="1"
+              image="/images/forest.jpg"
+              title="We Work the Land"
+              desc="Invasive wilding pines are NZ's #1 ecological threat. Our sessions are structured workouts that clear them — felling, chopping, hauling, carrying. Real work, real fitness."
             />
-            <FeatureCard
-              gradient="from-amber-900/60 to-black/80"
-              label="For Everyone"
-              title="No Experience Needed"
-              desc="18 or 68. First timer or veteran athlete. We scale every session so everyone works hard and no one gets left behind."
+            <StepCard
+              num="2"
+              image="/images/axe.jpg"
+              title="You Get Brutally Fit"
+              desc="Axe swings build explosive power. Log carries build raw strength and cardio. Every 75-minute session is coached, scaled to your level, and designed to push you."
             />
-            <FeatureCard
-              gradient="from-green-900/60 to-black/80"
-              label="Give Back"
-              title="Ecological Restoration"
-              desc="Every session leaves the land better. We clear wilding pines that are choking native bush, draining waterways, and destroying tussock lands."
+            <StepCard
+              num="3"
+              image="/images/community.jpg"
+              title="You Find Your People"
+              desc="The people you sweat alongside become your crew. All ages, all backgrounds. On Fridays we plant natives and share a meal. This is where real community happens."
             />
           </div>
-        </div>
-      </section>
 
-      {/* CTA Banner */}
-      <section className="relative py-24 md:py-32 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-amber-950/60 via-black/70 to-emerald-950/40" />
-        <div className="relative z-10 max-w-[1200px] mx-auto px-6 text-center">
-          <h2 className="font-display text-[clamp(2.5rem,6vw,5rem)] leading-[0.9] tracking-wide text-white">
-            ENHANCE YOUR LIFE<br />IN & OUT OF THE GYM
-          </h2>
-          <p className="text-gray-light text-lg mt-6 max-w-2xl mx-auto leading-relaxed">
-            Functional strength. Mental toughness. Real mates. A body that can do hard things in the real world. Train with axes, compete in Timbersports, or build the skills to become a professional arborist.
-          </p>
-          <div className="flex flex-wrap justify-center gap-4 mt-8">
-            <Link href="#join" className="inline-flex items-center justify-center bg-amber text-black font-bold text-[15px] uppercase tracking-wider px-9 py-4 rounded hover:bg-amber-hover hover:-translate-y-px hover:shadow-[0_4px_20px_rgba(232,145,58,0.3)] transition-all">
-              Start Your Journey
+          {/* CRO: CTA after first objection resolved ("what is this?") */}
+          <div className="text-center mt-12">
+            <Link
+              href="#join"
+              className="inline-flex items-center justify-center bg-ember text-white font-semibold px-8 py-4 rounded-lg hover:bg-ember-dark transition-all shadow-md hover:shadow-lg"
+            >
+              Try Your First Session Free
             </Link>
-            <Link href="#wod" className="inline-flex items-center justify-center bg-transparent text-white font-bold text-[15px] uppercase tracking-wider px-9 py-4 rounded border-2 border-white/30 hover:border-white hover:bg-white/5 transition-all">
-              See a Session
-            </Link>
+            <p className="text-stone-400 text-sm mt-3">No commitment. No experience needed.</p>
           </div>
         </div>
       </section>
 
-      {/* Sessions */}
-      <section id="sessions" className="py-20 md:py-28">
-        <div className="max-w-[1200px] mx-auto px-6">
-          <SectionHeader tag="What to Expect" title="SESSION TYPES" />
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mt-12">
-            <SessionCard day="MON" name="The Fell" desc="Felling day. Axe and hand-saw work to bring down wilding pines. Rotating technique drills, partner felling, and log processing. Raw, full-body power." tags={["Strength", "Skill", "Technique"]} />
-            <SessionCard day="TUE" name="AxeFit" desc="High-intensity axe-based conditioning. Chopping circuits, splitting rounds, overhead work, and timed efforts. Think CrossFit met a woodshed." tags={["HIIT", "Chopping", "Splitting"]} />
-            <SessionCard day="THU" name="Firewood Carry" desc="Loaded carries, log shuttles, sled drags, and team relays through uneven terrain. Build a back and legs that don't quit. Cardio meets raw strength." tags={["Cardio", "Strength", "Teamwork"]} />
-            <SessionCard day="FRI" name="Social Planting" desc="Plant native seedlings in cleared areas, build erosion barriers, do light trail work — then gather for kai and a yarn. Where community is forged." tags={["Restoration", "Social", "Community"]} />
+      {/* 4. SESSIONS — CRO: Concrete details build confidence */}
+      <section id="sessions" className="py-20 md:py-28 bg-white">
+        <div className="max-w-6xl mx-auto px-6">
+          <div className="text-center max-w-2xl mx-auto">
+            <p className="text-ember font-semibold text-sm tracking-wide mb-3">Weekly Programme</p>
+            <h2 className="font-display text-[clamp(1.8rem,4vw,3rem)] text-stone-800 leading-tight">
+              Five Different Sessions. One Mission. Something for Every Body.
+            </h2>
           </div>
-          <div className="text-center mt-10">
-            <Link href="/membership" className="inline-flex items-center justify-center bg-amber text-black font-bold text-sm uppercase tracking-wider px-8 py-3 rounded hover:bg-amber-hover hover:-translate-y-px hover:shadow-[0_4px_20px_rgba(232,145,58,0.3)] transition-all">
-              See Full Programme & Pricing
-            </Link>
-          </div>
-        </div>
-      </section>
 
-      {/* Work of the Day */}
-      <section id="wod" className="bg-black-card py-20 md:py-28">
-        <div className="max-w-[1200px] mx-auto px-6">
-          <SectionHeader tag="Work of the Day" title="TODAY'S SESSION" />
-          <div className="mt-12">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 mt-14">
+            <SessionCard
+              day="Monday"
+              name="The Fell"
+              type="Strength & Skill"
+              desc="Felling day. Axe and hand-saw work. Technique drills, partner felling, log processing."
+              image="/images/axe.jpg"
+            />
+            <SessionCard
+              day="Tuesday"
+              name="AxeFit"
+              type="HIIT & Power"
+              desc="High-intensity chopping circuits, splitting rounds, and timed efforts. CrossFit meets a woodshed."
+              image="/images/firewood.jpg"
+            />
+            <SessionCard
+              day="Thursday"
+              name="Firewood Carry"
+              type="Cardio & Strength"
+              desc="Loaded carries, log shuttles, sled drags, team relays through bush terrain."
+              image="/images/carry.jpg"
+            />
+            <SessionCard
+              day="Friday"
+              name="Social Planting"
+              type="Community & Restoration"
+              desc="Plant native seedlings, build erosion barriers, then gather for kai and a yarn."
+              image="/images/planting.jpg"
+            />
+          </div>
+
+          {/* CRO: WOD — daily engagement hook */}
+          <div className="mt-14">
             <WOD />
           </div>
         </div>
       </section>
 
-      {/* The Mission */}
-      <section id="why" className="py-20 md:py-28">
-        <div className="max-w-[1200px] mx-auto px-6">
-          <SectionHeader tag="The Mission" title="WHY WOODSMEN EXISTS" />
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-12">
-            <MissionCard tag="The Problem" title="Wilding Pines Are Taking Over" desc="Invasive conifers are spreading across NZ's high country at an alarming rate — smothering tussock, draining waterways, and displacing native species. It's one of the biggest ecological threats the country faces." gradient="from-red-950/40 to-black/60" />
-            <MissionCard tag="The Problem" title="Community Is Disappearing" desc="People are lonelier than ever. We scroll instead of talking. We isolate instead of gathering. Working hard alongside others — all ages, all walks of life — is becoming rare." gradient="from-blue-950/40 to-black/60" />
-            <MissionCard tag="The Solution" title="Woodsmen Fixes Both" desc="Get fit doing meaningful outdoor work. Build community doing it together. Every pine we fell is a workout and an act of ecological restoration. Train hard enough and you might end up competing in Timbersports." gradient="from-green-950/40 to-black/60" />
+      {/* 5. THE TWO PROBLEMS — CRO: Counter-objection "why does this exist?" */}
+      <section id="why" className="py-20 md:py-28 bg-stone-100">
+        <div className="max-w-6xl mx-auto px-6">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <div>
+              <p className="text-ember font-semibold text-sm tracking-wide mb-3">Why We Exist</p>
+              <h2 className="font-display text-[clamp(1.8rem,4vw,3rem)] text-stone-800 leading-tight">
+                Two Problems. One Solution. Every Pine We Fell Is a Workout and an Act&nbsp;of&nbsp;Restoration.
+              </h2>
+              <div className="mt-8 space-y-6">
+                <ProblemBlock
+                  num="1"
+                  title="Wilding pines are smothering NZ"
+                  desc="Invasive conifers are spreading across high country at alarming rates — choking tussock, draining waterways, displacing native species. It's the country's biggest ecological threat."
+                />
+                <ProblemBlock
+                  num="2"
+                  title="Community is disappearing"
+                  desc="People are lonelier than ever. We scroll instead of talking. Working hard alongside others — all ages, all walks of life — is becoming rare and valuable."
+                />
+              </div>
+              <div className="mt-8 bg-forest/10 border border-forest/20 rounded-xl p-5">
+                <p className="text-forest-dark font-semibold">Woodsmen fixes both.</p>
+                <p className="text-stone-600 mt-1">Get fit doing meaningful outdoor work. Build community doing it together. Train hard enough, and you might find yourself competing in Timbersports.</p>
+              </div>
+            </div>
+            <div className="relative aspect-[4/5] rounded-2xl overflow-hidden">
+              <Image src="/images/mountain.jpg" alt="NZ high country landscape" fill className="object-cover" />
+            </div>
           </div>
         </div>
       </section>
 
-      {/* Community */}
-      <section id="community" className="bg-black-card py-20 md:py-28">
-        <div className="max-w-[1200px] mx-auto px-6">
-          <div className="grid grid-cols-1 lg:grid-cols-5 gap-12 lg:gap-16 items-start">
-            <div className="lg:col-span-3">
-              <p className="text-amber font-semibold text-sm uppercase tracking-widest mb-2">Community</p>
-              <h2 className="font-display text-[clamp(2rem,5vw,3.5rem)] leading-[0.95] tracking-wide text-white mb-6">FIND YOUR CREW</h2>
-              <p className="text-gray-light text-lg leading-relaxed mb-8">
-                Woodsmen isn&apos;t just a gym — it&apos;s the people you grab a coffee with after hauling logs in the rain. It&apos;s the 60-year-old who pushes you harder than you thought possible. It&apos;s knowing your neighbours by name.
-              </p>
-
-              <div className="bg-black-light border border-gray-dark rounded-lg p-6 md:p-8 mb-8">
-                <h3 className="font-display text-2xl tracking-wide text-white mb-4">The Clubrooms — Earned, Not Given</h3>
-                <div className="space-y-4 text-gray-light leading-relaxed">
-                  <p>The Woodsmen Clubrooms is your third space — not home, not work, but the place in between. A fire, a kettle, no screens, and people who get it. But you don&apos;t just walk in. You earn it.</p>
-                  <p><strong className="text-white">To access the Clubrooms, you have to fell your own tree.</strong> It&apos;s a rite of passage. Your leaders will train you, guide you, and get you there — but until that pine hits the ground, the Clubrooms stays locked. Most people get there within their first few weeks. Some on day one.</p>
-                  <p>Out back, we run a native plant nursery — growing the very trees we plant on Fridays. From seed to soil, the full cycle happens here.</p>
-                </div>
+      {/* 6. THE CLUBROOMS — CRO: Exclusivity/rite of passage as urgency */}
+      <section className="py-20 md:py-28 bg-white">
+        <div className="max-w-6xl mx-auto px-6">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <div className="relative aspect-[4/3] rounded-2xl overflow-hidden order-2 lg:order-1">
+              <Image src="/images/forest.jpg" alt="Forest trail" fill className="object-cover" />
+            </div>
+            <div className="order-1 lg:order-2">
+              <p className="text-ember font-semibold text-sm tracking-wide mb-3">Earned, Not Given</p>
+              <h2 className="font-display text-[clamp(1.8rem,4vw,2.5rem)] text-stone-800 leading-tight">
+                The Clubrooms: A Third Space You Unlock by Felling Your Own Tree
+              </h2>
+              <div className="mt-6 space-y-4 text-stone-600 leading-relaxed">
+                <p>
+                  Not home, not work — the place in between. A fire, a kettle, no screens, and people who get it. But you don&apos;t just walk in.
+                </p>
+                <p>
+                  <strong className="text-stone-800">To access the Clubrooms, you have to fell your own tree.</strong> It&apos;s a rite of passage. Your leaders train you, guide you, and get you there. Most people earn their key within the first few weeks.
+                </p>
+                <p>
+                  Out back, a native plant nursery — growing the trees we plant on Fridays. Seed to soil, the full cycle happens here.
+                </p>
               </div>
-
-              <blockquote className="border-l-4 border-amber pl-6 italic text-gray-light text-lg">
+              <blockquote className="border-l-3 border-ember pl-5 mt-8 italic text-stone-500">
                 &ldquo;The best part of CrossFit was the community. Woodsmen takes that same energy and puts it to work — literally.&rdquo;
-                <cite className="block mt-2 text-sm not-italic text-gray">— Ben, Founder</cite>
+                <cite className="block mt-2 not-italic text-sm text-stone-400">— Ben, Founder</cite>
               </blockquote>
-
-              <div className="mt-8">
-                <Link href="#join" className="inline-flex items-center justify-center bg-amber text-black font-bold text-sm uppercase tracking-wider px-8 py-3 rounded hover:bg-amber-hover hover:-translate-y-px hover:shadow-[0_4px_20px_rgba(232,145,58,0.3)] transition-all">
-                  Join the Community
-                </Link>
-              </div>
-            </div>
-
-            <div className="lg:col-span-2 grid grid-cols-2 gap-4">
-              <StatCard value="100%" label="Outdoor sessions" />
-              <StatCard value="0" label="Mirrors or machines" />
-              <StatCard value="All" label="Ages & fitness levels" />
-              <StatCard value="∞" label="Pines to fell" />
             </div>
           </div>
         </div>
       </section>
 
-      {/* FAQ */}
-      <section className="py-20 md:py-28">
-        <div className="max-w-[1200px] mx-auto px-6">
-          <SectionHeader tag="FAQ" title="COMMON QUESTIONS" />
-          <div className="mt-12 max-w-3xl mx-auto">
-            <FAQ />
-          </div>
-        </div>
-      </section>
-
-      {/* Join CTA */}
-      <section id="join" className="bg-gradient-to-br from-amber-950/30 via-black to-green-950/20 py-20 md:py-28">
-        <div className="max-w-[1200px] mx-auto px-6 text-center">
-          <h2 className="font-display text-[clamp(2rem,5vw,3.5rem)] leading-[0.95] tracking-wide text-white mb-4">
-            READY TO PICK UP AN AXE?
+      {/* 7. PRICING PREVIEW — CRO: Sprinkled CTA with pricing anchor */}
+      <section className="py-16 bg-forest text-white">
+        <div className="max-w-6xl mx-auto px-6 text-center">
+          <h2 className="font-display text-[clamp(1.8rem,4vw,2.8rem)] leading-tight">
+            Founding Member Rates Are Open — They Won&apos;t Last
           </h2>
-          <p className="text-gray-light text-lg max-w-xl mx-auto mb-10">
-            We&apos;re launching soon. Drop your details and be first to know when sessions start.
+          <p className="text-white/70 text-lg mt-4 max-w-xl mx-auto">
+            From $20/week. No lock-in contracts. No hidden fees. Early members lock in discounted rates for life.
           </p>
-          <SignupForm />
-          <p className="text-gray text-sm mt-4">No spam. Just launch updates and session info.</p>
+          <div className="flex flex-wrap justify-center gap-4 mt-8">
+            <Link
+              href="/membership"
+              className="inline-flex items-center justify-center bg-white text-forest-dark font-semibold px-8 py-4 rounded-lg hover:bg-stone-100 transition-all shadow-md"
+            >
+              See All Plans & Pricing
+            </Link>
+            <Link
+              href="#join"
+              className="inline-flex items-center justify-center bg-white/10 text-white font-semibold px-8 py-4 rounded-lg border border-white/20 hover:bg-white/20 transition-all"
+            >
+              Book Free Intro Session
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* 8. FAQ — CRO: Address remaining objections */}
+      <section id="faq" className="py-20 md:py-28 bg-stone-50">
+        <div className="max-w-6xl mx-auto px-6">
+          <div className="max-w-2xl mx-auto">
+            <div className="text-center">
+              <p className="text-ember font-semibold text-sm tracking-wide mb-3">Still Have Questions?</p>
+              <h2 className="font-display text-[clamp(1.8rem,4vw,2.5rem)] text-stone-800 leading-tight">
+                Here Are the Answers to What Everyone Asks
+              </h2>
+            </div>
+            <div className="mt-10">
+              <FAQ />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* 9. FINAL CTA — CRO: Low-commitment ask + urgency */}
+      <section id="join" className="py-20 md:py-28 bg-white">
+        <div className="max-w-6xl mx-auto px-6 text-center">
+          <h2 className="font-display text-[clamp(1.8rem,4vw,3rem)] text-stone-800 leading-tight">
+            Your First Session Is Free. No Strings Attached.
+          </h2>
+          <p className="text-stone-500 text-lg max-w-lg mx-auto mt-4 leading-relaxed">
+            Show up, try it, and see if it&apos;s for you. We&apos;ll provide everything — just bring yourself and a water bottle.
+          </p>
+          <div className="mt-10">
+            <SignupForm buttonText="Reserve My Free Session" />
+          </div>
+          <p className="text-stone-400 text-sm mt-4">
+            No payment required. No spam. Just session details.
+          </p>
+
+          {/* CRO: Future pacing — what happens next */}
+          <div className="mt-12 bg-stone-50 border border-stone-200 rounded-2xl p-6 md:p-8 max-w-2xl mx-auto text-left">
+            <h3 className="font-display text-xl text-stone-800 text-center mb-6">What Happens After You Sign Up</h3>
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
+              <FuturePaceStep num="1" title="You get an email" desc="Session time, location, and what to wear. Usually within 24 hours." />
+              <FuturePaceStep num="2" title="You show up" desc="Your leader meets you, gives you a safety brief, and hands you your gear." />
+              <FuturePaceStep num="3" title="You're part of the crew" desc="Work hard, meet great people, and leave wondering why gyms have walls." />
+            </div>
+          </div>
         </div>
       </section>
     </>
@@ -180,92 +264,62 @@ export default function Home() {
 
 /* ── Sub-components ── */
 
-function SectionHeader({ tag, title }: { tag: string; title: string }) {
+function StepCard({ num, image, title, desc }: { num: string; image: string; title: string; desc: string }) {
+  return (
+    <div className="group">
+      <div className="relative aspect-[4/3] rounded-2xl overflow-hidden mb-5">
+        <Image src={image} alt={title} fill className="object-cover group-hover:scale-105 transition-transform duration-500" />
+        <div className="absolute top-4 left-4 w-10 h-10 rounded-full bg-ember text-white font-display text-xl flex items-center justify-center">
+          {num}
+        </div>
+      </div>
+      <h3 className="font-display text-xl text-stone-800">{title}</h3>
+      <p className="text-stone-500 mt-2 leading-relaxed">{desc}</p>
+    </div>
+  );
+}
+
+function SessionCard({ day, name, type, desc, image }: { day: string; name: string; type: string; desc: string; image: string }) {
+  return (
+    <div className="bg-stone-50 border border-stone-200 rounded-2xl overflow-hidden hover:shadow-md transition-shadow">
+      <div className="relative h-40">
+        <Image src={image} alt={name} fill className="object-cover" />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
+        <div className="absolute bottom-3 left-4">
+          <span className="text-white/70 text-xs font-semibold uppercase tracking-wider">{day}</span>
+          <h3 className="font-display text-xl text-white">{name}</h3>
+        </div>
+      </div>
+      <div className="p-4">
+        <span className="text-ember text-xs font-semibold uppercase tracking-wider">{type}</span>
+        <p className="text-stone-500 text-sm mt-2 leading-relaxed">{desc}</p>
+      </div>
+    </div>
+  );
+}
+
+function ProblemBlock({ num, title, desc }: { num: string; title: string; desc: string }) {
+  return (
+    <div className="flex gap-4">
+      <div className="w-8 h-8 rounded-full bg-ember/10 text-ember font-display text-lg flex items-center justify-center shrink-0 mt-0.5">
+        {num}
+      </div>
+      <div>
+        <h3 className="font-semibold text-stone-800">{title}</h3>
+        <p className="text-stone-500 mt-1 leading-relaxed">{desc}</p>
+      </div>
+    </div>
+  );
+}
+
+function FuturePaceStep({ num, title, desc }: { num: string; title: string; desc: string }) {
   return (
     <div className="text-center">
-      <p className="text-amber font-semibold text-sm uppercase tracking-widest mb-2">{tag}</p>
-      <h2 className="font-display text-[clamp(2rem,5vw,3.5rem)] leading-[0.95] tracking-wide text-white">{title}</h2>
-    </div>
-  );
-}
-
-function PromoItem({ icon, title, desc }: { icon: string; title: string; desc: string }) {
-  return (
-    <div className="flex items-start gap-4">
-      <span className="text-amber text-xl mt-0.5" dangerouslySetInnerHTML={{ __html: icon }} />
-      <div>
-        <strong className="text-white text-sm">{title}</strong>
-        <p className="text-gray text-sm mt-0.5">{desc}</p>
+      <div className="w-10 h-10 rounded-full bg-forest/10 text-forest font-display text-lg flex items-center justify-center mx-auto">
+        {num}
       </div>
-    </div>
-  );
-}
-
-function FeatureCard({
-  span,
-  gradient,
-  label,
-  title,
-  desc,
-  cta,
-}: {
-  span?: string;
-  gradient: string;
-  label: string;
-  title: string;
-  desc: string;
-  cta?: { label: string; href: string };
-}) {
-  return (
-    <div className={`relative rounded-lg overflow-hidden min-h-[280px] flex flex-col justify-end p-6 md:p-8 ${span ?? ""}`}>
-      <div className={`absolute inset-0 bg-gradient-to-br ${gradient}`} />
-      <div className="relative z-10">
-        <span className="text-amber text-xs font-bold uppercase tracking-widest">{label}</span>
-        <h3 className="font-display text-2xl md:text-3xl tracking-wide text-white mt-2">{title}</h3>
-        <p className="text-gray-light mt-3 leading-relaxed">{desc}</p>
-        {cta && (
-          <Link href={cta.href} className="inline-flex items-center justify-center bg-amber text-black font-bold text-sm uppercase tracking-wider px-6 py-2.5 rounded hover:bg-amber-hover transition-all mt-4">
-            {cta.label}
-          </Link>
-        )}
-      </div>
-    </div>
-  );
-}
-
-function SessionCard({ day, name, desc, tags }: { day: string; name: string; desc: string; tags: string[] }) {
-  return (
-    <div className="bg-black-card border border-gray-dark rounded-lg p-6 flex flex-col hover:border-amber/30 transition-colors">
-      <span className="text-amber font-display text-lg tracking-wider">{day}</span>
-      <h3 className="font-display text-2xl tracking-wide text-white mt-1">{name}</h3>
-      <p className="text-gray-light text-sm mt-3 leading-relaxed flex-1">{desc}</p>
-      <div className="flex flex-wrap gap-2 mt-4">
-        {tags.map((t) => (
-          <span key={t} className="text-xs font-semibold text-gray bg-gray-dark px-2.5 py-1 rounded">{t}</span>
-        ))}
-      </div>
-    </div>
-  );
-}
-
-function MissionCard({ tag, title, desc, gradient }: { tag: string; title: string; desc: string; gradient: string }) {
-  return (
-    <div className="relative rounded-lg overflow-hidden">
-      <div className={`absolute inset-0 bg-gradient-to-br ${gradient}`} />
-      <div className="relative z-10 p-6 md:p-8">
-        <span className="text-amber text-xs font-bold uppercase tracking-widest">{tag}</span>
-        <h3 className="font-display text-2xl tracking-wide text-white mt-2">{title}</h3>
-        <p className="text-gray-light mt-3 leading-relaxed">{desc}</p>
-      </div>
-    </div>
-  );
-}
-
-function StatCard({ value, label }: { value: string; label: string }) {
-  return (
-    <div className="bg-black-light border border-gray-dark rounded-lg p-6 text-center">
-      <span className="font-display text-4xl tracking-wide text-amber">{value}</span>
-      <span className="block text-gray text-sm mt-1">{label}</span>
+      <h4 className="font-semibold text-stone-800 mt-3 text-sm">{title}</h4>
+      <p className="text-stone-500 text-sm mt-1">{desc}</p>
     </div>
   );
 }

@@ -1,16 +1,17 @@
 import type { Metadata } from "next";
-import { Inter, Bebas_Neue } from "next/font/google";
+import { Source_Sans_3, DM_Serif_Display } from "next/font/google";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
+import { ChatBot } from "@/components/ChatBot";
 import "./globals.css";
 
-const inter = Inter({
-  variable: "--font-inter",
+const sourceSans = Source_Sans_3({
+  variable: "--font-source-sans",
   subsets: ["latin"],
 });
 
-const bebasNeue = Bebas_Neue({
-  variable: "--font-bebas-neue",
+const dmSerif = DM_Serif_Display({
+  variable: "--font-dm-serif",
   weight: "400",
   subsets: ["latin"],
 });
@@ -18,7 +19,7 @@ const bebasNeue = Bebas_Neue({
 export const metadata: Metadata = {
   title: "Woodsmen — Outdoor Community Gym | Queenstown, NZ",
   description:
-    "The gym is the forest. We clear invasive wilding pines and get fit doing it. Queenstown's first outdoor community gym.",
+    "Get fit clearing invasive wilding pines. Queenstown's first outdoor community gym. Real work. Real fitness. Real community.",
 };
 
 export default function RootLayout({
@@ -27,11 +28,12 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${inter.variable} ${bebasNeue.variable}`}>
+    <html lang="en" className={`${sourceSans.variable} ${dmSerif.variable}`}>
       <body>
         <Navbar />
         <main>{children}</main>
         <Footer />
+        <ChatBot />
       </body>
     </html>
   );

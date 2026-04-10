@@ -4,10 +4,12 @@ import { useState } from "react";
 
 export function SignupForm({
   showPlan = false,
-  successMessage = "You're in. We'll be in touch.",
+  successMessage = "You're in! Check your email for session details.",
+  buttonText = "Reserve My Spot",
 }: {
   showPlan?: boolean;
   successMessage?: string;
+  buttonText?: string;
 }) {
   const [submitted, setSubmitted] = useState(false);
 
@@ -18,28 +20,28 @@ export function SignupForm({
 
   if (submitted) {
     return (
-      <div className="bg-green/20 border border-green rounded px-6 py-4 text-green-light font-semibold text-lg animate-fade-in">
+      <div className="bg-forest/10 border border-forest/30 rounded-xl px-6 py-5 text-forest-dark font-semibold text-lg text-center">
         {successMessage}
       </div>
     );
   }
 
   return (
-    <form onSubmit={handleSubmit} className="flex flex-col gap-4 max-w-lg mx-auto w-full">
-      <div className="flex flex-col sm:flex-row gap-4">
+    <form onSubmit={handleSubmit} className="flex flex-col gap-3 max-w-md mx-auto w-full">
+      <div className="flex flex-col sm:flex-row gap-3">
         <input
           type="text"
           name="name"
           placeholder="Your name"
           required
-          className="flex-1 bg-gray-dark border border-gray-dark rounded px-4 py-3 text-white placeholder:text-gray focus:outline-none focus:border-amber transition-colors"
+          className="flex-1 bg-white border border-stone-200 rounded-lg px-4 py-3 text-stone-800 placeholder:text-stone-400 focus:outline-none focus:ring-2 focus:ring-forest/30 focus:border-forest transition-all"
         />
         <input
           type="email"
           name="email"
           placeholder="Your email"
           required
-          className="flex-1 bg-gray-dark border border-gray-dark rounded px-4 py-3 text-white placeholder:text-gray focus:outline-none focus:border-amber transition-colors"
+          className="flex-1 bg-white border border-stone-200 rounded-lg px-4 py-3 text-stone-800 placeholder:text-stone-400 focus:outline-none focus:ring-2 focus:ring-forest/30 focus:border-forest transition-all"
         />
       </div>
       {showPlan && (
@@ -47,22 +49,20 @@ export function SignupForm({
           name="plan"
           required
           defaultValue=""
-          className="bg-gray-dark border border-gray-dark rounded px-4 py-3 text-white focus:outline-none focus:border-amber transition-colors"
+          className="bg-white border border-stone-200 rounded-lg px-4 py-3 text-stone-800 focus:outline-none focus:ring-2 focus:ring-forest/30 focus:border-forest transition-all"
         >
-          <option value="" disabled>
-            Choose your plan
-          </option>
+          <option value="" disabled>Choose your plan</option>
           <option value="dropin">Drop-In ($25/session)</option>
           <option value="limited">Limited — 3x/week ($35/wk)</option>
-          <option value="unlimited">Unlimited ($50/wk)</option>
+          <option value="unlimited">Unlimited ($50/wk) — Most Popular</option>
           <option value="community">Community ($20/wk)</option>
         </select>
       )}
       <button
         type="submit"
-        className="bg-amber text-black font-bold text-[15px] uppercase tracking-wider px-9 py-4 rounded hover:bg-amber-hover hover:-translate-y-px hover:shadow-[0_4px_20px_rgba(232,145,58,0.3)] transition-all cursor-pointer"
+        className="bg-ember text-white font-semibold text-base px-8 py-4 rounded-lg hover:bg-ember-dark transition-all shadow-md hover:shadow-lg cursor-pointer"
       >
-        {showPlan ? "Sign Me Up" : "Count Me In"}
+        {buttonText}
       </button>
     </form>
   );
