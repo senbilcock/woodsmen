@@ -49,6 +49,7 @@
 | 39 | NZ Wilding Conifer Management Strategy 2015-2030 (PDF) | https://www.mpi.govt.nz/dmsdocument/51013-The-wilding-conifer-management-strategy-20152030 |
 | 40 | Sapere 2022 - Benefits and Costs of Additional Investment (MPI PDF) | https://www.mpi.govt.nz/dmsdocument/58519-2022-Benefits-and-costs-of-additional-investment-in-wilding-conifer-control |
 | 41 | Wilding Pines NZ - National Control Programme | https://www.wildingpines.nz/national-control-programme |
+| 42 | WCG/Scion/Otago - Seed-based Native Forest Restoration for Community Groups (2020) | https://whakatipuwilding.co.nz/wp-content/uploads/2023/07/202006-report.pdf |
 
 ---
 
@@ -1078,5 +1079,423 @@ Wilding pines are a major wildfire hazard in the Wakatipu:
 
 ---
 
-*Last updated: 2026-04-10*
+## 16. Native Restoration After Wilding Removal: The Wakatipu Beech Seeding Project
+
+### 16.1 Project Overview
+
+**Title:** Seed-based Native Forest Restoration for Community Groups
+**Date:** June 2020
+**Author:** Hilary Lennox of Ahika Consulting Ltd
+**Presentation by:** Daniel Sweeney from Total Brand Ltd
+**Associated research paper:** Paul T, Scott M, Lennox H, 2020, "Restoring wildings stands in the Wakatipu Basin by seeding native trees"
+**Website:** www.wbsp.org.nz
+**Supporting organisations:** Wakatipu Wilding Conifer Control Group Inc (WCG), Wakatipu Reforestation Trust, Scion (NZ Forest Research Institute Ltd), University of Otago
+**Acknowledgements:** Special thanks to Jon White, Thomas Paul, Janice Lord, team of volunteers, and land owners on whose land the trials were conducted
+
+The Wakatipu Beech Seeding Project was a **3-year joint research project** between the WCG and the Wakatipu Reforestation Trust, with technical support from Ahika Consulting Ltd, Scion, and the University of Otago. The project started in **Autumn 2017**.
+
+The project explored the viability and efficiency of **broadcasting native seed into stands of sprayed wilding conifers** as a way of facilitating the restoration of dead tree areas back into native forest. The core problem: many wilding-cleared sites have limited native seed sources nearby, so weed species colonise instead.
+
+**Two critical factors identified for success:**
+1. Having plenty of locally-sourced, viable seed (see Section 16.4)
+2. Timing — the "sweet spot" window (see Section 16.3)
+
+**Key insight:** As sprayed wilding conifers begin to decay, more light penetrates the forest canopy to ground level, facilitating growth on the forest floor. If the site is not colonised with natives fast enough, weeds will quickly colonise the site instead. Competitive weed species make it more difficult to establish slower-growing native species.
+
+**Additional critical finding:** Native tree species do not tend to produce large quantities of viable seed every year, so fresh seed is not always available when the timing is optimal for sowing. Planning must occur **prior to the wildings being sprayed**, rather than being an afterthought.
+
+**Other important gains:** Significant improvement can be achieved by removing some of the dense ground cover (pine needles), ensuring better contact between seed and an appropriate growth substrate rather than hoping seeds will germinate in the thick layer of rotting pine needles.
+
+**Stakeholder management:** Focusing restoration efforts on islands rather than diluting efforts across the whole site means localised success is far more likely, which helps keep everyone involved and engaged.
+
+*Sources: [42]*
+
+### 16.2 Critical Success Factors (Seven Factors)
+
+The report identifies seven critical success factors for seed-based restoration. These principles were first articulated in *Native Forest Restoration* by Tim Porteous (1993) but are often not consistently applied, particularly in recent drone-seeding trials.
+
+**Traditional restoration** (nursery-raised seedlings) is intensive and laborious but seedlings spend 1-2 years under controlled conditions with higher strike and survival rates. Field-germinated seedlings are not raised in controlled conditions so strike and survival rates are generally a lot lower (although those that survive are arguably better adapted). Field management considerations are therefore even more critical for seed-based restoration.
+
+**The seven factors:**
+
+**1) Site Assessment**
+- Thorough assessment of risk factors: weeds, pests, exposure
+- Identify optimal microsites for focused effort
+
+**2) Species Selection**
+- Select quick-growing, colonising species suitable for the site rather than based on personal preference
+- May need a long-term strategy: establish a nursery crop first to create conditions for more desirable species later
+
+**3) Seed Availability**
+- Ensure sufficient viable seed will be available locally
+- Far more likely during a mast season
+- Field germination strike rate significantly lower than nursery
+- Account for seeds that miss suitable substrate, are eaten by animals, blow away, or dry out
+- Consider feasibility of collecting and processing vast quantities of seed with limited resources — a different species may need to be targeted as a result
+
+**4) Site Protection**
+- Ensure absence of stock and grazing pest animals (rabbits, hares, goats, deer, pigs, wallabies) throughout the formative years
+- Initial site assessment should identify which wild animals are likely present
+- Determine appropriate control methods: poison, shooting, fencing
+- Controls must be maintained for several years
+- Rodents may also need to be controlled depending on seed type and population size
+
+**5) Site Preparation**
+- Remove weeds and ground cover so broadcast seeds make contact with soil
+- Methods: spraying with herbicide, screefing
+- Caveat: clearing the site also allows weeds to colonise more rapidly
+
+**6) Weed Control**
+- Control competing weeds and grasses during critical growth times (spring/summer) for several years
+- Allow seeds to germinate and seedlings to grow big enough to out-compete weeds
+- May require weed-suppressing mulches or grass-specific herbicides
+
+**7) Climate Conditions**
+- Optimal climatic conditions during the first few years of plant growth
+- Cannot be easily controlled, but thorough site assessment prior to seeding can identify the most suitable microsites where seedlings will be less vulnerable to adverse weather
+
+**Key quote (bolded in original report):** "You are, essentially, trying to establish native species into what is now a foreign environment."
+
+**Example cited:** It may seem logical to plant beech trees because they grew on a site 600 years ago. However, that site is now very different due to clearing, burning, subsequent soil erosion, invasion by exotic species and their symbiotic mycorrhizae, other changes to the microbiology and chemistry of the soil, and the introduction of pest animal species. Initial site assessment and suitable species selection may therefore be two of the most important success factors.
+
+**Nursery crop strategy:** A fast-growing, easy to collect nursery crop such as manuka, coprosma, or pittosporum may be established first to create more suitable onsite conditions for ultimately desired species. Manuka and kanuka seed is easy to collect and disperse, has wide ecological tolerance, vigorous growth, and can colonise inhospitable sites. Branches laden with seed pods can be collected at any time of year and laid across a prepared site. The seed pods eventually pop open, dispersing vast quantities of seed onto the ground. The cut branches provide shelter, temperature and humidity regulation, and protection for emerging seedlings. However, a closed canopy with shaded understory can be achieved more quickly with coprosma and pittosporum, so a mix of these species as a nursery crop may be preferred.
+
+**Exotic nursery crops:** In areas with higher rainfall, exotic species have been used as a successful nursery crop, such as gorse at Hinewai Reserve on Banks Peninsula.
+
+**Successful example cited:** The seed island approach at Waikereru Ecosanctuary by the Salmonds.
+
+*Sources: [42]*
+
+### 16.3 Site Preparation (Section 03 of the Report)
+
+#### Identifying Microsites
+
+Concentrating seeding and subsequent maintenance activities in selected microsites is a much more effective use of time, money, resources, and precious seed than broadcasting sparsely over a larger area. Establishing communities of native species in microsites encourages fruit-eating birds to the area, accelerates progress towards canopy cover, and helps create the right environment for subsequent seedings to spread. Surveys of the site must be undertaken well in advance of seeding to locate the most favourable microsites.
+
+#### Animal Control
+
+An assessment of animals present (or likely to be present) is an essential prerequisite of any seeding programme. Animal exclusion is highly likely to aid in success.
+
+- Hares and rabbits do not favour manuka as much as other native species, nor are rodents likely to eat manuka seed — so if manuka is the only species being broadcast, animal control required may be minimal
+- However, hares and rabbits can completely decimate other palatable species
+- Deer, goats, wallabies, wild pigs, and stock can also cause significant damage
+- Rodents must be considered as they can attack the seed itself
+
+**Fencing considerations:**
+- Method depends on what is being controlled, site accessibility, timing, funds, and labour availability
+- If long-term ecosanctuary aspirations exist, install permanent high-quality fencing from the start rather than replacing a less-effective fence later
+- Temporary fencing materials (e.g., shade cloth along fence lines) can create a microclimate within the fenced area, providing protection against wind and frost extremes — but care must be taken not to make the area too shaded
+
+#### Weed Control (Detailed)
+
+Native seedlings need water, varying degrees of light, and nutrients. Invasive weeds reduce success by competing for resources, smothering and overtopping seedlings, and forming dense cover on the forest floor preventing germination. Neglecting weed control may result in total failure; effective control results in faster, more sustained growth and much higher success rates.
+
+**Herbicide approach:**
+- Quickest way to clear weeds in and around the selected microsite
+- Weed-specific herbicides are safe to use if label instructions are followed and spray drift onto non-target plants is avoided
+- Residence time of the herbicide must be checked so it does not impact subsequent seeding operations
+- Weed spraying in late summer means collected seed can be sown in autumn without needing to be stored over winter
+- Weed spraying in spring can delay sowing and means seed must be stored carefully over winter
+- Spray a wider area than where seed will be sown so that nearby rank grass and taller weeds do not collapse onto the seeding site and smother new seedlings
+
+**Hand-pulling and screefing:**
+- Added advantage of clearing the area so seed contacts soil directly
+- However, disturbed open sites are ideal for weed establishment, so close monitoring and follow-up control will likely be required
+
+**General recommendation:** Avoid over-clearing any area beyond what can be dealt with in one year. Wilding control projects using herbicide tend to cover a much greater area, so the fight against weeds will be ongoing until the native canopy forms. This is another reason efforts are best focused on microsites.
+
+**Weed-only clearing warning:** Simply clearing weeds without associated native restoration efforts results in an endless cycle of weed invasion and control. If large areas have been cleared, a quick-growing, hardy nursery crop may be necessary to suppress weed invasion and create conditions for other native species.
+
+**Native canopy as a solution:** Establishing a closed canopy of native species may be an effective way to stop wildings from reinvading (with the exception of Douglas fir due to its high shade tolerance).
+
+**Important note:** Simply killing weeds achieves little in terms of making the soil ecosystems suitable for native forest restoration.
+
+#### Timing Since Wilding Conifer Control ("The Sweet Spot")
+
+This is the critical timing section referenced in the project overview.
+
+**The problem sequence:**
+1. Wilding conifer control operations using herbicides kill anything beneath the wildings as well as the target trees (work is being done on more species-specific herbicides)
+2. Initial understory die-off when herbicide is first applied
+3. Further die-off when contaminated pine needles drop to the forest floor and start decaying
+4. Depending on herbicide used, no significant new growth expected on the forest floor until herbicide residue has attenuated — which may take **6 to 24 months**
+5. At this point there is an opportunity to introduce native seed to establish seedlings before invasive weeds take over
+6. If the window is missed, weed cover takes over
+
+**The schematic diagram** (page 14 of the report) shows the relationship between herbicide application, wilding decay, and weed reinvasion over time since spraying. It plots:
+- Conifer cover (declining over time as sprayed trees decay)
+- Herbicide in soil (peaks after application, with a secondary peak at needle drop, then attenuates)
+- Weed cover (increasing over time as light reaches the forest floor)
+- Dangerous dead trees (increasing as sprayed trees become structurally compromised)
+- The optimal point to "Introduce native seed" — after herbicide attenuates but before weed cover establishes
+
+**Planning requirement:** Taking advantage of this opportunity requires careful planning and close monitoring of the forest so that the optimal time for seeding (the "sweet spot") is not missed. However, abundant, viable native seed may not be available every year. Ideally this would be planned as part of the initial wilding control operations so that seed can be collected and stored in advance where possible — bearing in mind that viability of many species does tend to diminish the longer the seed is stored.
+
+**Additional weed control still needed:** Even if native seed is introduced before weeds reinvade, additional weed control will likely still be required because wilding spray operations don't always kill 100% of understory weeds, and remnant patches of undesirable species can spread quickly as residual herbicide abates and decomposing wildings allow more light through.
+
+#### Ground Cover
+
+Clearing away dead weeds, pine needles, leaves, and other ground cover ensures broadcast seed is more likely to contact soil and germinate. Methods depend on site accessibility, timing, funds, and labour availability. Consideration must be given to what is pragmatic and practical, and to what extent soil disturbance may encourage invasion by competitive weed species.
+
+Simply raking away ground cover or removing dense grass swards by screefing will increase the success rate, although these methods are not particularly upscaleable without a large workforce. Concentrating activities on selected microsites is again emphasised as the most effective use of time and money. Ongoing maintenance will improve the success rate of emerging native seedlings and adequate resources must be allocated.
+
+*Sources: [42]*
+
+### 16.4 Seed Collection, Processing and Storage (Section 04 of the Report)
+
+#### General Principles
+
+- Use seed collected from plants that naturally occur in the area; avoid using seed stock from outside the region
+- Locally sourced seed has a better chance of germination and survival because it is from genetic stock adapted to local conditions
+- Eco-sourcing also maintains a record of what is and is not naturally native in the area
+- Certain species such as native beech trees will only produce large quantities of viable seed during a mast year, which may only occur **every 3-5 years**
+- Other species such as manuka have seed that is much more readily available
+- Landowner permission is required before accessing any property to collect seed
+- On DOC or QLDC land (any public land), a seed collection permit is required and may take several months to obtain — apply early
+
+**Equipment needed:**
+- Large tarpaulin
+- Garden bags
+- Shepherd's crook
+- Insect spray
+- 1/4" garden sieve
+- Fingernail clippers
+- Tweezers
+- Brown paper bags
+- Various sized sieves and bowls
+- Damp Rid or silica gel
+- Large trays
+- Stick blender (optional)
+
+**Labelling (all species):** Before removing seed from the field, place into paper bags and label with:
+- Species
+- Date
+- Location
+- Collector's name
+- Any other notes
+
+#### Five Wakatipu Basin Native Species (Detailed Collection Guides)
+
+**Species 1: Mountain Beech (*Fuscospora cliffortioides*)**
+
+- Produces seed between **February and April** each year
+- Viable seed quantity far greater during a mast year than a non-mast year
+- Proliferation of small red flowers over summer indicates the trees will produce seed in autumn (if pollinated)
+- **Collection window: only 2-4 weeks** when seed is mature and ready to fall
+- Too early: cannot shake it off the tree. Too late: already fallen to the ground
+- Maturation timing varies hugely between different trees and between different areas of the basin
+- Seeds at lower altitude and warmer, sunnier areas tend to mature earlier
+- Seeds look like small bran-flakes; ready when they change colour from green to brown and pods open slightly
+- Three seeds per pod: 1 flat seed and 2 finned seeds per pod
+- **Viability test:** Hold a seed with tweezers and use fingernail cutters to cut through it — look for a white kernel. Test at least three flat seeds and three finned seeds. No white kernel = non-viable seed, not worth collecting
+- **Collection method:** Find trees with seed-laden branches easy to reach (forest edges, paddock ends, lake edges, river edges, natural groves). Hold or place tarpaulin under branches, use shepherd's crook or extendable brush to shake branches vigorously. Alternatively, remove individual branches gently into garden bags and shake branch in the bag
+- **Beware galls:** Do not mistake beech seeds for galls. Galls are created when mites lay eggs inside the tree's leaves; larvae cause leaf buds to form a protective "bubble." Galls are much bigger than seed pods
+- **Genetic diversity:** Collect seed from multiple trees, not just one, for greater genetic diversity and resilience
+- **Processing:** Sieve collected seed using a 1/4" garden sieve to remove larger twigs and leaves. Many pod cases and smaller leaves will also be collected — removing these without specialised equipment is very labour-intensive
+- **Seed counting method:** Weigh total volume of seed mix. Weigh out 5 grams and count how many seeds in that amount. Repeat at least three times, take average. Use to calculate total seeds collected. Test viability at the same time using the cut-through method
+- **Drying:** Spread seed on a large tray in a sunny spot but avoid over-heating. Anything above **15 degrees C** for a prolonged period will cause the seed to age. Remove adequate moisture so seed does not rot in storage
+- **Storage:** Brown paper bags in a cool, dry place (**between 5 and 15 degrees C**). Place a Damp Rid or packets of silica gel in with the seed to absorb extra moisture. Paper bags preferable to plastic bags as they allow excess moisture to escape
+- **Seed density: approximately 60 seeds per gram**
+
+**Species 2: Coprosma Propinqua**
+
+- Produces berries of various colours, usually ready **between February and April**
+- When ready, berries fall off easily with little shaking
+- Seed quantity varies greatly per plant
+- Coprosma species follow general mast cycles in terms of abundance, but some plants will produce seed each year
+- **Collection method:** Place branches into a garden bag and shake vigorously. For larger plants, hold tarpaulin under branches and shake berries onto it
+- **Within each berry: two seeds**
+- **Flesh removal is essential** before storage (flesh left on may cause rotting; dried flesh delays germination)
+- **Flesh removal methods:**
+  - Kitchen sieve and knuckles/base of jar over a sink of water to rub flesh off. Flush in large bowl to separate seeds from flesh. Seeds drop to bottom; decant dirty water
+  - Stick blender method: place berries in large jug half-filled with water, very gently stir with stick blender. Do not go too hard (avoid damaging seeds). Do not use food processor or Magic Bullet (too rigorous). Seeds drop to bottom; decant flesh-laden water. Use sieve or colander to drain excess water, lay seeds on newspaper to dry
+- Seeds must be thoroughly dried before storage to prevent rotting
+- **Storage:** Brown paper bags, cool dry place (**between 5 and 15 degrees C**). Damp Rid or silica gel to absorb extra moisture. Paper bags preferable to plastic bags for moisture regulation
+- **Seed density: approximately 100 seeds per gram**
+- **Seed counting:** Same method as beech — weigh total, weigh 5g sample, count, repeat 3x, take average
+
+**Species 3: Pittosporum (*Pittosporum tenuifolium* aka Black Matipo)**
+
+- Seed available for collection **between April and September** each year
+- Seed formed in a hard pod; when ready, pod splits open
+- Seed does not instantly fall to the ground — remains stuck in the pod in a sticky yellow or black coating
+- Ripe pods available for picking over several months
+- **Collection method:** Place garden bag on the ground, pick off each open pod individually, throw into garden bag
+- **Drying:** Place pods in a tray in a sunny spot for about a week to dry any excess moisture
+- **Seed removal:** Incredibly tricky given the sticky black coating. Rolling the pods in fine sand can help break up the coating — still very time-consuming
+- **Storage:** Brown paper bags, cool dry place (**between 5 and 15 degrees C**). Damp Rid or silica gel. Paper bags preferable to plastic bags for moisture regulation
+- **Seed counting:** Same weight-and-count method as other species
+
+**Species 4: Broadleaf (*Griselinia littoralis*)**
+
+- Berries grow in bunches, ripe for picking usually in **April/May**
+- When ready, berries turn from green to black; available for picking for a couple of months
+- **Collection method:** Place garden bag on the ground, pick off individual bunches of berries, throw into garden bag
+- **Within each berry: one seed**
+- **Flesh removal required** if not being sown fresh (same sieve/knuckle method as coprosma, or grooved rubber mat attached to board)
+- Berries need to be scrubbed until thin flesh layer is removed from each seed. Flush in large bowl, seeds drop to bottom, decant dirty water
+- **CRITICAL: Broadleaf seeds are recalcitrant** — they do not survive drying and freezing, so they cannot be dried out and cannot be stored for long periods
+- **Storage (short-term only):** Place seeds in a Tupperware container with a damp layer of damp kitchen towel to prevent drying out. If too damp, seeds may begin to rot — difficult to store in perfect conditions
+- **Ideal approach:** Sow broadleaf seeds soon after collection and processing to avoid errors associated with imperfect storage conditions
+
+**Species 5: Manuka (*Leptospermum scoparium*) and Kanuka (*Kunzea serotina* or *Kunzea robusta*)**
+
+- Seeds relatively easy and simple to collect and process
+- New seed pods ready for collection from **April/May**
+- Pods tend to remain on trees for over a year, providing ample opportunity for collection, although viability may decrease over time
+- **Collection method:** Find branches laden with pods, remove those branches from the tree using garden snippers. Be careful not to remove too many branches from each tree to avoid damage
+- **Sooty mould:** Manuka trees sometimes present with a black, sooty coating known as "sooty mould" — a black fungus feeding on honeydew produced by insects. Try to avoid collecting this, but it may be impossible to collect much manuka seed without some sooty mould
+- **Processing:** Place cut branches into garden bags, take offsite, place into large plastic storage containers in a warm, dry, sunny location. As pods dry out, they release thousands of tiny seeds resembling strands of saffron. Seeds collect in the bottom of the container. Gentle shaking of branches aids seed release
+- **Colour distinction:** Manuka seeds are reddish in colour; kanuka seeds tend to be duller
+- **Final processing:** Gather seed from container bottom, sieve through fine sieve to remove larger leaf matter, ensure seed is dry prior to storage. Store in paper bags with standard labelling
+- **Seed counting not possible:** It is not possible to count individual seeds, but a reasonable assumption is approximately **1,000 seeds per gram**
+
+*Sources: [42]*
+
+### 16.5 Seed Islands (Section 02 of the Report)
+
+The seed island method works with and accelerates natural processes of plant establishment and spread. Rather than trying to restore whole hillsides at once, restoration efforts are focused on carefully selected microsites identified during initial site surveys.
+
+**Microsite selection criteria:**
+- Most favorable for germination and survival due to aspect, slope, moisture availability, shelter, soil depth
+- Species-specific sites may include: moist depressions, sheltered and frost-free spots, sunnier or more shaded spots depending on species
+- Sites exposed to prevailing winds or overly wet/waterlogged may be unsuitable for some native tree species
+- May be chosen for safety/access reasons, less ground cover of pine needles/leaves/debris, or lower risk of weed invasion
+- Consideration given to: how easily fencing materials can be brought to the site, ease of revisiting for maintenance and monitoring
+
+**Process:**
+1. Seed is broadcast into microsites only
+2. Continued management of emerging seedlings is required — but far easier to do with islands than sparse seedlings across a whole site
+3. Temporary fencing of individual islands may be cheaper and easier than fencing the whole site
+4. Weed competition easier to manage at localised level
+
+**Long-term vision:**
+- Aim is to establish islands of mixed native species
+- Trees form a closed canopy under which new seedlings emerge
+- Canopy grows outwards, allowing new seedlings to grow at the fringes
+- Fruit-eating birds distribute seeds from one island to the next, creating new islands between existing ones
+- Pollination by invertebrates is also facilitated
+- Islands expand towards each other and merge
+- Can be facilitated by sowing new islands each year as more seed becomes locally available
+
+**Canopy benefits:**
+- Under-canopy environment provides protection against water stress, sun scorch, frost, and winds
+- Canopy cover allows successional species to establish if seed is present
+- Important to achieve canopy cover as quickly as possible — more realistic through island creation than spreading thinly across the whole site
+
+**Edge effects:**
+- Larger seed islands have a more stable micro-climate in the centre with consistent light levels
+- Closer to the edge: more light/wind/exposure
+- Some species such as manuka may favour edges due to increased light levels, but edges also have more pressure from exotic weeds and more extreme climatic conditions
+- Preferable to have fewer, larger islands rather than many smaller ones
+
+**Managing Expectations (Sub-section):**
+
+The seed island method also manages a key success factor: people's expectations.
+- Natural native forest restoration may take decades and span across generations
+- Growing expectations that restoration should be achieved quickly — due to funding timeframes (usually 3 years maximum), election cycles, and human impatience
+- Nursery-raised seedling projects provide instant gratification when planted; seed-based projects require much more patience
+- Vital that expectations of funders, landowners, volunteers, peer groups, employees, and stakeholders are managed effectively
+- If positive results are not achieved within the first **1-2 years**, interest and support may wane
+- Focusing on islands means localised success is far more likely — more rewarding to visit an island with a blanket of emerging seedlings than to scour a whole site for the occasional seedling
+- Securing more funding is also more likely for projects where success is proven and demonstrable
+- More seed islands can be added in subsequent years when seed becomes locally available, accelerating and maintaining momentum
+
+*Sources: [42]*
+
+### 16.6 Seeding, Monitoring and Maintenance (Section 05 of the Report)
+
+#### Seeding
+
+**Stratification:**
+- Depending on time of year and species, artificial stratification of seed may be required
+- Ideally seed would be sown in autumn shortly following collection, subject to natural stratification processes
+- Sowing as soon as possible after collection also removes potential human errors associated with incorrect storage
+- Some seed must be stored in very particular conditions if stored for any length of time
+- If seed cannot be sown until spring because weed control works are required first, professional advice should be sought to ensure correct storage and stratification (different species have very different requirements)
+
+**Measuring seed for sowing:**
+- To measure the success of a seeding operation, you must know how much seed has been sown over the area
+- Measuring out a very small amount of seed (e.g. 5 grams), counting how much seed is in that amount, then multiplying to achieve the desired amount is quicker than trying to count exact numbers
+
+**Seeding rate calculation table (from the report):**
+
+| Species | Seeds/gram | Coronet & Queenstown Hill: Fenced 4m2 per plot (20m2 total per site) | Coronet & Long Gully: Unfenced 5m2 per transect (25m2 total per site) |
+|---------|-----------|----------------------------------------------------------------------|-----------------------------------------------------------------------|
+| Beech | 60 seeds/gram | 8,000 seeds per 4m2 (2,000 seeds per m2, 50% viable) = 133g per transect = 33g/m2 | 15,000 seeds per 5m2 (3,000 seeds per m2, 50% viable) = 250g per transect = 50g/m2 |
+| Coprosma | 100 seeds/gram | 4,000 seeds per 4m2 (1,000 seeds per m2, 80% viable) = 40g per transect = 10g/m2 | 7,000 seeds per 5m2 (1,400 seeds per m2, 80% viable) = 70g per transect = 14g/m2 |
+
+**Note from report:** The beech seed was not as well sorted as the coprosma, resulting in fewer seeds per gram.
+
+**Viability assumptions used:** Beech at 50% viable; Coprosma at 80% viable.
+
+**Sowing rate guidance:**
+- Around **1,000 seeds per m2** is a good starting point for manuka or kanuka
+- A much lower rate can be applied when sowing coprosma or broadleaf
+- Seed viability should be tested at this stage and more seed added to compensate for non-viable seed
+
+**Sowing methods:**
+- Simply sprinkling seed by hand over the prepared area
+- Seed spreader can be used for some species (beech, coprosma)
+- A thin layer of soil can be spread over the top of the seed to enable germination and to make seed less obvious to birds and rodents
+- More recent trials have examined dispersing seed aerially via drones
+
+**Sowing caution:** Avoid seeding into unnatural habitats — if a species usually grows best in dry, sunny areas, it should not be seeded into a dark gully.
+
+#### Mycorrhizal Inoculation
+
+- Native plants form beneficial symbiotic relationships with mycorrhiza
+- Most NZ native species form symbiotic relationships with a range of **arbuscular mycorrhizae**
+- Some species, such as NZ native beech, need more particular **ectomycorrhiza**
+- Any attempts to translocate beneficial mycorrhizae should be approached with **extreme caution**
+- Commercially available mycorrhizal products are usually designed for horticulture, not native forest restoration
+- NZ native mycorrhizae will be more beneficial than shop-bought versions
+- However, translocating duff and fungi creates the risk of introducing undesirable invasive exotic weed and fungal species
+- Exotic fungi facilitate weed invasions and can be counter-productive to native seedling growth
+
+#### Maintenance
+
+- Simply sowing seed and walking away will not ensure success
+- **Weed control and animal control (and possibly watering) for the first 2-3 years at least** will increase the chances of success remarkably
+- Aim: establish a closed canopy to shade soil and prevent shade-intolerant weeds from invading
+- More done to facilitate seedling growth in the first few years, the better
+- Targeting microsites and doing this well is more effective than trying to restore a whole site at once
+
+**Releasing:** Removal of weeds from around seedlings ensures more rapid growth due to less competition for light, water, and nutrients. Methods:
+- Specific herbicide (taking care not to spray seedlings)
+- Hand pulling of competitive weeds
+- Type of weed management depends on weed type, degree of infestation, time/labour/funding available
+
+**Tree protectors:** Depending on fencing and pest animals present, install tree protectors around seedlings once they reach a certain size for a higher degree of protection (may also reduce weed control needed).
+
+**Mulching:** Mulch around seedlings with sawdust (must be from untreated timber), bark chips, or even a mat of pine needles from surrounding area. Care not to cover any emerging seedlings. Mulching also helps with reducing moisture loss from soil, stabilising soil temperature, and organic mulches may add nutrients.
+
+**Overall finding:** The more intensely a site is managed, the greater the chance of success. However, maintenance can be reduced through careful site and species selection, adequate site preparation, and weed removal prior to seeding. If species are sown into unsuitable habitat without adequate consideration and control of risks, the level of maintenance required will be a lot higher. Thorough planning and development of a long-term restoration strategy prior to collecting or sowing any seed can ensure minimal maintenance, making seed-based restoration a viable alternative to more traditional techniques.
+
+#### Monitoring
+
+- Monitoring provides valuable insight into what worked, what didn't, and which success factors need more/less attention
+- Provides site-specific insights to guide the next phase of restoration
+
+**Method:**
+- Use a measuring square made of plastic piping, **500 x 500 mm** in size, to count seedlings in an area measuring **0.25 m2**
+- Place the square randomly within the seeded area, held in position using pegs
+- Pegs should be clearly marked and left in place so the square can be placed in the exactly the same position for subsequent monitoring events
+- Count the number of seedlings, species, and height within the square
+- Record along with plot number and date
+- Lift the square, place randomly in another location, repeat
+- Number of plots measured depends on size of area seeded, degree of variation across the site, and level of detail sought
+- The same plots can be measured again later in the season to compare germination and survival rates as time progresses
+
+**Monitoring schedule:**
+- Areas sown in autumn: first monitoring round in mid-summer
+- Areas sown in spring: first monitoring probably best to wait until late summer
+- Another round just before winter, and again in spring, to determine survival rate through winter
+- Frequency thereafter depends on how many seedlings have germinated and how rapidly conditions have changed
+
+*Sources: [42]*
+
+---
+
+*Last updated: 2026-04-11*
 *This document will be expanded as new sources are added.*
