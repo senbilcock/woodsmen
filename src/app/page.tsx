@@ -93,25 +93,60 @@ export default function Home() {
       {/* Clubrooms */}
       <section className="py-20 md:py-28 bg-night-light">
         <div className="max-w-6xl mx-auto px-6">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <div className="relative aspect-[4/3] rounded-lg overflow-hidden order-2 lg:order-1">
+          <Tag>The Third Space</Tag>
+          <h2 className="font-display text-[clamp(1.6rem,4vw,2.8rem)] tracking-tight text-sand text-center mt-2">
+            The Clubrooms. Earned, Not&nbsp;Given.
+          </h2>
+          <p className="text-sand-muted text-center max-w-2xl mx-auto mt-4">
+            Not home, not work — the place in between. Pool tables, a bar, events, a fire, and people who get it. But you don&apos;t just walk in.
+          </p>
+
+          <div className="mt-12 bg-night-card border border-ember/20 rounded-lg p-6 md:p-8 max-w-2xl mx-auto text-center">
+            <p className="text-ember font-display text-lg tracking-tight">To unlock the Clubrooms, you have to fell your own tree.</p>
+            <p className="text-sand-muted text-sm mt-2">A rite of passage. Your leaders train you, guide you, get you there. Most earn their key within the first few weeks.</p>
+          </div>
+
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-10 max-w-3xl mx-auto">
+            <ClubFeature icon="🪓" title="Earned Entry" desc="Fell your own tree to get your key" />
+            <ClubFeature icon="🎱" title="Pool & Games" desc="Pool tables, darts, and a place to hang" />
+            <ClubFeature icon="🍺" title="The Bar" desc="Drinks after a hard session with your crew" />
+            <ClubFeature icon="🌿" title="The Nursery" desc="Growing the natives we plant on Fridays" />
+          </div>
+
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mt-12 items-center">
+            <div className="relative aspect-[4/3] rounded-lg overflow-hidden">
               <Image src="/images/forest.jpg" alt="Forest trail" fill className="object-cover" />
             </div>
-            <div className="order-1 lg:order-2">
-              <Tag left>Earned, Not Given</Tag>
-              <h2 className="font-display text-[clamp(1.6rem,4vw,2.4rem)] tracking-tight text-sand mt-2">
-                The Clubrooms: A Third Space You Unlock by Felling Your Own&nbsp;Tree
-              </h2>
-              <div className="mt-6 space-y-4 text-sand-muted text-[15px] leading-relaxed">
-                <p>Not home, not work — the place in between. A fire, a kettle, no screens. But you don&apos;t just walk in.</p>
-                <p><strong className="text-sand">To access the Clubrooms, you have to fell your own tree.</strong> A rite of passage. Your leaders train you, guide you, get you there. Most earn their key within weeks.</p>
-                <p>Out back: a native plant nursery — growing the trees we plant on Fridays. Seed to soil, the full cycle.</p>
-              </div>
-              <blockquote className="border-l-2 border-ember pl-4 mt-8 italic text-sand-muted/60 text-sm">
+            <div className="space-y-4 text-sand-muted text-[15px] leading-relaxed">
+              <p>The Clubrooms is where Woodsmen becomes more than a gym. It&apos;s the social hub — events, community nights, Timbersports screenings, fundraisers. A place to be after the work is done.</p>
+              <p>Out back: a native plant nursery on a local paddock property, growing the very seedlings you plant on Fridays. Seed to soil, the full cycle happens here.</p>
+              <p className="text-sand font-semibold">Think RSA meets surf club meets CrossFit social — but you have to earn your way in.</p>
+              <blockquote className="border-l-2 border-ember pl-4 mt-4 italic text-sand-muted/60 text-sm">
                 &ldquo;The best part of CrossFit was the community. Woodsmen takes that same energy and puts it to work — literally.&rdquo;
                 <cite className="block mt-2 not-italic text-sand-muted/40 text-xs">— Ben, Founder</cite>
               </blockquote>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Map — Expansion Plan */}
+      <section className="py-20 md:py-28 bg-night">
+        <div className="max-w-6xl mx-auto px-6">
+          <Tag>Our Plan</Tag>
+          <h2 className="font-display text-[clamp(1.6rem,4vw,2.8rem)] tracking-tight text-sand text-center mt-2">
+            Starting Local. Restoring Queenstown.
+          </h2>
+          <p className="text-sand-muted text-center max-w-2xl mx-auto mt-4">
+            We start behind Highview Terrace and expand across the hills. Every phase clears more pines, plants more natives, and grows the crew.
+          </p>
+          <div className="mt-12">
+            <QTownMap />
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-10">
+            <PhaseCard phase="1" title="Highview Terrace" status="Now" desc="Behind Ben's house. The first site. Close to town, easy access. Where it all starts." active />
+            <PhaseCard phase="2" title="Queenstown Hill" status="Next" desc="Expand across the wider Queenstown Hill reserve. More terrain, bigger sessions, visible impact." />
+            <PhaseCard phase="3" title="Skyline & Beyond" status="Future" desc="Higher altitude, remote camps, multi-day expeditions. The backcountry work that bonds a crew for life." />
           </div>
         </div>
       </section>
@@ -304,5 +339,76 @@ function HeartIcon() {
     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
       <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" />
     </svg>
+  );
+}
+
+function ClubFeature({ icon, title, desc }: { icon: string; title: string; desc: string }) {
+  return (
+    <div className="bg-night border border-night-border rounded-lg p-4 text-center">
+      <span className="text-2xl">{icon}</span>
+      <h4 className="font-display text-sm tracking-tight text-sand mt-2">{title}</h4>
+      <p className="text-sand-muted/50 text-xs mt-1">{desc}</p>
+    </div>
+  );
+}
+
+function PhaseCard({ phase, title, status, desc, active }: { phase: string; title: string; status: string; desc: string; active?: boolean }) {
+  return (
+    <div className={`rounded-lg p-6 ${active ? "bg-ember/10 border border-ember/30" : "bg-night-card border border-night-border"}`}>
+      <div className="flex items-center gap-2 mb-3">
+        <span className={`font-display text-xs tracking-[0.14em] uppercase ${active ? "text-ember" : "text-sand-muted/40"}`}>Phase {phase}</span>
+        <span className={`text-[10px] px-2 py-0.5 rounded-full ${active ? "bg-ember text-night" : "bg-night-border text-sand-muted/50"}`}>{status}</span>
+      </div>
+      <h3 className="font-display text-lg tracking-tight text-sand">{title}</h3>
+      <p className="text-sand-muted text-sm mt-2 leading-relaxed">{desc}</p>
+    </div>
+  );
+}
+
+function QTownMap() {
+  return (
+    <div className="relative bg-night-card border border-night-border rounded-lg overflow-hidden aspect-[16/9] max-w-4xl mx-auto">
+      {/* Satellite-style map of Queenstown area using an iframe */}
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d20000!2d168.665!3d-45.03!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e1!3m2!1sen!2snz!4v1"
+        width="100%"
+        height="100%"
+        style={{ border: 0, filter: "saturate(0.3) brightness(0.4) contrast(1.2)" }}
+        allowFullScreen
+        loading="lazy"
+        referrerPolicy="no-referrer-when-downgrade"
+        title="Queenstown area map"
+      />
+      {/* Overlay with phase markers */}
+      <div className="absolute inset-0 pointer-events-none">
+        {/* Phase 1 — Highview Terrace */}
+        <div className="absolute" style={{ top: "42%", left: "52%" }}>
+          <div className="relative">
+            <div className="w-20 h-20 rounded-full bg-ember/30 border-2 border-ember animate-pulse" />
+            <div className="absolute -top-6 left-1/2 -translate-x-1/2 whitespace-nowrap bg-night/90 text-ember text-xs font-display tracking-wider px-2 py-1 rounded">
+              Phase 1 — Now
+            </div>
+          </div>
+        </div>
+        {/* Phase 2 — Queenstown Hill */}
+        <div className="absolute" style={{ top: "30%", left: "45%" }}>
+          <div className="relative">
+            <div className="w-32 h-32 rounded-full border-2 border-sand-muted/30 border-dashed" />
+            <div className="absolute -top-6 left-1/2 -translate-x-1/2 whitespace-nowrap bg-night/90 text-sand-muted/50 text-xs font-display tracking-wider px-2 py-1 rounded">
+              Phase 2 — Next
+            </div>
+          </div>
+        </div>
+        {/* Phase 3 — Skyline */}
+        <div className="absolute" style={{ top: "18%", left: "58%" }}>
+          <div className="relative">
+            <div className="w-24 h-24 rounded-full border-2 border-sand-muted/20 border-dashed" />
+            <div className="absolute -top-6 left-1/2 -translate-x-1/2 whitespace-nowrap bg-night/90 text-sand-muted/30 text-xs font-display tracking-wider px-2 py-1 rounded">
+              Phase 3 — Future
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   );
 }
