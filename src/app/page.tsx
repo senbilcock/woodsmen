@@ -52,16 +52,47 @@ export default function Home() {
           </h2>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mt-14">
-            <SessionCard day="Mon" name="The Fell" type="Strength & Skill" desc="Axe and hand-saw work — no chainsaws. Technique drills, partner felling, quiet log processing." image="/images/axe.jpg" />
-            <SessionCard day="Tue" name="AxeFit" type="HIIT & Power" desc="Chopping circuits, splitting rounds, timed efforts. CrossFit meets a woodshed." image="/images/firewood.jpg" />
-            <SessionCard day="Wed" name="Seed Mission" type="Active Recovery" desc="Collect native seed from local beech, manuka, and coprosma. Process, store, and prep for planting. A rest day that restores the land." image="/images/planting.jpg" />
-            <SessionCard day="Thu" name="Firewood Carry" type="Cardio & Strength" desc="Loaded carries, log shuttles, sled drags, team relays through bush." image="/images/carry.jpg" />
-            <SessionCard day="Fri" name="Restore" type="Conservation" desc="Plant natives into cleared sites, pull weeds and wilding seedlings, maintain seed islands. The work that comes after the trees fall." image="/images/community.jpg" />
-            <SessionCard day="Sat" name="The Long One" type="Expedition" desc="Monthly backcountry mission. Seed drops on remote cleared sites, trail work, or a group expedition into the high country." image="/images/mountain.jpg" />
+            <SessionCard day="Mon" name="The Fell" type="Strength & Skill" desc="Axe work, hand-saw felling, rigging and rope systems for controlled drops. Real arborist technique — no chainsaws." image="/images/axe.jpg" />
+            <SessionCard day="Tue" name="AxeFit" type="HIIT & Power" desc="Chopping circuits, splitting rounds, rope hauls, timed efforts. CrossFit meets a woodshed." image="/images/firewood.jpg" />
+            <SessionCard day="Wed" name="Seed Mission" type="Active Recovery" desc="Collect native seed, practice knot craft and rope skills. A rest day that builds technique and restores the land." image="/images/planting.jpg" />
+            <SessionCard day="Thu" name="Firewood Carry" type="Cardio & Strength" desc="Loaded carries, log shuttles, sled drags, team relays. Rigging practice for alpine-transferable rope skills." image="/images/carry.jpg" />
+            <SessionCard day="Fri" name="Restore" type="Conservation" desc="Plant natives into cleared sites, pull weeds, maintain seed islands. Light climbing practice on standing deadwood." image="/images/community.jpg" />
+            <SessionCard day="Sat" name="The Long One" type="Expedition" desc="Monthly backcountry mission. Complex fells, rope access, trail building, or a crew expedition into the high country." image="/images/mountain.jpg" />
           </div>
 
           <div className="mt-14">
             <WOD />
+          </div>
+        </div>
+      </section>
+
+      {/* Skills — rigging, ropes, qualifications */}
+      <section className="py-14 bg-ember">
+        <div className="max-w-6xl mx-auto px-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+            <div>
+              <h2 className="font-display text-[clamp(1.4rem,3vw,2rem)] tracking-tight text-night">
+                Learn Rigging, Rope Work, and Felling Technique — Free With Your Membership.
+              </h2>
+              <p className="text-night/70 mt-3">
+                The same skills professional arborists and alpine guides use. Transferable to climbing, mountaineering, canyoning, and SAR. Pursue NZQA qualifications at no extra cost.
+              </p>
+            </div>
+            <div className="flex flex-wrap gap-2 justify-end">
+              <SkillTag>Rigging Systems</SkillTag>
+              <SkillTag>Rope Access</SkillTag>
+              <SkillTag>Arborist Knots</SkillTag>
+              <SkillTag>Felling Technique</SkillTag>
+              <SkillTag>Tree Climbing</SkillTag>
+              <SkillTag>Hazard Assessment</SkillTag>
+              <SkillTag>NZQA Pathway</SkillTag>
+              <SkillTag>Alpine Transfer</SkillTag>
+            </div>
+          </div>
+          <div className="text-center mt-6">
+            <Link href="/research/arborist-pathway" className="inline-flex items-center justify-center bg-night text-sand font-semibold text-sm uppercase tracking-wider px-7 py-3 rounded hover:bg-night-light transition-all">
+              See the Full Arborist Pathway
+            </Link>
           </div>
         </div>
       </section>
@@ -522,5 +553,13 @@ function QTownMap() {
         </div>
       </div>
     </div>
+  );
+}
+
+function SkillTag({ children }: { children: React.ReactNode }) {
+  return (
+    <span className="bg-night/20 text-night text-xs font-semibold px-3 py-1.5 rounded border border-night/20">
+      {children}
+    </span>
   );
 }
