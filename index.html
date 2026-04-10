@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Woodsmen — Outdoor Community Gym | Queenstown, NZ</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- ======== TOP BAR ======== -->
+  <div class="top-bar">
+    <div class="container top-bar-inner">
+      <span>Queenstown, New Zealand</span>
+      <div class="top-bar-links">
+        <a href="#join">Sign Up</a>
+        <a href="#about">About</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ======== NAVIGATION ======== -->
+  <nav class="nav">
+    <div class="container nav-inner">
+      <a href="#" class="nav-logo">WOODSMEN</a>
+      <div class="nav-links" id="nav-links">
+        <a href="#about">Getting Started</a>
+        <a href="#sessions">Sessions</a>
+        <a href="#wod">Work of the Day</a>
+        <a href="#why">The Mission</a>
+        <a href="membership.html">Membership</a>
+        <a href="open-a-chapter.html">Open a Chapter</a>
+      </div>
+      <div class="nav-right">
+        <a href="#join" class="btn btn-primary btn-nav">Join Woodsmen</a>
+        <button class="nav-toggle" id="nav-toggle" aria-label="Menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ======== HERO CAROUSEL ======== -->
+  <header class="hero" id="hero">
+    <div class="hero-slides">
+      <!-- Slide 1 -->
+      <div class="hero-slide active" data-slide="0">
+        <div class="hero-slide-bg hero-bg-1"></div>
+        <div class="hero-slide-content">
+          <p class="hero-tag">Queenstown's First Outdoor Community Gym</p>
+          <h1 class="hero-title">THE GYM IS<br>THE FOREST</h1>
+          <p class="hero-sub">We clear invasive wilding pines. We get brutally fit doing it. We build community that matters.</p>
+          <div class="hero-ctas">
+            <a href="#join" class="btn btn-primary btn-hero">Get Involved</a>
+            <a href="#about" class="btn btn-ghost btn-hero">Learn More</a>
+          </div>
+        </div>
+      </div>
+      <!-- Slide 2 -->
+      <div class="hero-slide" data-slide="1">
+        <div class="hero-slide-bg hero-bg-2"></div>
+        <div class="hero-slide-content">
+          <p class="hero-tag">Fight NZ's #1 Ecological Threat</p>
+          <h1 class="hero-title">CHOP WOOD.<br>BUILD COMMUNITY.</h1>
+          <p class="hero-sub">Wilding pines are smothering our high country. Every session is a workout and an act of restoration.</p>
+          <div class="hero-ctas">
+            <a href="#why" class="btn btn-primary btn-hero">The Mission</a>
+            <a href="#wod" class="btn btn-ghost btn-hero">Today's Work</a>
+          </div>
+        </div>
+      </div>
+      <!-- Slide 3 -->
+      <div class="hero-slide" data-slide="2">
+        <div class="hero-slide-bg hero-bg-3"></div>
+        <div class="hero-slide-content">
+          <p class="hero-tag">All Ages. All Fitness Levels. All Welcome.</p>
+          <h1 class="hero-title">STRONGER<br>TOGETHER</h1>
+          <p class="hero-sub">Real connection. Real work. Real people. The kind of community you've been missing.</p>
+          <div class="hero-ctas">
+            <a href="#join" class="btn btn-primary btn-hero">Join Us</a>
+            <a href="#community" class="btn btn-ghost btn-hero">Our Community</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Hero dots -->
+    <div class="hero-dots">
+      <button class="hero-dot active" data-dot="0"></button>
+      <button class="hero-dot" data-dot="1"></button>
+      <button class="hero-dot" data-dot="2"></button>
+    </div>
+    <!-- Hero scroll indicator -->
+    <div class="hero-scroll">
+      <span>Scroll</span>
+      <div class="hero-scroll-line"></div>
+    </div>
+  </header>
+
+  <!-- ======== PROMO STRIP ======== -->
+  <section class="promo-strip">
+    <div class="container promo-strip-inner">
+      <div class="promo-item">
+        <span class="promo-icon">&#9650;</span>
+        <div>
+          <strong>No. 1 Threat</strong>
+          <p>Wilding pines are NZ's biggest ecological crisis</p>
+        </div>
+      </div>
+      <div class="promo-item">
+        <span class="promo-icon">&#9670;</span>
+        <div>
+          <strong>100% Outdoors</strong>
+          <p>Every session. Rain, sun, frost, wind.</p>
+        </div>
+      </div>
+      <div class="promo-item">
+        <span class="promo-icon">&#9679;</span>
+        <div>
+          <strong>All Welcome</strong>
+          <p>Every age, background, and fitness level</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======== ABOUT / GETTING STARTED ======== -->
+  <section id="about" class="section section-dark">
+    <div class="container">
+      <div class="section-header">
+        <p class="section-tag">Getting Started</p>
+        <h2 class="section-title">WHAT IS WOODSMEN?</h2>
+      </div>
+      <div class="feature-grid">
+        <div class="feature-card feature-card-hero">
+          <div class="feature-card-bg feature-img-1"></div>
+          <div class="feature-card-overlay"></div>
+          <div class="feature-card-content">
+            <span class="feature-label">The Concept</span>
+            <h3>The Workout <em>Is</em> The Work</h3>
+            <p>Forget treadmills and dumbbells. At Woodsmen, you get fit by doing real, purposeful outdoor labour — hauling logs, swinging axes, clearing invasive pines, and carrying heavy loads through the bush.</p>
+            <a href="#sessions" class="btn btn-primary">See Sessions</a>
+          </div>
+        </div>
+        <div class="feature-card">
+          <div class="feature-card-bg feature-img-2"></div>
+          <div class="feature-card-overlay"></div>
+          <div class="feature-card-content">
+            <span class="feature-label">For Everyone</span>
+            <h3>No Experience Needed</h3>
+            <p>18 or 68. First timer or veteran athlete. We scale every session so everyone works hard and no one gets left behind.</p>
+          </div>
+        </div>
+        <div class="feature-card">
+          <div class="feature-card-bg feature-img-3"></div>
+          <div class="feature-card-overlay"></div>
+          <div class="feature-card-content">
+            <span class="feature-label">Give Back</span>
+            <h3>Ecological Restoration</h3>
+            <p>Every session leaves the land better. We clear wilding pines that are choking native bush, draining waterways, and destroying tussock lands.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======== FULL-WIDTH CTA BANNER ======== -->
+  <section class="banner">
+    <div class="banner-bg"></div>
+    <div class="container banner-content">
+      <h2 class="banner-title">ENHANCE YOUR LIFE<br>IN & OUT OF THE GYM</h2>
+      <p class="banner-sub">Functional strength. Mental toughness. Real mates. A body that can do hard things in the real world.</p>
+      <div class="banner-ctas">
+        <a href="#join" class="btn btn-primary btn-hero">Start Your Journey</a>
+        <a href="#wod" class="btn btn-ghost btn-hero">See a Session</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======== SESSIONS ======== -->
+  <section id="sessions" class="section">
+    <div class="container">
+      <div class="section-header">
+        <p class="section-tag">What to Expect</p>
+        <h2 class="section-title">SESSION TYPES</h2>
+      </div>
+      <div class="sessions-grid">
+        <div class="session-card">
+          <div class="session-number">MON</div>
+          <h3>The Fell</h3>
+          <p>Felling day. Axe and hand-saw work to bring down wilding pines. Rotating technique drills, partner felling, and log processing. Raw, full-body power.</p>
+          <ul class="session-tags">
+            <li>Strength</li>
+            <li>Skill</li>
+            <li>Technique</li>
+          </ul>
+        </div>
+        <div class="session-card">
+          <div class="session-number">TUE</div>
+          <h3>AxeFit</h3>
+          <p>High-intensity axe-based conditioning. Chopping circuits, splitting rounds, overhead work, and timed efforts. Think CrossFit met a woodshed.</p>
+          <ul class="session-tags">
+            <li>HIIT</li>
+            <li>Chopping</li>
+            <li>Splitting</li>
+          </ul>
+        </div>
+        <div class="session-card">
+          <div class="session-number">THU</div>
+          <h3>Firewood Carry</h3>
+          <p>Loaded carries, log shuttles, sled drags, and team relays through uneven terrain. Build a back and legs that don't quit. Cardio meets raw strength.</p>
+          <ul class="session-tags">
+            <li>Cardio</li>
+            <li>Strength</li>
+            <li>Teamwork</li>
+          </ul>
+        </div>
+        <div class="session-card">
+          <div class="session-number">FRI</div>
+          <h3>Social Planting</h3>
+          <p>Plant native seedlings in cleared areas, build erosion barriers, do light trail work — then gather for kai and a yarn. Where community is forged.</p>
+          <ul class="session-tags">
+            <li>Restoration</li>
+            <li>Social</li>
+            <li>Community</li>
+          </ul>
+        </div>
+      </div>
+      <div class="sessions-cta">
+        <a href="membership.html" class="btn btn-primary">See Full Programme & Pricing</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======== WORK OF THE DAY (WOD equivalent) ======== -->
+  <section id="wod" class="section section-dark">
+    <div class="container">
+      <div class="wod-header">
+        <div>
+          <p class="section-tag">Work of the Day</p>
+          <h2 class="section-title">TODAY'S SESSION</h2>
+        </div>
+        <div class="wod-date" id="wod-date"></div>
+      </div>
+      <div class="wod-card">
+        <div class="wod-type">THE FELL</div>
+        <div class="wod-detail">
+          <h3>Pine Ridge — Highview Terrace</h3>
+          <div class="wod-movements">
+            <div class="wod-block">
+              <span class="wod-block-label">Warm-up</span>
+              <p>800m trail jog<br>2 rounds: 10 air squats, 10 push-ups, 10 ring rows</p>
+            </div>
+            <div class="wod-block">
+              <span class="wod-block-label">Work</span>
+              <p><strong>For time, in teams of 3:</strong><br>
+              Fell 6 pines (hand saw, rotating every 2 minutes)<br>
+              Process into 1.2m logs<br>
+              Carry all logs to collection point (200m)</p>
+            </div>
+            <div class="wod-block">
+              <span class="wod-block-label">Finisher</span>
+              <p>Max distance farmer's carry (2 logs) in 4 minutes</p>
+            </div>
+          </div>
+          <div class="wod-meta">
+            <span>Duration: ~75 min</span>
+            <span>Equipment: Provided</span>
+            <span>Scaleable: Yes</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======== WHY / THE MISSION ======== -->
+  <section id="why" class="section">
+    <div class="container">
+      <div class="section-header">
+        <p class="section-tag">The Mission</p>
+        <h2 class="section-title">WHY WOODSMEN EXISTS</h2>
+      </div>
+      <div class="mission-grid">
+        <article class="mission-card">
+          <div class="mission-card-img mission-img-1"></div>
+          <div class="mission-card-body">
+            <span class="mission-card-tag">The Problem</span>
+            <h3>Wilding Pines Are Taking Over</h3>
+            <p>Invasive conifers are spreading across NZ's high country at an alarming rate — smothering tussock, draining waterways, and displacing native species. It's one of the biggest ecological threats the country faces.</p>
+            <a href="#" class="link-arrow">Read More &rarr;</a>
+          </div>
+        </article>
+        <article class="mission-card">
+          <div class="mission-card-img mission-img-2"></div>
+          <div class="mission-card-body">
+            <span class="mission-card-tag">The Problem</span>
+            <h3>Community Is Disappearing</h3>
+            <p>People are lonelier than ever. We scroll instead of talking. We isolate instead of gathering. Working hard alongside others — all ages, all walks of life — is becoming rare.</p>
+            <a href="#" class="link-arrow">Read More &rarr;</a>
+          </div>
+        </article>
+        <article class="mission-card">
+          <div class="mission-card-img mission-img-3"></div>
+          <div class="mission-card-body">
+            <span class="mission-card-tag">The Solution</span>
+            <h3>Woodsmen Fixes Both</h3>
+            <p>Get fit doing meaningful outdoor work. Build community doing it together. Every pine we fell is a workout and an act of ecological restoration.</p>
+            <a href="#" class="link-arrow">Read More &rarr;</a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======== COMMUNITY ======== -->
+  <section id="community" class="section section-dark">
+    <div class="container">
+      <div class="community-split">
+        <div class="community-text">
+          <p class="section-tag">Community</p>
+          <h2 class="section-title">FIND YOUR CREW</h2>
+          <p class="community-desc">Woodsmen isn't just a gym — it's the people you grab a coffee with after hauling logs in the rain. It's the 60-year-old who pushes you harder than you thought possible. It's knowing your neighbours by name.</p>
+          <div class="clubrooms-callout">
+            <h3>The Clubrooms — Earned, Not Given</h3>
+            <p>The Woodsmen Clubrooms is your third space — not home, not work, but the place in between. A fire, a kettle, no screens, and people who get it. But you don't just walk in. You earn it.</p>
+            <p><strong>To access the Clubrooms, you have to fell your own tree.</strong> It's a rite of passage. Your leaders will train you, guide you, and get you there — but until that pine hits the ground, the Clubrooms stays locked. Most people get there within their first few weeks. Some on day one. Either way, when you walk through that door, you know you earned it.</p>
+            <p>Out back, we run a native plant nursery — growing the very trees we plant on Fridays. From seed to soil, the full cycle happens here. Members help propagate, pot, and nurture native seedlings that go straight back into the cleared land.</p>
+          </div>
+          <blockquote class="community-quote">
+            "The best part of CrossFit was the community. Woodsmen takes that same energy and puts it to work — literally."
+            <cite>— Ben, Founder</cite>
+          </blockquote>
+          <a href="#join" class="btn btn-primary">Join the Community</a>
+        </div>
+        <div class="community-stats">
+          <div class="community-stat">
+            <span class="community-stat-number">100%</span>
+            <span class="community-stat-label">Outdoor sessions</span>
+          </div>
+          <div class="community-stat">
+            <span class="community-stat-number">0</span>
+            <span class="community-stat-label">Mirrors or machines</span>
+          </div>
+          <div class="community-stat">
+            <span class="community-stat-number">All</span>
+            <span class="community-stat-label">Ages & fitness levels</span>
+          </div>
+          <div class="community-stat">
+            <span class="community-stat-number">&infin;</span>
+            <span class="community-stat-label">Pines to fell</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======== FAQ ======== -->
+  <section class="section">
+    <div class="container">
+      <div class="section-header">
+        <p class="section-tag">FAQ</p>
+        <h2 class="section-title">COMMON QUESTIONS</h2>
+      </div>
+      <div class="faq-list">
+        <details class="faq-item">
+          <summary>Do I need to be fit to start?</summary>
+          <p>No. Every session is scaleable. We'll meet you where you're at and help you progress. Some of our best sessions come from complete beginners who bring nothing but willingness.</p>
+        </details>
+        <details class="faq-item">
+          <summary>Is it safe? Do I need my own axe?</summary>
+          <p>Safety is foundational. All equipment is provided and every session starts with a safety briefing. You'll learn proper technique before you touch a tool. We carry first aid and have trained session leaders.</p>
+        </details>
+        <details class="faq-item">
+          <summary>What do I wear / bring?</summary>
+          <p>Sturdy boots or trail shoes, clothes you can move and sweat in, and a water bottle. We provide gloves, tools, and everything else. Dress for the weather — we're outside rain or shine.</p>
+        </details>
+        <details class="faq-item">
+          <summary>What about the wilding pines — are we actually making a difference?</summary>
+          <p>Yes. We work in coordination with local councils and DOC. Wilding pine removal is real, funded conservation work. We're not playing at it — every session has measurable environmental impact on the land we work.</p>
+        </details>
+        <details class="faq-item">
+          <summary>How much does it cost?</summary>
+          <p>We're finalising our model. The goal is to keep it accessible. Sign up below and we'll share pricing details as we launch. Early members will get founding rates.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======== JOIN / CTA ======== -->
+  <section id="join" class="section section-cta">
+    <div class="container">
+      <div class="cta-block">
+        <h2 class="section-title">READY TO PICK UP AN AXE?</h2>
+        <p>We're launching soon. Drop your details and be first to know when sessions start.</p>
+        <form class="signup-form" id="signup-form" onsubmit="handleSignup(event)">
+          <div class="form-row">
+            <input type="text" name="name" placeholder="Your name" required>
+            <input type="email" name="email" placeholder="Your email" required>
+          </div>
+          <button type="submit" class="btn btn-primary btn-hero">Count Me In</button>
+        </form>
+        <p class="form-note">No spam. Just launch updates and session info.</p>
+        <div class="signup-success" id="signup-success">
+          You're in. We'll be in touch.
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======== FOOTER ======== -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <span class="nav-logo footer-logo">WOODSMEN</span>
+          <p>Outdoor Community Gym<br>Queenstown, New Zealand</p>
+        </div>
+        <div class="footer-cols">
+          <div class="footer-col">
+            <h4>Navigate</h4>
+            <a href="#about">Getting Started</a>
+            <a href="#sessions">Sessions</a>
+            <a href="#wod">Work of the Day</a>
+            <a href="#why">The Mission</a>
+          </div>
+          <div class="footer-col">
+            <h4>Woodsmen</h4>
+            <a href="membership.html">Membership</a>
+            <a href="open-a-chapter.html">Open a Chapter</a>
+            <a href="#join">Join</a>
+            <a href="#">Instagram</a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 Woodsmen Outdoor Community Gym. Queenstown, NZ.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
